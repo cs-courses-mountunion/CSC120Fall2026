@@ -1,0 +1,99 @@
+<html>
+<head>
+<title> CS 121 - Lab 4 Sample # 2 </title>
+</head>
+<body bgcolor="#ffffff">
+<pre>
+
+/*  INSERT YOUR NAME HERE  -  CS121  -  Lab 4
+
+        Rock, Scissors, Paper game using Buttons!
+
+*/
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+public class TheApplet extends Applet implements ActionListener {
+
+    private int usersChoice, computersChoice;
+    private Button rockButton, scissorsButton, paperButton;
+    private final int ROCK = 1;
+    private final int PAPER = 2;
+    private final int SCISSORS = 3;
+         
+    public void init( ) {
+
+        setBackground(Color.cyan);
+        setLayout(null);
+
+        usersChoice = 0;
+        computersChoice = 0;
+
+        rockButton = new Button("ROCK");
+        rockButton.setBounds(10, 30, 80, 40);
+        rockButton.addActionListener(this);
+        add(rockButton);
+
+        scissorsButton = new Button("SCISSORS");
+        scissorsButton.setBounds(110, 30, 80, 40);
+        scissorsButton.addActionListener(this);
+        add(scissorsButton);
+
+        paperButton = new Button("PAPER");
+        paperButton.setBounds(210, 30, 80, 40);
+        paperButton.addActionListener(this);
+        add(paperButton);
+
+    } // end of init()
+        
+    public void paint(Graphics g) {
+
+        if ( usersChoice == ROCK) {            
+            g.drawString("You chose ROCK", 100, 150);
+        }
+        if ( usersChoice == SCISSORS) {            
+            g.drawString("You chose SCISSORS", 100, 150);
+        }
+        if ( usersChoice == PAPER) {            
+            g.drawString("You chose PAPER", 100, 150);
+        }
+
+        if ( computersChoice == ROCK) {            
+            g.drawString("Computer chose ROCK", 100, 175);
+        }
+        if ( computersChoice == SCISSORS) {            
+            g.drawString("Computer chose SCISSORS", 100, 175);
+        }
+        if ( computersChoice == PAPER) {            
+            g.drawString("Computer chose PAPER", 100, 175);
+        }
+
+    } // end of paint()
+
+    public void actionPerformed( ActionEvent ae) {
+
+        Object source = ae.getSource();
+
+        if (source.equals(rockButton)) {
+            usersChoice = ROCK;
+        }
+        if (source.equals(scissorsButton)) {
+            usersChoice = SCISSORS;
+        }
+        if (source.equals(paperButton)) {
+            usersChoice = PAPER;
+        }
+
+        computersChoice = (int) (Math.random() * 3 + 1);
+        
+        repaint();
+
+    } // end of actionPerformed()
+        
+} // end of TheApplet
+        
+</pre>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.literal {color: #336bdd}
+.ST2 {color: #669900; font-family: monospace; font-style: italic}
+.ST1 {color: #669900}
+.comment {color: #969696}
+.string {color: #ff00ff}
+.ST0 {font-family: monospace; font-weight: bold}
+.ST3 {color: #ff00ff; font-family: monospace; font-weight: bold}
+.ST4 {font-family: monospace; font-weight: bold; font-style: italic}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">..\CSC120\Java\lec32_scope\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture 31</span>
+  2 <span class="comment"> *</span>
+  3 <span class="comment"> * Examples of Object Scope differences</span>
+  4 <span class="comment"> *</span>
+  5 <span class="comment"> */</span>
+  6 <span class="literal">import</span> java.awt.*;
+  7 <span class="literal">import</span> java.text.DecimalFormat;
+  8 <span class="literal">import</span> javax.swing.*;
+  9 
+ 10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 11 
+ 12     Double <span class="ST1">tax</span> = 0.07;    
+ 13     DecimalFormat <span class="ST1">currency</span>;
+ 14     
+ 15 
+ 16     <span class="comment">// constructor method</span>
+ 17     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 18         setLayout(<span class="literal">null</span>);
+ 19         setPreferredSize(<span class="literal">new</span> Dimension(800, 600));
+ 20         setName(<span class="string">&quot;</span><span class="string">CSC 120 Lecture 31:  Scope Examples</span><span class="string">&quot;</span>);
+ 21         setUp();
+ 22         setUpGUI();
+ 23         setBackground(Color.<span class="ST2">GREEN</span>);
+ 24         
+ 25 
+ 26         <span class="ST1">currency</span> = <span class="literal">new</span> DecimalFormat(<span class="string">&quot;</span><span class="string">#.00</span><span class="string">&quot;</span>);
+ 27         
+ 28         Double amtDue = calculateCost(100.00);
+ 29         System.<span class="ST2">out</span>.println( <span class="string">&quot;</span><span class="string">You owe $</span><span class="string">&quot;</span>
+ 30                + <span class="ST1">currency</span>.format(amtDue) + <span class="string">&quot;</span><span class="string"> using a tax rate of </span><span class="string">&quot;</span>
+ 31                + <span class="ST1">tax</span> );
+ 32         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">First version (does not use this.tax in the method):</span><span class="ST3">\n</span><span class="string">&quot;</span>);
+ 33         <span class="ST1">outputArea</span>.append( <span class="string">&quot;</span><span class="ST3">\n</span><span class="string">  You owe $</span><span class="string">&quot;</span> + <span class="ST1">currency</span>.format(amtDue) + <span class="string">&quot;</span><span class="string"> using a tax rate of </span><span class="string">&quot;</span> + <span class="ST1">tax</span> + <span class="string">&quot;</span><span class="ST3">\n</span><span class="ST3">\n</span><span class="ST3">\n</span><span class="string">&quot;</span>);
+ 34         
+ 35         
+ 36         
+ 37         Double amtDue2nd = calculateCost2ndVersion(100.00);
+ 38         System.<span class="ST2">out</span>.println( <span class="string">&quot;</span><span class="string">You owe $</span><span class="string">&quot;</span>
+ 39                + <span class="ST1">currency</span>.format(amtDue2nd) + <span class="string">&quot;</span><span class="string"> using a tax rate of </span><span class="string">&quot;</span>
+ 40                + <span class="ST1">tax</span> );
+ 41 
+ 42         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">Second version (uses this.tax in the method):</span><span class="ST3">\n</span><span class="string">&quot;</span>);
+ 43         <span class="ST1">outputArea</span>.append( <span class="string">&quot;</span><span class="ST3">\n</span><span class="string">  You owe $</span><span class="string">&quot;</span> + <span class="ST1">currency</span>.format(amtDue2nd) + <span class="string">&quot;</span><span class="string"> using a tax rate of </span><span class="string">&quot;</span> + <span class="ST1">tax</span> + <span class="string">&quot;</span><span class="ST3">\n</span><span class="ST3">\n</span><span class="ST3">\n</span><span class="string">&quot;</span>);
+ 44         
+ 45         
+ 46         
+ 47     } <span class="comment">// end of constructor</span>
+ 48     
+ 49     
+ 50     <span class="literal">public</span> Double <span class="ST0">calculateCost</span>(Double beforeTaxAmt) {
+ 51         Double tax = 0.10;
+ 52         Double total;
+ 53         total = beforeTaxAmt + beforeTaxAmt*tax;
+ 54         <span class="literal">return</span> total;
+ 55     } <span class="comment">// end of calculateCost</span>
+ 56     
+ 57     
+ 58     
+ 59     
+ 60     <span class="literal">public</span> Double <span class="ST0">calculateCost2ndVersion</span>(Double beforeTaxAmt) {
+ 61         Double tax = 0.10;
+ 62         Double total;
+ 63         total = beforeTaxAmt + beforeTaxAmt*<span class="literal">this</span>.<span class="ST1">tax</span>;
+ 64         <span class="literal">return</span> total;
+ 65     } <span class="comment">// end of calculateCost</span>
+ 66     
+ 67     
+ 68     
+ 69     
+ 70     
+ 71     @Override
+ 72     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+ 73         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+ 74     } <span class="comment">// end of paintComponent()</span>
+ 75     
+ 76     
+ 77     
+ 78        
+ 79     
+ 80     
+ 81     
+ 82     <span class="comment">/**</span><span class="comment">*********************************************</span>
+ 83 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+ 84 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+ 85     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+ 86         <span class="literal">for</span> (Component c: getComponents())
+ 87             c.setSize(c.getPreferredSize());
+ 88         JFrame f = <span class="literal">new</span> JFrame(getName());
+ 89         f.setContentPane(<span class="literal">this</span>);
+ 90         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+ 91         f.pack();
+ 92         f.setVisible(<span class="literal">true</span>);    
+ 93     }
+ 94 
+ 95     <span class="literal">public</span> TextArea <span class="ST1">outputArea</span>;
+ 96     
+ 97     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUpGUI</span>() {
+ 98         <span class="ST1">outputArea</span> = <span class="literal">new</span> TextArea();
+ 99         <span class="ST1">outputArea</span>.setBounds(15, 15, 770, 570);
+100         <span class="ST1">outputArea</span>.setFont(<span class="literal">new</span> Font(<span class="string">&quot;</span><span class="string">Monospaced</span><span class="string">&quot;</span>, Font.<span class="ST2">PLAIN</span>, 18));
+101         add(<span class="ST1">outputArea</span>);
+102     }
+103     
+104     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST4">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+105 
+106 } <span class="comment">// end of class MUPanel</span>
+107 
+</pre></body>
+</html>

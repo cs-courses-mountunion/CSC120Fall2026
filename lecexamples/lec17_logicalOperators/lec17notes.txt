@@ -1,0 +1,55 @@
+
+Comparison Operators
+====================
+
+   (both operands must have matching types; result is a Boolean)
+   --------------------------------------------------------------------
+
+      <  :  less-than
+
+      >  :  greater-than
+
+      <= :  less-than or equal to
+
+      >= :  greater-than or equal to
+
+      != :  not equal to
+
+      == :  equal to    ( be careful to use 2 equals signs! )
+
+
+
+Logical Operators
+====================
+
+   (operands must be Boolean; result is a Boolean)
+   --------------------------------------------------------------------
+
+      && :  AND operation from logic  ( 2 operands )
+              (result is only true if both operands are true; otherwise result is false)
+
+      || :  OR operation from logic   ( 2 operands )
+              (result is true if either one or both operands are true; otherwise result is false)
+
+      !  :  NOT operation from logic  ( 1 operand )
+              (result is the logical opposite of the operand)
+
+
+
+
+Expanded Operator Precedence Rules
+==================================
+   
+      ( )
+	  
+      *  /  %
+
+      +  - 
+
+      ==  !=  <=  >=  <   >
+
+      !
+
+      &&
+
+      ||

@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>CSC 120 PA8</title>
+</head>
+
+<body>
+
+<h2 align="center"><font color="#800080">CSC 120 Programming Assignment 8 Option 1 <br/>
+Modified PA7</font></h2>
+
+<font size="+1">Note: You should <b>not</b> work on this assignment during class-time unless:</font>
+
+<ol type="a">
+  <li><font size="+1">You have completed all of the in-class assigned work for the day, and</font></li>
+  <li><font size="+1">You have permission from the instructor.</font></li>
+</ol>
+
+<h4> This assignment must be handed in to your instructor's handin
+folder <b>before</b> the beginning of class on the due date.</h4>
+
+<h3>Description:</h3>
+
+<blockquote>
+You will add to your PA7 project the ability to read the starting values for the array of objects 
+you processed in PA7 from a 
+JTextArea in the user interface.&nbsp; All the rest of the functionality that was part of PA7 must still
+work correctly.&nbsp; This generalizes your program so that it can process an arbitrary number of objects,
+based on the size of the input that is entered when the program is run. <br/><br/>
+
+To start this project, make a new NetBeans Java Application project called <code>PA8</code>, and copy all of the
+files in the <b>src</b> directory of your PA7 project into the <b>src</b> directory of the new project.&nbsp; Run
+your PA8 project to make sure it works correctly before continuing.
+</blockquote>
+
+<h3>User Interface changes:</h3>
+<blockquote>
+    You will need to add a JButton to the user interface that says "Read Input Data" or something like that.&nbsp;
+	You can either use the JTextArea that displayed the output in PA7 for input in PA8, or you could add a separate
+	JTextArea to your interface that will be used exclusively for reading the input -- whichever looks better
+	to you is acceptable.&nbsp; But you will need to have a place to paste text representing the data to be processed
+	by your program so that it can be split and trimmed when the "Read Input Data" button is clicked by the user.
+</blockquote>
+
+<h3>Input format:</h3>
+<blockquote>
+    Each line of the input will consist of all values that are needed to fill up the properties of your
+	class of objects used in your program.&nbsp; In other words, any values that need to be passed into the
+	constructor method of your objects needs to be part of the input text.&nbsp; You should separate the 
+	data values in each line of text by a delimiter
+	character, maybe a # character or something else that won't be part of any of the data values to be
+	entered.&nbsp; Note that you should use the <code>trim</code> method of the <code>String</code> class to remove
+	all leading and trailing spaces from the parts of the input line that you split using your delimiter 
+	character before processing the values in your program. <br/><br/>
+	
+	For an example of how you must convert your separate array element instantiations into a data file, click on <a
+	href="PA8Option1Hints.html" target="_blank"> THIS LINK</a>.
+</blockquote>
+
+<h3><u>IMPORTANT</u>:&nbsp; You MUST delete the instantiations of your array elements that were in PA7, or you will
+    receive a <u>25 point penalty</u> for this assignment.&nbsp; There cannot be any data values built
+	into the code of the program. </h3>
+
+<h3>Turn in data files along with program:</h3>
+<blockquote>
+    You must store 2 .txt files in the <b>src</b> folder of your project that represent two different sets of
+	input data that can be processed by your program.&nbsp; This will be used to test your program to ensure
+	that it can process data formatted in the style required by your program.&nbsp; These two files must contain A DIFFERENT
+	NUMBER OF LINES!!
+</blockquote>
+
+<h4> It is expected that each student will complete this assignment INDIVIDUALLY.</h4>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+A Single Object -- 3 steps
+
+  Declare:
+
+     private RoundHead seven;
+
+
+  Instantiate:
+
+     seven = new RoundHead( true, Color.GREEN, 24, ....... );
+
+
+  Use Methods:
+
+     seven.draw(g);
+
+
+
+
+
+An Array of Objects -- 4 steps
+
+  Declare:
+
+     private RoundHead[] group;
+
+
+  Instantiate the Array (sets the size of the array)
+
+     group = new RoundHead[12];
+
+
+  Instantiate the objects in the array:
+
+     group[3] = new RoundHead( true, Color.GREEN, 24, ....... );
+
+
+  Use Methods:
+
+     group[8].draw(g);
+
+     Integer x = 10;
+     group[x].draw(g);
+
+
+
+

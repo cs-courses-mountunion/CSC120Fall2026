@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUFrame.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.ST10 {color: #ce7b00; background-color: #dfdfdf}
+.ST2 {color: #ce7b00; font-family: monospace; font-weight: bold}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.guarded {background-color: #dfdfdf}
+.ST5 {color: #969696; background-color: #dfdfdf}
+.ST8 {color: #009900; background-color: #dfdfdf}
+.ST0 {font-family: monospace; font-weight: bold}
+.ST4 {color: #969696; font-family: monospace; font-weight: bold}
+.ST7 {background-color: #dfdfdf; font-family: monospace; font-weight: bold}
+.ST3 {color: #009900; font-family: monospace; font-style: italic}
+.ST9 {color: #009900; background-color: #dfdfdf; font-family: monospace; font-style: italic}
+.ST11 {background-color: #dfdfdf; font-family: monospace; font-style: italic}
+.ST13 {font-family: monospace; font-style: italic}
+.ST12 {font-family: monospace; font-weight: bold; font-style: italic}
+.literal {color: #0000e6}
+.ST6 {color: #0000e6; background-color: #dfdfdf}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec34_s21\src\MUFrame.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture # 34</span>
+  2 <span class="comment"> *</span>
+  3 <span class="comment"> * Finding sum, avg, min and max of a numeric property in </span>
+  4 <span class="comment"> * and array of objects</span>
+  5 <span class="comment"> *</span>
+  6 <span class="comment"> */</span>
+  7 
+  8 <span class="literal">import</span> java.awt.*;
+  9 <span class="literal">import</span> javax.swing.*;
+ 10 
+ 11 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUFrame</span> <span class="literal">extends</span> javax.swing.JFrame {
+ 12 
+ 13     <span class="comment">// declare private data here</span>
+ 14     
+ 15     <span class="literal">private</span> Integer[] <span class="ST1">arr</span>;
+ 16     
+ 17     
+ 18     <span class="comment">// constructor method</span>
+ 19     <span class="literal">public</span> <span class="ST0">MUFrame</span>() {
+ 20         initComponents();
+ 21         
+ 22         <span class="ST1">arr</span> = <span class="literal">new</span> Integer[8];
+ 23         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">arr</span>.<span class="ST1">length</span>; x++) {
+ 24             <span class="ST1">arr</span>[x] = (x-3)*(x-3) + 1;
+ 25             <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">arr[</span><span class="string">&quot;</span> + x + <span class="string">&quot;</span><span class="string">] = </span><span class="string">&quot;</span> + <span class="ST1">arr</span>[x] + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 26         } <span class="comment">// end for</span>
+ 27         
+ 28         <span class="comment">// find the sum</span>
+ 29         Integer sum;
+ 30         Integer count;
+ 31         sum = 0;
+ 32         count = 0;
+ 33         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">arr</span>.<span class="ST1">length</span>; x++) {
+ 34             sum = sum + <span class="ST1">arr</span>[x];
+ 35             count++;
+ 36             <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">    sum so far: </span><span class="string">&quot;</span> + sum 
+ 37                     + <span class="string">&quot;</span><span class="string">; count so far: </span><span class="string">&quot;</span> + count + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 38             
+ 39         }
+ 40         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">after the loop, sum = </span><span class="string">&quot;</span> + sum + <span class="string">&quot;</span><span class="ST2">\n</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 41                     
+ 42         <span class="comment">// find the average</span>
+ 43         <span class="comment">//    first of all, find the sum</span>
+ 44         <span class="comment">//    then divide by the number of elements that were added</span>
+ 45         
+ 46         Double average = 1.0 * sum / count;
+ 47         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">average value in array = </span><span class="string">&quot;</span> + average + <span class="string">&quot;</span><span class="ST2">\n</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 48         
+ 49         <span class="comment">// find the minimum value in the array</span>
+ 50         
+ 51         Integer max;
+ 52         max = Integer.<span class="ST3">MIN_VALUE</span>;
+ 53         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">arr</span>.<span class="ST1">length</span>; x++) {
+ 54             <span class="literal">if</span> (<span class="ST1">arr</span>[x] &gt; max) {
+ 55                 max = <span class="ST1">arr</span>[x];
+ 56             }
+ 57             <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">    maximum so far: </span><span class="string">&quot;</span> + max + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 58         }
+ 59         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">after the loop, maximum = </span><span class="string">&quot;</span> + max + <span class="string">&quot;</span><span class="ST2">\n</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 60         
+ 61         <span class="comment">// find the minimum value in the array</span>
+ 62         
+ 63         Integer min;
+ 64         min = Integer.<span class="ST3">MAX_VALUE</span>;
+ 65         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">arr</span>.<span class="ST1">length</span>; x++) {
+ 66             <span class="literal">if</span> (<span class="ST1">arr</span>[x] &lt; min) {
+ 67                 min = <span class="ST1">arr</span>[x];
+ 68             }
+ 69             <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">    minimum so far: </span><span class="string">&quot;</span> + min + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 70         }
+ 71         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">after the loop, minimum = </span><span class="string">&quot;</span> + min + <span class="string">&quot;</span><span class="ST2">\n</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 72         
+ 73         
+ 74         processSoccerStats();
+ 75         
+ 76     } <span class="comment">// end of constructor</span>
+ 77     
+ 78     <span class="comment">// declare other methods here</span>
+ 79     
+ 80 
+ 81     
+ 82     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">processSoccerStats</span>(){
+ 83         
+ 84         SoccerTeam[] team;
+ 85         
+ 86         team = <span class="literal">new</span> SoccerTeam[7];
+ 87         team[0] = <span class="literal">new</span> SoccerTeam(2019, 9, 10);
+ 88         team[1] = <span class="literal">new</span> SoccerTeam(2018, 12, 7);
+ 89         team[2] = <span class="literal">new</span> SoccerTeam(2017, 12, 6);
+ 90         team[3] = <span class="literal">new</span> SoccerTeam(2016, 12, 5);
+ 91         team[4] = <span class="literal">new</span> SoccerTeam(2015, 9, 9);
+ 92         team[5] = <span class="literal">new</span> SoccerTeam(2014, 4, 14);
+ 93         team[6] = <span class="literal">new</span> SoccerTeam(2013, 6, 13);
+ 94 
+ 95         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">----------------------------</span><span class="ST2">\n</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 96         <span class="literal">for</span> (Integer t = 0; t &lt; team.<span class="ST1">length</span>; t++) {
+ 97             <span class="ST1">outputArea</span>.append(team[t].toString() + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+ 98         }
+ 99         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="ST2">\n</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+100         
+101         
+102         
+103         Integer totalWins;
+104         totalWins = 0;
+105         Integer minLosses = Integer.<span class="ST3">MAX_VALUE</span>;
+106         Integer minPosition = -1;
+107         Integer maxLosses = Integer.<span class="ST3">MIN_VALUE</span>;
+108         Integer maxPosition = -1;
+109         
+110         <span class="literal">for</span> (Integer t = 0; t &lt; team.<span class="ST1">length</span>; t++) {
+111 
+112             totalWins += team[t].getWins();
+113             
+114             <span class="literal">if</span> (team[t].getLosses() &lt; minLosses) {
+115                 minLosses = team[t].getLosses();
+116                 minPosition = t;
+117             }
+118             <span class="literal">if</span> (team[t].getLosses() &gt; maxLosses) {
+119                 maxLosses = team[t].getLosses();
+120                 maxPosition = t;
+121             }
+122 
+123         }
+124         
+125         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">Total wins over the years = </span><span class="string">&quot;</span> + totalWins + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+126         Double avgWins = totalWins / (team.<span class="ST1">length</span> * 1.0);
+127         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">Average wins in any year = </span><span class="string">&quot;</span> + avgWins + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+128         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">Most losses in any year = </span><span class="string">&quot;</span> + maxLosses + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+129         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="ST2">\t</span><span class="string">that was the team from year </span><span class="string">&quot;</span> + team[maxPosition].getYear() + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+130         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">Fewest losses in any year = </span><span class="string">&quot;</span> + minLosses + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+131         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="ST2">\t</span><span class="string">that was the team from year </span><span class="string">&quot;</span> + team[minPosition].getYear() + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+132         
+133         
+134         
+135         
+136         
+137         
+138     }
+139     
+140     <span class="comment">/**</span> <span class="ST4">This</span> <span class="ST4">method</span> <span class="ST4">is</span> <span class="ST4">called</span> <span class="ST4">from</span> <span class="ST4">within</span> <span class="ST4">the</span> <span class="ST4">constructor</span> <span class="ST4">to</span>
+141 <span class="comment">     * </span><span class="ST4">initialize</span> <span class="ST4">the</span> <span class="ST4">form</span><span class="ST4">.</span>
+142 <span class="comment">     * </span><span class="comment">WARNING</span><span class="comment">: </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">modify</span> <span class="comment">this</span> <span class="comment">code</span><span class="comment">.</span> <span class="comment">The</span> <span class="comment">content</span> <span class="comment">of</span> <span class="comment">this</span> <span class="comment">method</span> <span class="comment">is</span>
+143 <span class="comment">     * </span><span class="comment">always</span> <span class="comment">regenerated</span> <span class="comment">by</span> <span class="comment">the</span> <span class="comment">Form</span> <span class="comment">Editor</span><span class="comment">.</span>
+144      <span class="comment">*/</span>
+145     @SuppressWarnings(<span class="string">&quot;</span><span class="string">unchecked</span><span class="string">&quot;</span>)
+146     <span class="ST5">// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;                          </span>
+147     <span class="ST6">private</span> <span class="ST6">void</span> <span class="ST7">initComponents</span><span class="guarded">(</span><span class="guarded">)</span> <span class="guarded">{</span>
+148 
+149         <span class="ST8">jScrollPane1</span> <span class="guarded">=</span> <span class="ST6">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JScrollPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+150         <span class="ST8">outputArea</span> <span class="guarded">=</span> <span class="ST6">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JTextArea</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+151 
+152         <span class="guarded">setDefaultCloseOperation</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">WindowConstants</span><span class="guarded">.</span><span class="ST9">EXIT_ON_CLOSE</span><span class="guarded">)</span><span class="guarded">;</span>
+153 
+154         <span class="ST8">outputArea</span><span class="guarded">.</span><span class="guarded">setColumns</span><span class="guarded">(</span><span class="guarded">2</span><span class="guarded">0</span><span class="guarded">)</span><span class="guarded">;</span>
+155         <span class="ST8">outputArea</span><span class="guarded">.</span><span class="guarded">setFont</span><span class="guarded">(</span><span class="ST6">new</span> <span class="guarded">java</span><span class="guarded">.</span><span class="guarded">awt</span><span class="guarded">.</span><span class="guarded">Font</span><span class="guarded">(</span><span class="ST10">&quot;</span><span class="ST10">Monospaced</span><span class="ST10">&quot;</span><span class="guarded">,</span> <span class="guarded">0</span><span class="guarded">,</span> <span class="guarded">1</span><span class="guarded">8</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">;</span> <span class="ST5">// NOI18N</span>
+156         <span class="ST8">outputArea</span><span class="guarded">.</span><span class="guarded">setRows</span><span class="guarded">(</span><span class="guarded">5</span><span class="guarded">)</span><span class="guarded">;</span>
+157         <span class="ST8">jScrollPane1</span><span class="guarded">.</span><span class="guarded">setViewportView</span><span class="guarded">(</span><span class="ST8">o</span><span class="ST8">utputArea</span><span class="guarded">)</span><span class="guarded">;</span>
+158 
+159         <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span> <span class="guarded">layout</span> <span class="guarded">=</span> <span class="ST6">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">(</span><span class="guarded">g</span><span class="guarded">etContentPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">;</span>
+160         <span class="guarded">getContentPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">.</span><span class="guarded">setLayout</span><span class="guarded">(</span><span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">)</span><span class="guarded">;</span>
+161         <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">setHorizontalGroup</span><span class="guarded">(</span>
+162             <span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST11">Alignment</span><span class="guarded">.</span><span class="ST9">LEADING</span><span class="guarded">)</span>
+163             <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+164                 <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">2</span><span class="guarded">0</span><span class="guarded">,</span> <span class="guarded">2</span><span class="guarded">0</span><span class="guarded">,</span> <span class="guarded">2</span><span class="guarded">0</span><span class="guarded">)</span>
+165                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST8">j</span><span class="ST8">ScrollPane1</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">6</span><span class="guarded">09</span><span class="guarded">,</span> <span class="guarded">S</span><span class="guarded">hort</span><span class="guarded">.</span><span class="ST9">MAX_VALUE</span><span class="guarded">)</span>
+166                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">)</span>
+167         <span class="guarded">)</span><span class="guarded">;</span>
+168         <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">setVerticalGroup</span><span class="guarded">(</span>
+169             <span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST11">Alignment</span><span class="guarded">.</span><span class="ST9">LEADING</span><span class="guarded">)</span>
+170             <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+171                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">)</span>
+172                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST8">j</span><span class="ST8">ScrollPane1</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">5</span><span class="guarded">59</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">PREFERRED_SIZE</span><span class="guarded">)</span>
+173                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">3</span><span class="guarded">2</span><span class="guarded">,</span> <span class="guarded">S</span><span class="guarded">hort</span><span class="guarded">.</span><span class="ST9">MAX_VALUE</span><span class="guarded">)</span><span class="guarded">)</span>
+174         <span class="guarded">)</span><span class="guarded">;</span>
+175 
+176         <span class="guarded">pack</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+177     <span class="guarded">}</span><span class="ST5">// &lt;/editor-fold&gt;                        </span>
+178 
+179     <span class="comment">/**</span>
+180 <span class="comment">     * </span><span class="ST4">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+181      <span class="comment">*/</span>
+182     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST12">main</span>(String args[]) {
+183         java.awt.EventQueue.<span class="ST13">invokeLater</span>(<span class="literal">new</span> Runnable() {
+184 
+185             <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">run</span>() {
+186                 <span class="literal">new</span> MUFrame().setVisible(<span class="literal">t</span><span class="literal">rue</span>);
+187             }
+188         });
+189     }
+190     <span class="ST5">// Variables declaration - do not modify                     </span>
+191     <span class="ST6">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JScrollPane</span> <span class="ST8">jScrollPane1</span><span class="guarded">;</span>
+192     <span class="ST6">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JTextArea</span> <span class="ST8">outputArea</span><span class="guarded">;</span>
+193     <span class="ST5">// End of variables declaration                   </span>
+194 }
+195 
+</pre></body>
+</html>

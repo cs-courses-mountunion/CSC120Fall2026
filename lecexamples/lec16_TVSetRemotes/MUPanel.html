@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: Monospaced; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec16\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture 16</span>
+  2 <span class="comment"> *</span>
+  3 <span class="comment"> * Examples of update assignment operators, increment and decrement, and</span>
+  4 <span class="comment"> * TVSets with Remotes</span>
+  5 <span class="comment"> *</span>
+  6 <span class="comment"> */</span>
+  7 
+  8 <span class="literal">import</span> java.awt.*;
+  9 <span class="literal">import</span> java.awt.event.*;
+ 10 <span class="literal">import</span> javax.swing.*;
+ 11 <span class="literal">import</span> javax.swing.event.*;
+ 12 
+ 13 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel <span class="literal">implements</span> ActionListener {
+ 14 
+ 15     <span class="literal">private</span> TVSet <span class="ST1">livingRoomTV</span>, <span class="ST1">garageTV</span>, <span class="ST1">kitchenTV</span>;
+ 16     <span class="literal">private</span> JButton <span class="ST1">cupLr</span>, <span class="ST1">cdnLr</span>, <span class="ST1">vupLr</span>, <span class="ST1">vdnLr</span>, <span class="ST1">onLr</span>, <span class="ST1">offLr</span>;
+ 17     <span class="literal">private</span> JButton <span class="ST1">cupG</span>, <span class="ST1">cdnG</span>, <span class="ST1">vupG</span>, <span class="ST1">vdnG</span>, <span class="ST1">onG</span>, <span class="ST1">offG</span>;
+ 18     <span class="literal">private</span> JButton <span class="ST1">cupK</span>, <span class="ST1">cdnK</span>, <span class="ST1">vupK</span>, <span class="ST1">vdnK</span>, <span class="ST1">onK</span>, <span class="ST1">offK</span>;
+ 19 
+ 20     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 21         setLayout(<span class="literal">null</span>);
+ 22         setPreferredSize(<span class="literal">new</span> Dimension(820, 600));
+ 23         setName(<span class="string">&quot;</span><span class="string">TVSet Demo</span><span class="string">&quot;</span>);
+ 24         setBackground(<span class="literal">new</span> Color(0xFE, 0xDE, 0x95));
+ 25 
+ 26         <span class="ST1">livingRoomTV</span> = <span class="literal">new</span> TVSet(10, 10, <span class="literal">true</span>, 3, 50);
+ 27         <span class="ST1">garageTV</span> = <span class="literal">new</span> TVSet(330, 250, <span class="literal">false</span>, 19, 75);
+ 28         <span class="ST1">kitchenTV</span> = <span class="literal">new</span> TVSet(650, 10, <span class="literal">true</span>, 43, 20);
+ 29         
+ 30         setUpUserInterface();
+ 31         
+ 32     } <span class="comment">// end of MUPanel constructor</span>
+ 33     
+ 34     
+ 35     @Override
+ 36     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+ 37         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+ 38 
+ 39         <span class="ST1">livingRoomTV</span>.draw(g);
+ 40         <span class="ST1">garageTV</span>.draw(g);
+ 41         <span class="ST1">kitchenTV</span>.draw(g);
+ 42 
+ 43     } <span class="comment">// end of method paintComponent</span>
+ 44     
+ 45 
+ 46     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUpUserInterface</span>() {
+ 47         <span class="ST1">cupLr</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">^</span><span class="string">&quot;</span>);
+ 48         <span class="ST1">cupLr</span>.setBounds(65, 170, 50, 50);
+ 49         <span class="ST1">cupLr</span>.addActionListener(<span class="literal">this</span>);
+ 50         add(<span class="ST1">cupLr</span>);
+ 51 
+ 52         <span class="ST1">cdnLr</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">v</span><span class="string">&quot;</span>);
+ 53         <span class="ST1">cdnLr</span>.setBounds(65, 270, 50, 50);
+ 54         <span class="ST1">cdnLr</span>.addActionListener(<span class="literal">this</span>);
+ 55         add(<span class="ST1">cdnLr</span>);
+ 56 
+ 57         <span class="ST1">vupLr</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">&gt;</span><span class="string">&quot;</span>);
+ 58         <span class="ST1">vupLr</span>.setBounds(90, 220, 50, 50);
+ 59         <span class="ST1">vupLr</span>.addActionListener(<span class="literal">this</span>);
+ 60         add(<span class="ST1">vupLr</span>);
+ 61 
+ 62         <span class="ST1">vdnLr</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">&lt;</span><span class="string">&quot;</span>);
+ 63         <span class="ST1">vdnLr</span>.setBounds(40, 220, 50, 50);
+ 64         <span class="ST1">vdnLr</span>.addActionListener(<span class="literal">this</span>);
+ 65         add(<span class="ST1">vdnLr</span>);
+ 66 
+ 67         <span class="ST1">onLr</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">1</span><span class="string">&quot;</span>);
+ 68         <span class="ST1">onLr</span>.setBounds(10, 120, 50, 50);
+ 69         <span class="ST1">onLr</span>.setBackground(Color.<span class="ST2">GREEN</span>);
+ 70         <span class="ST1">onLr</span>.addActionListener(<span class="literal">this</span>);
+ 71         add(<span class="ST1">onLr</span>);
+ 72 
+ 73         <span class="ST1">offLr</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">0</span><span class="string">&quot;</span>);
+ 74         <span class="ST1">offLr</span>.setBounds(120, 120, 50, 50);
+ 75         <span class="ST1">offLr</span>.setBackground(Color.<span class="ST2">RED</span>);
+ 76         <span class="ST1">offLr</span>.addActionListener(<span class="literal">this</span>);
+ 77         add(<span class="ST1">offLr</span>);
+ 78         
+ 79         <span class="ST1">cupK</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">^</span><span class="string">&quot;</span>);
+ 80         <span class="ST1">cupK</span>.setBounds(705, 170, 50, 50);
+ 81         <span class="ST1">cupK</span>.addActionListener(<span class="literal">this</span>);
+ 82         add(<span class="ST1">cupK</span>);
+ 83 
+ 84         <span class="ST1">cdnK</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">v</span><span class="string">&quot;</span>);
+ 85         <span class="ST1">cdnK</span>.setBounds(705, 270, 50, 50);
+ 86         <span class="ST1">cdnK</span>.addActionListener(<span class="literal">this</span>);
+ 87         add(<span class="ST1">cdnK</span>);
+ 88 
+ 89         <span class="ST1">vupK</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">&gt;</span><span class="string">&quot;</span>);
+ 90         <span class="ST1">vupK</span>.setBounds(730, 220, 50, 50);
+ 91         <span class="ST1">vupK</span>.addActionListener(<span class="literal">this</span>);
+ 92         add(<span class="ST1">vupK</span>);
+ 93 
+ 94         <span class="ST1">vdnK</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">&lt;</span><span class="string">&quot;</span>);
+ 95         <span class="ST1">vdnK</span>.setBounds(680, 220, 50, 50);
+ 96         <span class="ST1">vdnK</span>.addActionListener(<span class="literal">this</span>);
+ 97         add(<span class="ST1">vdnK</span>);
+ 98 
+ 99         <span class="ST1">onK</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">1</span><span class="string">&quot;</span>);
+100         <span class="ST1">onK</span>.setBounds(650, 120, 50, 50);
+101         <span class="ST1">onK</span>.setBackground(Color.<span class="ST2">GREEN</span>);
+102         <span class="ST1">onK</span>.addActionListener(<span class="literal">this</span>);
+103         add(<span class="ST1">onK</span>);
+104 
+105         <span class="ST1">offK</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">0</span><span class="string">&quot;</span>);
+106         <span class="ST1">offK</span>.setBounds(760, 120, 50, 50);
+107         <span class="ST1">offK</span>.setBackground(Color.<span class="ST2">RED</span>);
+108         <span class="ST1">offK</span>.addActionListener(<span class="literal">this</span>);
+109         add(<span class="ST1">offK</span>);
+110         
+111         <span class="ST1">cupG</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">^</span><span class="string">&quot;</span>);
+112         <span class="ST1">cupG</span>.setBounds(385, 410, 50, 50);
+113         <span class="ST1">cupG</span>.addActionListener(<span class="literal">this</span>);
+114         add(<span class="ST1">cupG</span>);
+115 
+116         <span class="ST1">cdnG</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">v</span><span class="string">&quot;</span>);
+117         <span class="ST1">cdnG</span>.setBounds(385, 510, 50, 50);
+118         <span class="ST1">cdnG</span>.addActionListener(<span class="literal">this</span>);
+119         add(<span class="ST1">cdnG</span>);
+120 
+121         <span class="ST1">vupG</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">&gt;</span><span class="string">&quot;</span>);
+122         <span class="ST1">vupG</span>.setBounds(410, 460, 50, 50);
+123         <span class="ST1">vupG</span>.addActionListener(<span class="literal">this</span>);
+124         add(<span class="ST1">vupG</span>);
+125 
+126         <span class="ST1">vdnG</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">&lt;</span><span class="string">&quot;</span>);
+127         <span class="ST1">vdnG</span>.setBounds(360, 460, 50, 50);
+128         <span class="ST1">vdnG</span>.addActionListener(<span class="literal">this</span>);
+129         add(<span class="ST1">vdnG</span>);
+130 
+131         <span class="ST1">onG</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">1</span><span class="string">&quot;</span>);
+132         <span class="ST1">onG</span>.setBounds(330, 360, 50, 50);
+133         <span class="ST1">onG</span>.setBackground(Color.<span class="ST2">GREEN</span>);
+134         <span class="ST1">onG</span>.addActionListener(<span class="literal">this</span>);
+135         add(<span class="ST1">onG</span>);
+136 
+137         <span class="ST1">offG</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">0</span><span class="string">&quot;</span>);
+138         <span class="ST1">offG</span>.setBounds(440, 360, 50, 50);
+139         <span class="ST1">offG</span>.setBackground(Color.<span class="ST2">RED</span>);
+140         <span class="ST1">offG</span>.addActionListener(<span class="literal">this</span>);
+141         add(<span class="ST1">offG</span>);
+142         
+143    } <span class="comment">// end of setUpUserInterface</span>
+144     
+145     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">actionPerformed</span> ( ActionEvent ae ) {
+146         Object source = ae.getSource();
+147         
+148         <span class="literal">if</span> (source.equals(<span class="ST1">cupLr</span>)) {
+149             <span class="ST1">livingRoomTV</span>.channelUp();
+150         }
+151         <span class="literal">if</span> (source.equals(<span class="ST1">cdnLr</span>)) {
+152             <span class="ST1">livingRoomTV</span>.channelDown();
+153         }
+154         <span class="literal">if</span> (source.equals(<span class="ST1">vupLr</span>)) {
+155             <span class="ST1">livingRoomTV</span>.volumeUp();
+156         }
+157         <span class="literal">if</span> (source.equals(<span class="ST1">vdnLr</span>)) {
+158             <span class="ST1">livingRoomTV</span>.volumeDown();
+159         }
+160         <span class="literal">if</span> (source.equals(<span class="ST1">onLr</span>)) {
+161             <span class="ST1">livingRoomTV</span>.setTurnedOn(<span class="literal">true</span>);
+162         }
+163         <span class="literal">if</span> (source.equals(<span class="ST1">offLr</span>)) {
+164             <span class="ST1">livingRoomTV</span>.setTurnedOn(<span class="literal">false</span>);
+165         }
+166         
+167         <span class="literal">if</span> (source.equals(<span class="ST1">cupG</span>)) {
+168             <span class="ST1">garageTV</span>.channelUp();
+169         }
+170         <span class="literal">if</span> (source.equals(<span class="ST1">cdnG</span>)) {
+171             <span class="ST1">garageTV</span>.channelDown();
+172         }
+173         <span class="literal">if</span> (source.equals(<span class="ST1">vupG</span>)) {
+174             <span class="ST1">garageTV</span>.volumeUp();
+175         }
+176         <span class="literal">if</span> (source.equals(<span class="ST1">vdnG</span>)) {
+177             <span class="ST1">garageTV</span>.volumeDown();
+178         }
+179         <span class="literal">if</span> (source.equals(<span class="ST1">onG</span>)) {
+180             <span class="ST1">garageTV</span>.setTurnedOn(<span class="literal">true</span>);
+181         }
+182         <span class="literal">if</span> (source.equals(<span class="ST1">offG</span>)) {
+183             <span class="ST1">garageTV</span>.setTurnedOn(<span class="literal">false</span>);
+184         }
+185         
+186         <span class="literal">if</span> (source.equals(<span class="ST1">cupK</span>)) {
+187             <span class="ST1">kitchenTV</span>.channelUp();
+188         }
+189         <span class="literal">if</span> (source.equals(<span class="ST1">cdnK</span>)) {
+190             <span class="ST1">kitchenTV</span>.channelDown();
+191         }
+192         <span class="literal">if</span> (source.equals(<span class="ST1">vupK</span>)) {
+193             <span class="ST1">kitchenTV</span>.volumeUp();
+194         }
+195         <span class="literal">if</span> (source.equals(<span class="ST1">vdnK</span>)) {
+196             <span class="ST1">kitchenTV</span>.volumeDown();
+197         }
+198         <span class="literal">if</span> (source.equals(<span class="ST1">onK</span>)) {
+199             <span class="ST1">kitchenTV</span>.setTurnedOn(<span class="literal">true</span>);
+200         }
+201         <span class="literal">if</span> (source.equals(<span class="ST1">offK</span>)) {
+202             <span class="ST1">kitchenTV</span>.setTurnedOn(<span class="literal">false</span>);
+203         }
+204         
+205         repaint();
+206     } <span class="comment">// end of actionPerformed</span>
+207     
+208     <span class="comment">/**</span><span class="comment">*********************************************</span>
+209 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+210 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+211     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">frame</span>() {
+212         <span class="comment">/*for (Component c: getComponents())</span>
+213 <span class="comment">            c.setSize(c.getPreferredSize());*/</span>
+214         JFrame f = <span class="literal">new</span> JFrame(getName());
+215         f.setContentPane(<span class="literal">this</span>);
+216         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+217         f.pack();
+218         f.setVisible(<span class="literal">true</span>);    
+219     }
+220 
+221     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel().frame();}
+222 
+223 } <span class="comment">// end of class MUPanel</span>
+224 
+</pre></body>
+</html>

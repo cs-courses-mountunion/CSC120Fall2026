@@ -1,0 +1,66 @@
+Bonds, Barry # 762 # .298 # 2935 # 1996 # 514
+Aaron, Hank # 755 # .305 # 3771 # 2297 # 240
+Ruth, Babe # 714 # .342 # 2873 # 2213 # 123
+Pujols, Albert # 703 # .296 # 3384 # 2218 # 117
+Rodriguez, Alex # 696 # .295 # 3115 # 2086 # 329
+Mays, Willie # 660 # .302 # 3283 # 1903 # 338
+Griffey Jr., Ken # 630 # .284 # 2781 # 1836 # 184
+Thome, Jim # 612 # .276 # 2328 # 1699 # 19
+Sosa, Sammy # 609 # .273 # 2408 # 1667 # 234
+Robinson, Frank # 586 # .294 # 2943 # 1812 # 204
+McGwire, Mark # 583 # .263 # 1626 # 1414 # 12
+Killebrew, Harmon # 573 # .263 # 2086 # 1584 # 19
+Palmeiro, Rafael # 569 # .288 # 3020 # 1835 # 97
+Jackson, Reggie # 563 # .262 # 2584 # 1702 # 228
+Ramirez, Manny # 555 # .312 # 2574 # 1831 # 38
+Schmidt, Mike # 548 # .267 # 2234 # 1595 # 174
+Ortiz, David # 541 # .286 # 2472 # 1768 # 17
+Mantle, Mickey # 536 # .298 # 2415 # 1509 # 153
+Foxx, Jimmie # 534 # .325 # 2646 # 1922 # 87
+McCovey, Willie # 521 # .270 # 2211 # 1555 # 26
+Thomas, Frank # 521 # .301 # 2468 # 1704 # 32
+Williams, Ted # 521 # .344 # 2654 # 1839 # 24
+Banks, Ernie # 512 # .274 # 2583 # 1636 # 50
+Mathews, Eddie # 512 # .271 # 2315 # 1453 # 68
+Cabrera, Miguel # 511 # .306# 3174 # 1881 # 40
+Ott, Mel # 511 # .304 # 2876 # 1860 # 890
+Sheffield, Gary # 509 # .292 # 2689 # 1676 # 253
+Murray, Eddie # 504 # .287 # 3255 # 1917 # 110
+Gehrig, Lou # 493 # .340 # 2721 # 1995 # 102
+McGriff, Fred # 493 # .284 # 2490 # 1550 # 72
+Beltre, Adrian # 477 # .286 # 3166 # 1707 # 121
+Musial, Stan # 475 # .331 # 3630 # 1951 # 78
+Stargell, Willie # 475 # .282 # 2232 # 1540 # 17
+Delgado, Carlos # 473 # .280 # 2038 # 1512 # 14
+Jones, Chipper # 468 # .303 # 2726 # 1623 # 150
+Winfield, Dave # 465 # .283 # 3110 # 1833 # 223
+Cruz, Nelson # 464 # .274 # 2053 # 1325 # 84
+Canseco, Jose # 462 # .266 # 1877 # 1407 # 200
+Dunn, Adam # 462 # .237 # 1631 # 1168 # 63
+Yastrzemski, Carl # 452 # .285 # 3419 # 1844 # 168
+Bagwell, Jeff # 449 # .297 # 2314 # 1529 # 202
+Guerrero, Vladimir # 449 # .318 # 2590 # 1496 # 181
+Kingman, Dave # 442 # .236 # 1575 # 1210 # 85
+Giambi, Jason # 440 # .277 # 2010 # 1441 # 20
+Konerko, Paul # 439 # .279 # 2340 # 1412 # 9
+Dawson, Andre # 438 # .279 # 2774 # 1591 # 314
+**Beltran, Carlos # 435 # .279 # 2725 # 1587 # 312
+Gonzalez, Juan # 434 # .295 # 1936 # 1404 # 26
+Jones, Andruw # 434 # .254 # 1933 # 1289 # 152
+Ripken Jr., Cal # 431 # .276 # 3184 # 1695 # 36
+Piazza, Mike # 427 # .308 # 2127 # 1335 # 17
+Williams, Billy # 426 # .290 # 2711 # 1475 # 90
+**Encarnacion, Edwin # 424 # .260 # 1832 # 1261 # 61
+**Stanton, Giancarlo # 420 # .259 # 1518 # 1076 # 42
+Evans, Darrell # 414 # .248 # 2223 # 1354 # 98
+Soriano, Alfonso # 412 # .270 # 2095 # 1159 # 289
+Teixeira, Mark # 409 # .268 # 1862 # 1298 # 26
+Snider, Duke # 407 # .295 # 2116 # 1333 # 99
+Galarraga, Andres # 399 # .288 # 2333 # 1425 # 128
+Kaline, Al # 399 # .297 # 3007 # 1583 # 137
+xxEdmonds, Jim # 393 # .284 # 1949 # 1199 # 67
+xxNettles, Graig # 390 # .248 # 2225 # 1314 # 32
+
+
+
+

@@ -1,0 +1,61 @@
+Sometimes, we wish to use the current value of a variable in a calculation, 
+    and store the result in that same variable
+
+In effect, we are UPDATING the contents of the variable
+
+With what we have studied so far in Java, we do this in the following manner:
+
+    balance = balance + depositAmt;
+
+    num = num - 56;
+
+    x = x * 7;
+
+    q = q / 5;
+
+    z = z % 5;
+
+This can result in a lot of typing with very long variable names:
+
+    assetBalanceEndOfQuarter3 = assetBalanceEndOfQuarter3 * 0.75;
+
+Java provides Update Assignment operators to do this without using the variable name twice
+
+    assetBalanceEndOfQuarter3 *= 0.75;  
+
+The previous examples could be rewritten as:
+
+    balance += depositAmt;
+
+    num -= 56;
+
+    x *= 7;
+
+    q /= 5;
+
+    z %= 5;
+
+================================
+
+This gives us have two ways to add one to a variable:
+
+    num = num + 1;
+
+    num += 1;
+
+Java defines a special operator that means "add 1 to", called the Increment operator:
+
+    num++;
+
+So there are three different but equivalent ways to add 1 to a variable.
+
+Similarly, there are 3 ways to subtract 1 (the third way is to use the Decrement operator):
+
+    number = number - 1;
+
+    number -= 1;
+
+    number--;
+
+
+  

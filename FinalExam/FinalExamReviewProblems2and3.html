@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>CSC 120 Final Exam Review Problems 2 and 3</title>
+</head>
+<body>
+
+    <pre>
+/**
+ * CSC 120 Final Exam Review Problems 2 and 3
+ * 
+ * Description:
+ * <font color="#990000">Prob. 2: Declare, instantiate, and use individual Product objects.</font>
+ * <font color="#009900">Prob. 3: Declare, instantiate, fill, and use an array of Product objects.</font>
+*/
+
+import java.awt.*;
+import javax.swing.*;
+
+public class MUPanel extends JPanel {
+    
+    <font color="#990000">// 2. a. Declare three Product variables called one, two, three</font>
+    private Product one, two, three;
+
+    <font color="#009900">// 3. a. Declare an array of Product objects called arrayOfProducts</font>
+    private Product[] arrayOfProducts;
+    
+    public MUPanel() {
+        setLayout(null);
+        setPreferredSize(new Dimension(600, 400));
+        setName("CSC 120 Final Exam Practice");
+        setBackground(Color.ORANGE);
+
+        <font color="#990000">// 2. b. Instantiate one using the 5-parameter constructor</font>
+        one = new Product(15, "Wallace and Gromit", true, 25.10, Color.CYAN);
+
+        <font color="#990000">// 2. c. Instantiate two using the 1-parameter constructor</font>
+        two = new Product("XPod");
+
+        <font color="#990000">// 2. d. Instantiate three using the no-parameter constructor</font>
+        three = new Product();
+
+        <font color="#990000">// 2. e. Change the name of three to "Keychain"</font>
+        three.setName("Keychain");
+
+        <font color="#009900">// 3. b. Instantiate the array with room for 5 Product objects</font>
+        arrayOfProducts = new Product[5];
+
+        <font color="#009900">// 3. c. One at a time without using a loop
+        //       instantiate Product objects and put them in the array.</font>
+        arrayOfProducts[0] = new Product(10, "Slumdog Millionaire", true, 22.95, Color.MAGENTA);
+        arrayOfProducts[1] = new Product(15, "No Country for Old Men", true, 21.30, Color.GREEN);
+        arrayOfProducts[2] = new Product(20, "A Beautiful Mind", false, 19.95, Color.RED);
+        arrayOfProducts[3] = new Product(25, "Gladiator", true, 15.27, Color.YELLOW);
+        arrayOfProducts[4] = new Product(30, "Schindler's List", true, 23.42, Color.BLUE);
+
+        <font color="#009900">// 3. d. Write code that uses a loop to call the getName method for
+        //       each product in the array and displays the names of all
+        //       products on the Java Console.</font>
+        for (Integer i = 0; i &lt; arrayOfProducts.length; i++) {
+            System.out.println(arrayOfProducts[i].getName());
+        } 
+
+        <font color="#009900">// 3. e. Write code that uses a loop to determine whether or not
+        //       any product in the array is RED. If you find at least
+        //       one red product, then display on the Java Console "Found"
+        //       and otherwise display "Not found."
+
+        // 3. e. Version 1:</font>
+        Integer numReds = 0;
+        for (Integer i = 0; i &lt; arrayOfProducts.length; i++) {
+            if (arrayOfProducts[i].getProductColor().equals(Color.RED)) {
+                numReds = numReds + 1;
+            } // end if
+        } // end for
+        if (numReds > 0) {
+            System.out.println("Found");
+        }
+        else {
+            System.out.println("Not found");
+        }
+
+        <font color="#009900">// 3. e. Version 2:
+        // Initialize the boolean named found to false,
+        // then only change it when you find reds.
+        // If you don't find any reds, then it
+        // will still be false.
+        // If you find 1 or more reds, then it
+        // will have changed to true.</font>
+        Boolean found = false;
+        for (Integer i = 0; i &lt; arrayOfProducts.length; i++) {
+            if (arrayOfProducts[i].getProductColor().equals(Color.RED)) {
+                found = true;
+            } // end if
+        } // end for
+        if (found) {
+            System.out.println("Found");
+        }
+        else {
+            System.out.println("Not found");
+        }
+
+        <font color="#009900">// 3. g. Write one line of code that calls the getAveragePrice
+        //       method.</font>
+        System.out.println("The average price is " + getAveragePrice());
+
+    } // end of constructor method
+
+
+    public void paintComponents(Graphics g) {
+        super.paintComponent(g);
+
+        <font color="#990000">// 2. f. call the draw method for one, two, three</font>
+        one.draw(g);
+        two.draw(g);
+        three.draw(g);
+
+    } // end of paintComponent();
+
+    
+    <font color="#009900">// 3. f. Write a method called getAveragePrice</font>
+    public Double getAveragePrice() {
+
+        Double total = 0.0;
+        Double average;
+        for (Integer i = 0; i &lt; arrayOfProducts.length; i++) {
+            total = total + arrayOfProducts[i].getPrice();
+        }
+
+        average = total / arrayOfProducts.length;
+        return average;
+
+    } // end of getAveragePrice()
+
+    
+    /***********************************************
+     * Do NOT change or delete anything below here!
+     ***********************************************/
+    public void frame() {
+        for (Component c: getComponents())
+            c.setSize(c.getPreferredSize());
+        JFrame f = new JFrame(getName());
+        f.setContentPane(this);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.pack();
+        f.setVisible(true);    
+    }
+
+    public static void main(String args[]){new MUPanel().frame();}
+
+} // end of class MUPanel
+</pre>
+
+</body>
+</html>

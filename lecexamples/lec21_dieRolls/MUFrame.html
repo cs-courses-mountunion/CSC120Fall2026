@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUFrame.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.ST8 {color: #ce7b00; background-color: #dfdfdf}
+.ST10 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.ST4 {color: #0000e6; background-color: #dfdfdf}
+.ST7 {color: #009900; background-color: #dfdfdf; font-family: Monospaced; font-style: italic}
+.ST9 {background-color: #dfdfdf; font-family: Monospaced; font-style: italic}
+.ST12 {font-family: Monospaced; font-style: italic}
+.ST11 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.guarded {background-color: #dfdfdf}
+.ST3 {color: #969696; background-color: #dfdfdf}
+.ST6 {color: #009900; background-color: #dfdfdf}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST2 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST5 {background-color: #dfdfdf; font-family: Monospaced; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec22\src\MUFrame.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture # 22</span>
+  2 <span class="comment"> * Blase B. Cindric</span>
+  3 <span class="comment"> *</span>
+  4 <span class="comment"> *</span>
+  5 <span class="comment"> * Project Description:  Rolling Dice Simulation using Random object</span>
+  6 <span class="comment"> * </span>
+  7 <span class="comment"> */</span>
+  8 
+  9 <span class="literal">import</span> java.awt.*;
+ 10 <span class="literal">import</span> javax.swing.*;
+ 11 
+ 12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUFrame</span> <span class="literal">extends</span> javax.swing.JFrame {
+ 13 
+ 14     
+ 15     <span class="comment">// declare private data here</span>
+ 16     
+ 17     <span class="literal">private</span> java.util.Random <span class="ST1">randGen</span>;
+ 18     
+ 19     <span class="literal">private</span> Integer <span class="ST1">totalRolls</span>, <span class="ST1">num2s</span>, <span class="ST1">num3s</span>, <span class="ST1">num4s</span>, <span class="ST1">num5s</span>, <span class="ST1">num6s</span>, <span class="ST1">num7s</span>,
+ 20             <span class="ST1">num8s</span>, <span class="ST1">num9s</span>, <span class="ST1">num10s</span>, <span class="ST1">num11s</span>, <span class="ST1">num12s</span>;
+ 21     
+ 22     
+ 23     
+ 24     
+ 25     
+ 26     
+ 27     <span class="comment">// constructor method</span>
+ 28     <span class="literal">public</span> <span class="ST0">MUFrame</span>() {
+ 29         initComponents();
+ 30         
+ 31         <span class="ST1">randGen</span> = <span class="literal">new</span> java.util.Random();   
+ 32         
+ 33         <span class="ST1">totalRolls</span> = <span class="ST1">num2s</span> = <span class="ST1">num3s</span> = <span class="ST1">num4s</span> = <span class="ST1">num5s</span> = <span class="ST1">num6s</span> = <span class="ST1">num7s</span>
+ 34                 = <span class="ST1">num8s</span> = <span class="ST1">num9s</span> = <span class="ST1">num10s</span> = <span class="ST1">num11s</span> = <span class="ST1">num12s</span> = 0;
+ 35         
+ 36         
+ 37     } <span class="comment">// end of constructor</span>
+ 38     
+ 39     <span class="comment">// declare other methods here</span>
+ 40     
+ 41     
+ 42     
+ 43     
+ 44 
+ 45     <span class="comment">/**</span> <span class="ST2">This</span> <span class="ST2">method</span> <span class="ST2">is</span> <span class="ST2">called</span> <span class="ST2">from</span> <span class="ST2">within</span> <span class="ST2">the</span> <span class="ST2">constructor</span> <span class="ST2">to</span>
+ 46 <span class="comment">     * </span><span class="ST2">initialize</span> <span class="ST2">the</span> <span class="ST2">form</span><span class="ST2">.</span>
+ 47 <span class="comment">     * </span><span class="comment">WARNING</span><span class="comment">: </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">modify</span> <span class="comment">this</span> <span class="comment">code</span><span class="comment">.</span> <span class="comment">The</span> <span class="comment">content</span> <span class="comment">of</span> <span class="comment">this</span> <span class="comment">method</span> <span class="comment">is</span>
+ 48 <span class="comment">     * </span><span class="comment">always</span> <span class="comment">regenerated</span> <span class="comment">by</span> <span class="comment">the</span> <span class="comment">Form</span> <span class="comment">Editor</span><span class="comment">.</span>
+ 49      <span class="comment">*/</span>
+ 50     @SuppressWarnings(<span class="string">&quot;</span><span class="string">unchecked</span><span class="string">&quot;</span>)
+ 51     <span class="ST3">// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;                          </span>
+ 52     <span class="ST4">private</span> <span class="ST4">void</span> <span class="ST5">initComponents</span><span class="guarded">(</span><span class="guarded">)</span> <span class="guarded">{</span>
+ 53 
+ 54         <span class="ST6">drawingPanel</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JPanel</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 55         <span class="ST6">jLabel1</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JLabel</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 56         <span class="ST6">diceRollButton</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JButton</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 57         <span class="ST6">jScrollPane1</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JScrollPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 58         <span class="ST6">outputArea</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JTextArea</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 59         <span class="ST6">jScrollPane2</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JScrollPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 60         <span class="ST6">totalsArea</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JTextArea</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+ 61 
+ 62         <span class="guarded">setDefaultCloseOperation</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">WindowConstants</span><span class="guarded">.</span><span class="ST7">EXIT_ON_CLOSE</span><span class="guarded">)</span><span class="guarded">;</span>
+ 63 
+ 64         <span class="ST6">jLabel1</span><span class="guarded">.</span><span class="guarded">setFont</span><span class="guarded">(</span><span class="ST4">new</span> <span class="guarded">java</span><span class="guarded">.</span><span class="guarded">awt</span><span class="guarded">.</span><span class="guarded">Font</span><span class="guarded">(</span><span class="ST8">&quot;</span><span class="ST8">Script MT Bold</span><span class="ST8">&quot;</span><span class="guarded">,</span> <span class="guarded">1</span><span class="guarded">,</span> <span class="guarded">36</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">;</span> <span class="ST3">// NOI18N</span>
+ 65         <span class="ST6">jLabel1</span><span class="guarded">.</span><span class="guarded">setForeground</span><span class="guarded">(</span><span class="ST4">new</span> <span class="guarded">java</span><span class="guarded">.</span><span class="guarded">awt</span><span class="guarded">.</span><span class="guarded">Color</span><span class="guarded">(</span><span class="guarded">255</span><span class="guarded">,</span> <span class="guarded">0</span><span class="guarded">,</span> <span class="guarded">51</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">;</span>
+ 66         <span class="ST6">jLabel1</span><span class="guarded">.</span><span class="guarded">setText</span><span class="guarded">(</span><span class="ST8">&quot;</span><span class="ST8">Dice Rolling Example Program</span><span class="ST8">&quot;</span><span class="guarded">)</span><span class="guarded">;</span>
+ 67 
+ 68         <span class="ST6">diceRollButton</span><span class="guarded">.</span><span class="guarded">setText</span><span class="guarded">(</span><span class="ST8">&quot;</span><span class="ST8">Roll the Dice!</span><span class="ST8">&quot;</span><span class="guarded">)</span><span class="guarded">;</span>
+ 69         <span class="ST6">diceRollButton</span><span class="guarded">.</span><span class="guarded">addActionListener</span><span class="guarded">(</span><span class="ST4">new</span> <span class="guarded">java</span><span class="guarded">.</span><span class="guarded">awt</span><span class="guarded">.</span><span class="guarded">event</span><span class="guarded">.</span><span class="guarded">ActionListener</span><span class="guarded">(</span><span class="guarded">)</span> <span class="guarded">{</span>
+ 70             <span class="ST4">public</span> <span class="ST4">void</span> <span class="ST5">actionPerformed</span><span class="guarded">(</span><span class="guarded">java</span><span class="guarded">.</span><span class="guarded">awt</span><span class="guarded">.</span><span class="guarded">event</span><span class="guarded">.</span><span class="guarded">ActionEvent</span> <span class="guarded">evt</span><span class="guarded">)</span> <span class="guarded">{</span>
+ 71                 <span class="guarded">diceRollButtonActionPerformed</span><span class="guarded">(</span><span class="guarded">evt</span><span class="guarded">)</span><span class="guarded">;</span>
+ 72             <span class="guarded">}</span>
+ 73         <span class="guarded">}</span><span class="guarded">)</span><span class="guarded">;</span>
+ 74 
+ 75         <span class="ST6">outputArea</span><span class="guarded">.</span><span class="guarded">setColumns</span><span class="guarded">(</span><span class="guarded">20</span><span class="guarded">)</span><span class="guarded">;</span>
+ 76         <span class="ST6">outputArea</span><span class="guarded">.</span><span class="guarded">setRows</span><span class="guarded">(</span><span class="guarded">5</span><span class="guarded">)</span><span class="guarded">;</span>
+ 77         <span class="ST6">jScrollPane1</span><span class="guarded">.</span><span class="guarded">setViewportView</span><span class="guarded">(</span><span class="ST6">outputArea</span><span class="guarded">)</span><span class="guarded">;</span>
+ 78 
+ 79         <span class="ST6">totalsArea</span><span class="guarded">.</span><span class="guarded">setColumns</span><span class="guarded">(</span><span class="guarded">20</span><span class="guarded">)</span><span class="guarded">;</span>
+ 80         <span class="ST6">totalsArea</span><span class="guarded">.</span><span class="guarded">setRows</span><span class="guarded">(</span><span class="guarded">5</span><span class="guarded">)</span><span class="guarded">;</span>
+ 81         <span class="ST6">jScrollPane2</span><span class="guarded">.</span><span class="guarded">setViewportView</span><span class="guarded">(</span><span class="ST6">totalsArea</span><span class="guarded">)</span><span class="guarded">;</span>
+ 82 
+ 83         <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span> <span class="guarded">drawingPanelLayout</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">(</span><span class="ST6">drawingPanel</span><span class="guarded">)</span><span class="guarded">;</span>
+ 84         <span class="ST6">drawingPanel</span><span class="guarded">.</span><span class="guarded">setLayout</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">)</span><span class="guarded">;</span>
+ 85         <span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">setHorizontalGroup</span><span class="guarded">(</span>
+ 86             <span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">Alignment</span><span class="guarded">.</span><span class="ST7">LEADING</span><span class="guarded">)</span>
+ 87             <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+ 88                 <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">Alignment</span><span class="guarded">.</span><span class="ST7">LEADING</span><span class="guarded">)</span>
+ 89                     <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+ 90                         <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">100</span><span class="guarded">,</span> <span class="guarded">100</span><span class="guarded">,</span> <span class="guarded">100</span><span class="guarded">)</span>
+ 91                         <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">jLabel1</span><span class="guarded">)</span><span class="guarded">)</span>
+ 92                     <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+ 93                         <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">48</span><span class="guarded">,</span> <span class="guarded">48</span><span class="guarded">,</span> <span class="guarded">48</span><span class="guarded">)</span>
+ 94                         <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">diceRollButton</span><span class="guarded">)</span><span class="guarded">)</span>
+ 95                     <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+ 96                         <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">23</span><span class="guarded">,</span> <span class="guarded">23</span><span class="guarded">,</span> <span class="guarded">23</span><span class="guarded">)</span>
+ 97                         <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">Alignment</span><span class="guarded">.</span><span class="ST7">LEADING</span><span class="guarded">,</span> <span class="ST4">false</span><span class="guarded">)</span>
+ 98                             <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">jScrollPane1</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">671</span><span class="guarded">,</span> <span class="guarded">Short</span><span class="guarded">.</span><span class="ST7">MAX_VALUE</span><span class="guarded">)</span>
+ 99                             <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">jScrollPane2</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">)</span>
+100                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">425</span><span class="guarded">,</span> <span class="guarded">Short</span><span class="guarded">.</span><span class="ST7">MAX_VALUE</span><span class="guarded">)</span><span class="guarded">)</span>
+101         <span class="guarded">)</span><span class="guarded">;</span>
+102         <span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">setVerticalGroup</span><span class="guarded">(</span>
+103             <span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">Alignment</span><span class="guarded">.</span><span class="ST7">LEADING</span><span class="guarded">)</span>
+104             <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+105                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">)</span>
+106                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">jLabel1</span><span class="guarded">)</span>
+107                 <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">30</span><span class="guarded">,</span> <span class="guarded">30</span><span class="guarded">,</span> <span class="guarded">30</span><span class="guarded">)</span>
+108                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">diceRollButton</span><span class="guarded">)</span>
+109                 <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">26</span><span class="guarded">,</span> <span class="guarded">26</span><span class="guarded">,</span> <span class="guarded">26</span><span class="guarded">)</span>
+110                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">jScrollPane1</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">177</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">)</span>
+111                 <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">18</span><span class="guarded">,</span> <span class="guarded">18</span><span class="guarded">,</span> <span class="guarded">18</span><span class="guarded">)</span>
+112                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">jScrollPane2</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">256</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">)</span>
+113                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">Short</span><span class="guarded">.</span><span class="ST7">MAX_VALUE</span><span class="guarded">)</span><span class="guarded">)</span>
+114         <span class="guarded">)</span><span class="guarded">;</span>
+115 
+116         <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span> <span class="guarded">layout</span> <span class="guarded">=</span> <span class="ST4">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">(</span><span class="guarded">getContentPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">;</span>
+117         <span class="guarded">getContentPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">.</span><span class="guarded">setLayout</span><span class="guarded">(</span><span class="guarded">layout</span><span class="guarded">)</span><span class="guarded">;</span>
+118         <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">setHorizontalGroup</span><span class="guarded">(</span>
+119             <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">Alignment</span><span class="guarded">.</span><span class="ST7">LEADING</span><span class="guarded">)</span>
+120             <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">drawingPanel</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">)</span>
+121         <span class="guarded">)</span><span class="guarded">;</span>
+122         <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">setVerticalGroup</span><span class="guarded">(</span>
+123             <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">Alignment</span><span class="guarded">.</span><span class="ST7">LEADING</span><span class="guarded">)</span>
+124             <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+125                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">)</span>
+126                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST6">drawingPanel</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">PREFERRED_SIZE</span><span class="guarded">)</span>
+127                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST7">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">Short</span><span class="guarded">.</span><span class="ST7">MAX_VALUE</span><span class="guarded">)</span><span class="guarded">)</span>
+128         <span class="guarded">)</span><span class="guarded">;</span>
+129 
+130         <span class="guarded">pack</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+131     <span class="guarded">}</span><span class="ST3">// &lt;/editor-fold&gt;                        </span>
+132 
+133     <span class="ST4">private</span> <span class="ST4">void</span> <span class="ST5">diceRollButtonActionPerformed</span><span class="guarded">(</span><span class="guarded">java</span><span class="guarded">.</span><span class="guarded">awt</span><span class="guarded">.</span><span class="guarded">event</span><span class="guarded">.</span><span class="guarded">ActionEvent</span> <span class="guarded">evt</span><span class="guarded">)</span> <span class="guarded">{</span>                                               
+134         Integer dieRoll, dieRoll2, thisRoll;
+135         
+136         dieRoll = <span class="ST1">randGen</span>.nextInt(6) + 1;
+137         dieRoll2 = <span class="ST1">randGen</span>.nextInt(6) + 1;
+138         thisRoll = dieRoll + dieRoll2;
+139         
+140         <span class="ST1">outputArea</span>.append(<span class="string">&quot;</span><span class="string">just rolled a </span><span class="string">&quot;</span> + thisRoll + <span class="string">&quot;</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+141         
+142         <span class="ST1">totalRolls</span>++;
+143         
+144         <span class="literal">if</span> (thisRoll == 2) {
+145             <span class="ST1">num2s</span>++;
+146         }
+147         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 3) {
+148             <span class="ST1">num3s</span>++;
+149         }
+150         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 4) {
+151             <span class="ST1">num4s</span>++;
+152         }
+153         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 5) {
+154             <span class="ST1">num5s</span>++;
+155         }
+156         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 6) {
+157             <span class="ST1">num6s</span>++;
+158         }
+159         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 7) {
+160             <span class="ST1">num7s</span>++;
+161         }
+162         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 8) {
+163             <span class="ST1">num8s</span>++;
+164         }
+165         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 9) {
+166             <span class="ST1">num9s</span>++;
+167         }
+168         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 10) {
+169             <span class="ST1">num10s</span>++;
+170         }
+171         <span class="literal">else</span> <span class="literal">if</span> (thisRoll == 11) {
+172             <span class="ST1">num11s</span>++;
+173         }
+174         <span class="literal">else</span> {
+175             <span class="ST1">num12s</span>++;
+176         }
+177         
+178         <span class="ST1">totalsArea</span>.setText(<span class="string">&quot;</span><span class="string">Totals for </span><span class="string">&quot;</span> + <span class="ST1">totalRolls</span> + <span class="string">&quot;</span><span class="string"> dice rolls:</span><span class="ST10">\n</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+179         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   2s = </span><span class="string">&quot;</span> + <span class="ST1">num2s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num2s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+180         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   3s = </span><span class="string">&quot;</span> + <span class="ST1">num3s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num3s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+181         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   4s = </span><span class="string">&quot;</span> + <span class="ST1">num4s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num4s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+182         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   5s = </span><span class="string">&quot;</span> + <span class="ST1">num5s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num5s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+183         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   6s = </span><span class="string">&quot;</span> + <span class="ST1">num6s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num6s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+184         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   7s = </span><span class="string">&quot;</span> + <span class="ST1">num7s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num7s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+185         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   8s = </span><span class="string">&quot;</span> + <span class="ST1">num8s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num8s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+186         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">   9s = </span><span class="string">&quot;</span> + <span class="ST1">num9s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num9s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+187         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">  10s = </span><span class="string">&quot;</span> + <span class="ST1">num10s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num10s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+188         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">  11s = </span><span class="string">&quot;</span> + <span class="ST1">num11s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num11s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+189         <span class="ST1">totalsArea</span>.append(<span class="string">&quot;</span><span class="string">  12s = </span><span class="string">&quot;</span> + <span class="ST1">num12s</span> + <span class="string">&quot;</span><span class="string">  (</span><span class="string">&quot;</span> + (100.0*<span class="ST1">num12s</span> / <span class="ST1">totalRolls</span>) + <span class="string">&quot;</span><span class="string">%)</span><span class="ST10">\n</span><span class="string">&quot;</span>);
+190         
+191     <span class="guarded">}</span>                                              
+192 
+193     <span class="comment">/**</span>
+194 <span class="comment">     * </span><span class="ST2">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+195      <span class="comment">*/</span>
+196     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST11">main</span>(String args[]) {
+197         java.awt.EventQueue.<span class="ST12">invokeLater</span>(<span class="literal">new</span> Runnable() {
+198 
+199             <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">run</span>() {
+200                 <span class="literal">new</span> MUFrame().setVisible(<span class="literal">true</span>);
+201             }
+202         });
+203     }
+204     <span class="ST3">// Variables declaration - do not modify                     </span>
+205     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JButton</span> <span class="ST6">diceRollButton</span><span class="guarded">;</span>
+206     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JPanel</span> <span class="ST6">drawingPanel</span><span class="guarded">;</span>
+207     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JLabel</span> <span class="ST6">jLabel1</span><span class="guarded">;</span>
+208     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JScrollPane</span> <span class="ST6">jScrollPane1</span><span class="guarded">;</span>
+209     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JScrollPane</span> <span class="ST6">jScrollPane2</span><span class="guarded">;</span>
+210     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JTextArea</span> <span class="ST6">outputArea</span><span class="guarded">;</span>
+211     <span class="ST4">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JTextArea</span> <span class="ST6">totalsArea</span><span class="guarded">;</span>
+212     <span class="ST3">// End of variables declaration                   </span>
+213 }
+214 
+</pre></body>
+</html>

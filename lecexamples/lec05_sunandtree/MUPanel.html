@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST2 {color: #009900; font-family: monospace; font-style: italic}
+.ST3 {font-family: monospace; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: monospace; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">..\CSC120\Java\lec05\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment">    CSC 120 Lab 2</span>
+  3 <span class="comment">    Blase Cindric</span>
+  4 
+  5 <span class="comment">    Description:</span>
+  6 <span class="comment">    This program creates a picture of a house, tree, and happy-face sun.</span>
+  7 <span class="comment">    The purpose is to practice using methods of the Graphics class.</span>
+  8 <span class="comment">*/</span>
+  9 
+ 10 <span class="literal">import</span> java.awt.*;
+ 11 <span class="literal">import</span> javax.swing.*;
+ 12 
+ 13 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 14 
+ 15     <span class="comment">// Declare private data here</span>
+ 16     
+ 17     <span class="literal">private</span> LollipopTree <span class="ST1">aTree</span>, <span class="ST1">tree2</span>, <span class="ST1">lastTree</span>, <span class="ST1">iLiedThisIsTheRealLastOne</span>;
+ 18     <span class="literal">private</span> SmileySun <span class="ST1">theSun</span>, <span class="ST1">tatooineSun</span>, <span class="ST1">sol</span>;
+ 19     
+ 20     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 21         setLayout(<span class="literal">n</span><span class="literal">ull</span>);
+ 22         setPreferredSize(<span class="literal">new</span> Dimension(900, 400));
+ 23         setName(<span class="string">&quot;</span><span class="string">CSC 120 Lab 2</span><span class="string">&quot;</span>);
+ 24         setBackground(Color.<span class="ST2">WHITE</span>); 
+ 25 
+ 26         <span class="comment">// Instantiate objects and initialize data here</span>
+ 27         <span class="ST1">aTree</span> = <span class="literal">new</span> LollipopTree(480, 80);
+ 28         <span class="ST1">tree2</span> = <span class="literal">new</span> LollipopTree(650, 120);
+ 29         <span class="ST1">lastTree</span> = <span class="literal">new</span> LollipopTree(750, 40);
+ 30         <span class="ST1">iLiedThisIsTheRealLastOne</span> = <span class="literal">new</span> LollipopTree(420, 150);
+ 31         
+ 32         <span class="ST1">theSun</span> = <span class="literal">new</span> SmileySun(60, 60, Color.<span class="ST2">BLUE</span>);
+ 33         <span class="ST1">tatooineSun</span> = <span class="literal">new</span> SmileySun(150, 20, Color.<span class="ST2">GREEN</span>);
+ 34         <span class="ST1">sol</span> = <span class="literal">new</span> SmileySun(30, 160, Color.<span class="ST2">RED</span>);
+ 35         
+ 36     } <span class="comment">// end of MUPanel constructor</span>
+ 37     
+ 38 
+ 39     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+ 40         <span class="literal">super</span>.paintComponent(g);
+ 41         
+ 42         <span class="comment">// The house</span>
+ 43         g.setColor(Color.<span class="ST2">BLACK</span>);
+ 44         g.drawRect(200, 150, 200, 100);
+ 45                 
+ 46         <span class="comment">// The roof</span>
+ 47         g.drawLine(200, 150, 300, 90);
+ 48         g.drawLine(300, 90, 400, 150);
+ 49 
+ 50         <span class="comment">// The window</span>
+ 51         g.setColor(Color.<span class="ST2">YELLOW</span>);
+ 52         g.fillRect(225, 180, 90, 40);
+ 53         g.setColor(Color.<span class="ST2">BLACK</span>);
+ 54         g.drawRect(225, 180, 90, 40);
+ 55         g.drawLine(225, 200, 315, 200);
+ 56         g.drawLine(270, 180, 270, 220);
+ 57                 
+ 58                 
+ 59         <span class="comment">// The door and doorknob</span>
+ 60         g.setColor(Color.<span class="ST2">BLUE</span>);
+ 61         g.fillRect(350, 190, 30, 60);
+ 62         g.setColor(Color.<span class="ST2">ORANGE</span>);
+ 63         g.fillOval(365, 220, 10, 10);
+ 64 
+ 65 
+ 66         <span class="comment">// The tree</span>
+ 67         <span class="ST1">aTree</span>.draw(g);
+ 68         <span class="ST1">tree2</span>.draw(g);
+ 69         <span class="ST1">lastTree</span>.draw(g);
+ 70         <span class="ST1">iLiedThisIsTheRealLastOne</span>.draw(g);
+ 71         
+ 72         
+ 73         <span class="comment">// The sun</span>
+ 74         <span class="ST1">theSun</span>.draw(g);
+ 75         <span class="ST1">tatooineSun</span>.draw(g);
+ 76         <span class="ST1">sol</span>.draw(g);
+ 77         
+ 78     } <span class="comment">// end of paintComponent()</span>
+ 79 
+ 80     
+ 81     
+ 82     <span class="comment">/**</span><span class="comment">*********************************************</span>
+ 83 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+ 84 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+ 85     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">frame</span>()
+ 86     {
+ 87         <span class="literal">for</span> (Component c: getComponents())
+ 88             c.setSize(c.getPreferredSize());
+ 89         JFrame f = <span class="literal">new</span> JFrame(getName());
+ 90         f.setContentPane(<span class="literal">t</span><span class="literal">his</span>);
+ 91         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+ 92         f.pack();
+ 93         f.setVisible(<span class="literal">t</span><span class="literal">rue</span>);   
+ 94         
+ 95     } <span class="comment">// end of frame()</span>
+ 96 
+ 97     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel().frame();}
+ 98 
+ 99 }
+100 
+</pre></body>
+</html>

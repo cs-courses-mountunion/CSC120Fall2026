@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Mouse.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.comment {color: #969696}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec30\src\Mouse.java</td></tr></table>
+<pre>
+  1 <span class="literal">import</span> java.awt.*;
+  2 <span class="literal">import</span> java.util.Random;
+  3 
+  4 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">Mouse</span> {
+  5     
+  6     <span class="literal">public</span> Integer <span class="ST1">over</span>, <span class="ST1">down</span>;
+  7     <span class="literal">public</span> Boolean <span class="ST1">facingLeft</span>;
+  8     <span class="literal">public</span> Color <span class="ST1">mouseColor</span>;
+  9     
+ 10     <span class="literal">public</span> <span class="ST0">Mouse</span>( Integer x, Integer y, Color c ) {
+ 11         <span class="ST1">over</span> = x;
+ 12         <span class="ST1">down</span> = y;
+ 13         <span class="ST1">facingLeft</span> = <span class="literal">false</span>;
+ 14         <span class="ST1">mouseColor</span> = c;
+ 15     } <span class="comment">// end of constructor</span>
+ 16     
+ 17     <span class="literal">public</span> <span class="ST0">Mouse</span>( Integer x, Integer y ) {
+ 18         <span class="ST1">over</span> = x;
+ 19         <span class="ST1">down</span> = y;
+ 20         <span class="ST1">facingLeft</span> = <span class="literal">false</span>;
+ 21         <span class="ST1">mouseColor</span> = Color.<span class="ST2">LIGHT_GRAY</span>;
+ 22     } <span class="comment">// end of constructor</span>
+ 23 
+ 24     <span class="literal">public</span> <span class="ST0">Mouse</span>() {
+ 25         Random generator = <span class="literal">new</span> Random();
+ 26         <span class="ST1">over</span> = generator.nextInt(601) + 100;
+ 27         <span class="ST1">down</span> = generator.nextInt(501) + 50;
+ 28         <span class="ST1">facingLeft</span> = generator.nextBoolean();
+ 29         Integer red, green, blue;
+ 30         red = generator.nextInt(150);
+ 31         green = generator.nextInt(150);
+ 32         blue = generator.nextInt(150);
+ 33         <span class="ST1">mouseColor</span> = <span class="literal">new</span> Color(red, green, blue);
+ 34 <span class="comment">//        Double pct;</span>
+ 35 <span class="comment">//        pct = generator.nextDouble();</span>
+ 36 <span class="comment">//        if (pct &lt; 0.25) {</span>
+ 37 <span class="comment">//            mouseColor = Color.CYAN;</span>
+ 38 <span class="comment">//        }</span>
+ 39 <span class="comment">//        else if (pct &lt; 0.5) {</span>
+ 40 <span class="comment">//            mouseColor = Color.GREEN;</span>
+ 41 <span class="comment">//        }</span>
+ 42 <span class="comment">//        else if (pct &lt; 0.75) {</span>
+ 43 <span class="comment">//            mouseColor = Color.YELLOW;</span>
+ 44 <span class="comment">//        }</span>
+ 45 <span class="comment">//        else {</span>
+ 46 <span class="comment">//            mouseColor = Color.MAGENTA;</span>
+ 47 <span class="comment">//        }</span>
+ 48     } <span class="comment">// end of constructor</span>
+ 49     
+ 50     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">moveForward</span>( Integer steps ) {
+ 51         Integer direction = 1;
+ 52         <span class="literal">if</span> (<span class="ST1">facingLeft</span>) {
+ 53             direction = -1;
+ 54         }
+ 55         <span class="ST1">over</span> += direction*10*steps;
+ 56     } <span class="comment">// end of moveForward</span>
+ 57     
+ 58     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnAround</span>() {
+ 59         <span class="ST1">facingLeft</span> = !<span class="ST1">facingLeft</span>;        
+ 60     } <span class="comment">// end of turnAround</span>
+ 61     
+ 62     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">draw</span>(Graphics g){
+ 63         <span class="comment">//g.setColor(Color.LIGHT_GRAY);</span>
+ 64         g.setColor(<span class="ST1">mouseColor</span>);
+ 65         g.fillOval(<span class="ST1">over</span>, <span class="ST1">down</span>, 50, 20);
+ 66         Polygon nose;
+ 67         nose = <span class="literal">new</span> Polygon();
+ 68         <span class="literal">if</span> (<span class="ST1">facingLeft</span>) {
+ 69             nose.addPoint(<span class="ST1">over</span>+18, <span class="ST1">down</span>);
+ 70             nose.addPoint(<span class="ST1">over</span>+18, <span class="ST1">down</span>+20);
+ 71             nose.addPoint(<span class="ST1">over</span>-10, <span class="ST1">down</span>+10);
+ 72             g.fillPolygon(nose);
+ 73             g.setColor(Color.<span class="ST2">BLACK</span>);
+ 74             g.setColor(Color.<span class="ST2">BLACK</span>);
+ 75             g.fillOval(<span class="ST1">over</span>+12, <span class="ST1">down</span>+4, 5, 5);
+ 76             g.fillOval(<span class="ST1">over</span>+12, <span class="ST1">down</span>+11, 5, 5);
+ 77             g.drawLine(<span class="ST1">over</span>-5, <span class="ST1">down</span>+8, <span class="ST1">over</span>, <span class="ST1">down</span>-5);
+ 78             g.drawLine(<span class="ST1">over</span>-5, <span class="ST1">down</span>+8, <span class="ST1">over</span>-3, <span class="ST1">down</span>-5);
+ 79             g.drawLine(<span class="ST1">over</span>-5, <span class="ST1">down</span>+8, <span class="ST1">over</span>-6, <span class="ST1">down</span>-5);
+ 80             g.drawLine(<span class="ST1">over</span>-5, <span class="ST1">down</span>+12, <span class="ST1">over</span>, <span class="ST1">down</span>+25);
+ 81             g.drawLine(<span class="ST1">over</span>-5, <span class="ST1">down</span>+12, <span class="ST1">over</span>-3, <span class="ST1">down</span>+25);
+ 82             g.drawLine(<span class="ST1">over</span>-5, <span class="ST1">down</span>+12, <span class="ST1">over</span>-6, <span class="ST1">down</span>+25);
+ 83             g.drawArc(<span class="ST1">over</span>+20, <span class="ST1">down</span>-10, 60, 20, 270, 90  );
+ 84         } <span class="comment">// end if</span>
+ 85         <span class="literal">else</span> {
+ 86             nose.addPoint(<span class="ST1">over</span>+32, <span class="ST1">down</span>);
+ 87             nose.addPoint(<span class="ST1">over</span>+32, <span class="ST1">down</span>+20);
+ 88             nose.addPoint(<span class="ST1">over</span>+60, <span class="ST1">down</span>+10);
+ 89             g.fillPolygon(nose);
+ 90             g.setColor(Color.<span class="ST2">BLACK</span>);
+ 91             g.fillOval(<span class="ST1">over</span>+38, <span class="ST1">down</span>+4, 5, 5);
+ 92             g.fillOval(<span class="ST1">over</span>+38, <span class="ST1">down</span>+11, 5, 5);
+ 93             g.drawLine(<span class="ST1">over</span>+55, <span class="ST1">down</span>+8, <span class="ST1">over</span>+50, <span class="ST1">down</span>-5);
+ 94             g.drawLine(<span class="ST1">over</span>+55, <span class="ST1">down</span>+8, <span class="ST1">over</span>+53, <span class="ST1">down</span>-5);
+ 95             g.drawLine(<span class="ST1">over</span>+55, <span class="ST1">down</span>+8, <span class="ST1">over</span>+56, <span class="ST1">down</span>-5);
+ 96             g.drawLine(<span class="ST1">over</span>+55, <span class="ST1">down</span>+12, <span class="ST1">over</span>+50, <span class="ST1">down</span>+25);
+ 97             g.drawLine(<span class="ST1">over</span>+55, <span class="ST1">down</span>+12, <span class="ST1">over</span>+53, <span class="ST1">down</span>+25);
+ 98             g.drawLine(<span class="ST1">over</span>+55, <span class="ST1">down</span>+12, <span class="ST1">over</span>+56, <span class="ST1">down</span>+25);
+ 99             g.drawArc(<span class="ST1">over</span>-30, <span class="ST1">down</span>-10, 60, 20, 180, 90  );
+100         } <span class="comment">// end else</span>
+101         
+102     } <span class="comment">// end of draw</span>
+103     
+104 } <span class="comment">// end of class Mouse</span>
+105 
+106 
+107 
+108 
+109 
+110 
+111 
+112 
+113 
+114 
+115 
+116 
+117 
+118 
+119 
+120 
+121 <span class="comment">//    public Mouse() {</span>
+122 <span class="comment">//        Random generator = new Random();</span>
+123 <span class="comment">//        over = generator.nextInt(651) + 50;</span>
+124 <span class="comment">//        down = generator.nextInt(501) + 50;</span>
+125 <span class="comment">//        facingLeft = generator.nextBoolean();</span>
+126 <span class="comment">//    } // end of constructor</span>
+127 <span class="comment">//    </span>
+128 
+</pre></body>
+</html>

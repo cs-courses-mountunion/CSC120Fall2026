@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+h2 {
+    text-decoration: underline;
+}
+pre {
+    font-family: 'Share Tech Mono', 'Courier New';
+    font-size: 1.4em;
+}
+</style>
+</head>
+<body>
+
+<h2> Processing every element of an array: </h2>
+<pre>
+for (int x = 0; x &lt; arrayName.length; x++) {
+   arrayName[x].doSomething( );
+   arrayName[x].doSomethingElse( );
+} // end for
+</pre>
+
+<h2> Processing only those elements of an array that meet some criterion (pass a Boolean test for a numeric field): </h2>
+<pre>
+for (int x = 0; x &lt; arrayName.length; x++) {
+   if (arrayName[x].getAValue( ) == someValue) {
+      arrayName[x].doSomething( );
+      arrayName[x].doSomethingElse( );
+   } // end if
+} // end for
+</pre>
+
+<h2> Processing only those elements of an array that meet some criterion (pass a Boolean test for a String field): </h2>
+<pre>
+for (int x = 0; x &lt; arrayName.length; x++) {
+   if (arrayName[x].getAStringValue( ).equals( "some string value" ) ) {
+      arrayName[x].doSomething( );
+      arrayName[x].doSomethingElse( );
+   } // end if
+} // end for
+</pre>
+
+
+</body>
+</html>

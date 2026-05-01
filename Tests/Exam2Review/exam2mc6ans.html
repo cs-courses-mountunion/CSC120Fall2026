@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>CSC 120 Exam 2 Review</title>
+</head>
+<body vlink="#ff8800" alink="#ff0000" bgcolor="#ffffff" link="#0000ee"
+ text="#000000">
+<center>
+<h2><font color="#990099">CSC 120 <br />
+                          Review for Exam 2</font></h2>
+</center>
+
+<h3> Multiple Choice Question # 6: </h3>
+<blockquote>
+    What are the smallest and largest possible values that will be stored in the object 
+	<code>number</code> when these statements are executed?
+<pre>
+    Random randGenerator = new Random();
+    Integer number = randGenerator.nextInt(200) + 100;
+</pre>	
+	
+	<form action="exam2main.html">
+	<blockquote>
+	    <input type="radio" name="q6a"> smallest is 0 and largest is 299 <br/>
+	    <input type="radio" name="q6a"> smallest is 100 and largest is 199 <br/>
+	    <input type="radio" name="q6a" checked> <b>smallest is 100 and largest is 299</b> <br/>
+	    <input type="radio" name="q6a"> smallest is 200 and largest is 299 <br/>
+	    <input type="radio" name="q6a"> None of these <br/>
+	</blockquote>
+
+	<b>The <code>nextInt</code> method of the <code>Random</code> class returns a random 
+       <code>Integer</code> value that is greater 
+	   than or equal to 0 and is strictly less than the parameter that is passed to the 
+	   method, so if we add 100 to a random <code>Integer</code> in the range from 
+	   0 to 199, the smallest 
+	   possible value is 0 + 100 == 100, and the largest possible value is 199 + 100 
+	   == 299.</b>
+	   <br/><br/>
+	
+	<input type="submit" value="Click for rest of review instructions"> 
+	</form>
+</blockquote>
+
+
+</body>
+</html>

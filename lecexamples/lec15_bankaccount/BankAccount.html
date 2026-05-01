@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>BankAccount.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST2 {color: #009900}
+.ST3 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec15\src\BankAccount.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * To change this license header, choose License Headers in Project Properties.</span>
+ 3 <span class="comment"> * To change this template file, choose Tools | Templates</span>
+ 4 <span class="comment"> * and open the template in the editor.</span>
+ 5 <span class="comment"> */</span>
+ 6 
+ 7 <span class="comment">/**</span>
+ 8 <span class="comment"> *</span>
+ 9 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">cindricbb</span>
+10  <span class="comment">*/</span>
+11 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">BankAccount</span> {
+12     
+13     <span class="comment">//property declarations</span>
+14     
+15     <span class="literal">private</span> String <span class="ST2">idNum</span>, <span class="ST2">name</span>;
+16     <span class="literal">private</span> Double <span class="ST2">balance</span>;
+17     
+18     <span class="comment">// constructors</span>
+19     
+20     <span class="literal">public</span> <span class="ST1">BankAccount</span>(String num, String n, Double initBal) {
+21         <span class="ST2">idNum</span> = num;
+22         <span class="ST2">name</span> = n;
+23         <span class="ST2">balance</span> = initBal;
+24     } <span class="comment">// end of 3-parameter constructor</span>
+25     
+26     <span class="comment">// getters</span>
+27     
+28     <span class="literal">public</span> String <span class="ST1">getIdNum</span>() {
+29         <span class="literal">return</span> <span class="ST2">idNum</span>;
+30     }
+31     
+32     <span class="literal">public</span> String <span class="ST1">getName</span>() {
+33         <span class="literal">return</span> <span class="ST2">name</span>;
+34     }
+35     
+36     <span class="literal">public</span> Double <span class="ST1">getBalance</span>() {
+37         <span class="literal">return</span> <span class="ST2">balance</span>;
+38     }
+39     
+40     <span class="comment">// setters</span>
+41     
+42     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setIdNum</span>(String num) {
+43         <span class="ST2">idNum</span> = num;
+44     }
+45     
+46     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setName</span>(String n) {
+47         <span class="ST2">name</span> = n;
+48     }
+49     
+50     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setBalance</span>(Double bal) {
+51         <span class="ST2">balance</span> = bal;
+52     }
+53     
+54     <span class="comment">// other methods</span>
+55     
+56     <span class="literal">public</span> String <span class="ST1">toString</span>() {
+57         <span class="literal">return</span> <span class="ST2">name</span> + <span class="string">&quot;</span><span class="string"> owns account number </span><span class="string">&quot;</span> + <span class="ST2">idNum</span>
+58                 + <span class="string">&quot;</span><span class="string">, which has a balance of $</span><span class="string">&quot;</span> + <span class="ST2">balance</span>;
+59     }
+60 
+61     
+62     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">makeADeposit</span>( Double depositAmt ) {
+63         
+64         <span class="ST2">balance</span> = <span class="ST2">balance</span> + depositAmt;
+65         System.<span class="ST3">out</span>.println(<span class="ST2">name</span> + <span class="string">&quot;</span><span class="string"> deposited $</span><span class="string">&quot;</span> + depositAmt + <span class="string">&quot;</span><span class="string"> into her/his account</span><span class="string">&quot;</span>);
+66         
+67     }  <span class="comment">// end of makeADeposit</span>
+68 
+69     
+70     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">makeAWithdrawal</span>( Double withdrawalAmt ) {
+71         
+72         <span class="literal">if</span>  (<span class="ST2">balance</span> &gt;= withdrawalAmt) {
+73             <span class="ST2">balance</span> = <span class="ST2">balance</span> - withdrawalAmt;
+74             System.<span class="ST3">out</span>.println(<span class="ST2">name</span> + <span class="string">&quot;</span><span class="string"> withdrew $</span><span class="string">&quot;</span> + withdrawalAmt + <span class="string">&quot;</span><span class="string"> from her/his account</span><span class="string">&quot;</span>);
+75             
+76             <span class="literal">if</span> (<span class="ST2">balance</span> == 0) {
+77                 System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">     that reduces the balance in the account to $0</span><span class="string">&quot;</span>);
+78             }
+79             
+80         } <span class="comment">// end if</span>
+81         <span class="literal">else</span> {
+82             System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Hey </span><span class="string">&quot;</span> + <span class="ST2">name</span> + <span class="string">&quot;</span><span class="string">, you can&#39;t withdraw $</span><span class="string">&quot;</span> + withdrawalAmt
+83                    + <span class="string">&quot;</span><span class="string">!!!  You only have a balance of $</span><span class="string">&quot;</span> + <span class="ST2">balance</span>);
+84         } <span class="comment">// end else</span>
+85     }  <span class="comment">// end of makeAWithdrawal</span>
+86     
+87     
+88 } <span class="comment">// end of class BankAccount</span>
+89 
+</pre></body>
+</html>

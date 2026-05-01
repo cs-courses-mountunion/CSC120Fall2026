@@ -1,0 +1,59 @@
+<html>
+<head>
+<title> CS 121 - Lab 4 Sample # 1 </title>
+</head>
+<body bgcolor="#ffffff">
+<pre>
+
+/*  INSERT YOUR NAME HERE  -  CS121  -  Lab 4
+
+        A program that illustrates the use of if statements
+
+*/
+
+import java.applet.Applet;
+import java.awt.*;
+
+public class TheApplet extends Applet{
+
+    private int num;
+    private String text, person;
+         
+    public void init( ) {
+
+        setBackground(Color.yellow);
+
+        num = 47;
+        text = new String ("Coca Cola");
+        person = new String("Omar Vizquel");
+
+
+        if (num > 30) {
+            System.out.println("num is greater than 30");
+        }
+        System.out.println("The value of num = " + num);
+
+        if (text.length() < 10) {
+            System.out.println("the string is a short one");
+        }
+        System.out.println(text + " contains " + text.length() + " characters");
+
+        if ( text.equals("Coca Cola") ) {
+            System.out.println("That's the real thing, baby!");
+        }
+        System.out.println("Selection allows for decision making in Java");
+
+    } // end of init()
+        
+    public void paint(Graphics g) {
+
+        g.setColor(Color.blue);
+        g.drawString("Look in the Java Console for output", 20, 20);
+
+    } // end of paint()
+        
+} // end of TheApplet
+        
+</pre>
+</body>
+</html>

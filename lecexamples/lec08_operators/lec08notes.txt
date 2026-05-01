@@ -1,0 +1,68 @@
+
+Methods in a Class Definition
+=============================
+
+   Two styles of methods:
+
+      (1)  command-style methods -- used to ask an object to do something without expecting
+                                    an answer to be returned
+
+                  ex.  g.fillRect(12, 23, 34, 45);
+
+                       myBoat.draw(g);
+
+
+              called void methods  --  there is no data being returned as the answer from
+                                       the method, so the data type of the answer is void
+
+              called from the main program on a separate line
+
+
+      (2)   question-style methods -- used to ask an object to return an answer
+
+                  ex.  answer = Math.sqrt(100.0);
+
+                       System.out.println( myYacht.toString() );
+
+              called type-returning methods  --  the method will return an answer to us that
+                                                 is a specific data type
+
+              called from the main program as part of a larger statement
+
+              must include a return statement to send answer back to caller
+
+
+Common methods in Class Definitions
+===================================
+
+    toString -- purpose is to return a single text String showing all (or some) property values
+
+    "getter" methods -- purpose is to retrieve (get) the value of a property of an object
+
+    "setter" methods -- purpose is to store a new value (set) in a property of an object
+
+
+
+Data Types for Object Properties
+================================
+
+    Integer -- positive or negative whole number, or zero
+
+       (3 other types for non-decimal numbers:  Byte, Short, Long)
+
+    Double -- number with a digits to the left and right of 
+              the decimal point
+
+       ( 1 other type for decimal numbers:  Float)
+
+    String -- text data
+
+    Boolean -- true or false value
+
+    Color, Font, Graphics -- classes that come with Java
+            in the Java Class Hierarchy
+
+    Balloon, Flag, SmileySun, Boat -- classes that we write
+
+
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html  dir="ltr"  lang="en-us">
+  <head>
+    <meta  content="text/html; charset=UTF-8"  http-equiv="content-type">
+    <title>CSC 120 Hardware/Software Requirements</title>
+    <style type="text/css">
+      header {text-align: center;}
+      header h1 {margin-bottom:0}
+      header h2 {margin-top: 0}
+      header nav table, header nav th, header nav td {
+        border-collapse:collapse;
+        margin: auto;
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid black;
+        padding: 2.25pt;
+      }
+      table, th, td {
+        border: none;
+        text-align: left;
+        margin-left: 10em;
+        padding-left: 10px;
+      }
+      span {
+          color: red;
+      }
+      .strike {
+          text-decoration: line-through;
+          color: black;
+      }
+  dl {
+    padding-left: 4em;
+  }
+  dt {
+    float: left;
+    clear: left;
+    width: 5.5em;
+    text-align: left;
+    font-weight: bold;
+  }
+  dt::after {
+    content: ":";
+  }
+  </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSC 120 Programming and Problem Solving I<br>
+	        Hardware and Software Requirements  
+      </h1>
+    </header>
+    <nav>
+      <p>
+        For this course you will need access to a computer system
+        that will allow you to browse web pages and
+        work with Java programs using 
+        <strong>Apache Netbeans</strong>.
+        When you are on campus you have access to such systems in the 
+        CS Lab (057 KHIC), or by connecting to a Computer Science Virtual Desktop via 
+        a web browser from any computer connected to the University network.
+        <em><strong>If the University is required to return to remote learning, however,
+        you will need internet access and a computer that can connect to the University's 
+        virtual private network (VPN)</strong></em>,
+        since the CS Virtual Desktop is only available off-campus through the VPN.
+        See the <a href="#browser">Accessing the CS Virtual Desktop</a> section below
+        for details.
+        </p>
+        <p>
+        If your computer is running Windows 10 or MacOS,
+        you can avoid the need to connect to the CS Virtual Desktop, 
+        and thus also the VPN,
+        by installing Apache Netbeans directly on your computer.
+        You may find this to be the most convenient way to do course activities,
+        even when you are on campus.
+        See the 
+        <a href="#installation-instructions">Installing Course Software</a>
+        section below for details.
+        </p>
+    </nav>
+      <section id="browser">
+        <h2>Accessing the CS Virtual Desktop</h2>
+        <p> You can access the Computer Science Virtual Desktop remotely by browsing
+          to the <a href="https://gateway.mountunion.edu/portal/webclient/index.html" target="_blank">VMware Horizon server</a>.
+          </p>
+          <p>
+          If you are off campus, you will need to establish a connection with the 
+          Mount Union virtual private network (VPN) before you can access the viewconnect server;
+          see 
+          <a href="../CSLabVDI/requestVPNAccess.html" target="_blank"
+          >this explanation and series of directions</a>  for using VPN at Mount Union.
+          It may take a little time (possibly several days) for access to be granted,
+          so if you plan to use this option fill out the form linked to the previous directions page to request access early.
+        </p>
+        <p>
+          VPN access is supported by IT for Windows and Mac computers.
+          <!--
+		  If instead you have a Chromebook or are using Linux,
+          there is a way to connect to the VPN that is not officially supported by IT,
+          but you are allowed to try it on your own.
+          On a Chromebook you should be able to install an Android app called
+          <a href=
+          "https://play.google.com/store/apps/details?id=live.openconnect"
+          >OpenConnect</a> 
+          (there are several, but you should use the one I have linked here) 
+          to connect to the VPN.
+          This app is based on the 
+          <a href="https://www.infradead.org/openconnect/globalprotect.html">openconnect</a> 
+          package, which can be used to connect to our GlobalProtect VPN from Linux.
+          </p>
+          <p>
+          If you need to connect your Chromebook or Linux machine to the VPN,
+          get in touch with me for details.
+		  -->
+        </p>
+       
+      </section>
+      <section id="installation-instructions">
+        <h2>Installing Course Software</h2>
+        <p> You can set up the Apache Netbeans application on
+        your own Windows or Mac computer.
+        Start by opening this current instruction page in a browser on the computer you want to install the software on.
+        </p> 
+        <!--
+		<p> To install GitHub Desktop, 
+          follow these 
+         <a href="https://docs.github.com/en/free-pro-team@latest/desktop/installing-and-configuring-github-desktop/installing-github-desktop#downloading-and-installing-github-desktop"
+         >directions</a>.
+         If you are installing on a Mac, once you have completed step 5 you should 
+         close GitHub Desktop and 
+         move the GitHub Desktop application to the 
+         Applications folder.
+        </p>
+	    -->
+       <p>
+          <!--If you already have Apache Netbeans 11.0 or newer,
+          you do not need to reinstall Netbeans;
+          those versions will work with our textbook.-->
+          If you have an older version of Netbeans already installed,
+          it is recommended that you uninstall it before you follow 
+          the directions below to install Netbeans 22;
+          there are different details depending on whether 
+          your computer is  
+          <a href="#windows10">Windows</a>
+          or   
+          <a href="#mac">Mac</a>.
+          </p>
+          <p>
+          <h3 id="windows10">Install Netbeans 22 on a Windows computer</h3>
+          <ol>
+            <li>Download Eclipse Temurin jdk-21.0.4+7-LTS for Windows x64 from the
+            <a href="https://adoptium.net/temurin/releases/" target="_blank"
+            >Adoptium download site</a>.&nbsp; When you click this link, scroll down the page until you see the "Windows" version in the second column, and then choose the "JDK" version for ".msi" (should be the top option in the Windows group), as shown in this image:<br/>
+            <img style="margin-top: 1em; margin-bottom: 1em" src="JDKdownload02.png">
+			<br/>
+            Start the installation process by double-clicking the downloaded msi file.
+            Proceed through the installation process by clicking <strong>Next</strong> one or more times, accepting the license agreement if you are asked, 
+            until you see the screen below; 
+            at this point select the <strong>Set JAVA_HOME variable</strong> feature to be installed, 
+            in addition to the other two features already selected,
+            then press <strong>Next</strong> and complete the installation process.
+            </li>
+            <!--img style="margin-top: 1em; margin-bottom: 1em" src="AdoptOpenJDK11-custom-setup.png"-->
+            <img style="margin-top: 1em; margin-bottom: 1em" src="Javahome01.png">
+            <li><p>Only after you have installed Temurin JDK21 properly can you 
+              successfully install Netbeans 22.
+              Once you have installed Temurin JDK21 following the previous set of instructions,
+              download the Netbeans installer file that is available at this web site:&nbsp;
+              <a href="https://netbeans.apache.org/front/main/download/" target="_blank"> Download Apache Netbeans 22</a>. 
+            &nbsp; 
+            Run the downloaded file to install Apache Netbeans 22, 
+            accepting the license and any default options.
+            </p>
+            <p>
+            If you see a dialog box similar to the following one pop up, 
+            you didn't select the <strong>Set JAVA_HOME variable</strong> feature correctly
+            when you installed OpenJDK21,
+            so you will have to run the OpenJDK21 installer again 
+            (it's probably in the Downloads folder) 
+            and change the features selected so that the 
+            <strong>Set JAVA_HOME variable</strong> feature is correctly selected,
+            then run the Apache Netbeans install program again.
+            </p>
+            </li>
+            <img style="margin-top: 1em; margin-bottom: 1em" src="ApacheInstallError.png">
+          </ol>
+        </p>
+        <p>
+          <h3 id="mac">Install Netbeans 22 on a Mac computer</h3>
+          <ol>
+            <li>Download Eclipse Temurin jdk-21.0.4+7-LTS for macOS x64 from the
+            <a href="https://adoptium.net/temurin/releases/" target="_blank"
+            >Adoptium download site</a>.&nbsp; On this page, select the .pkg file for macOS x64 platforms.&nbsp; This will download the installation file.&nbsp;
+            Start the installation process by clicking on the downloaded pkg file to open it, 
+            pressing the <strong>Continue</strong> button,
+            agreeing to the license,
+            then pressing the <strong>Install</strong> button and providing your password to allow the install.
+            </li>
+            <li><p>Only after you have installed Temurin JDK21 properly can you 
+              successfully install Netbeans 22.
+              Once you have done the JDK21 install,
+              download the installer from the
+            <a href="https://netbeans.apache.org/front/main/download/" target="_blank"
+            >Dowloading Apache Netbeans 22</a> page. 
+            &nbsp; 
+            Click to open the downloaded dmg file, then double-click the pkg file that appears in the Finder
+            to open the installer for Apache Netbeans 22. 
+            Follow the prompts, agreeing to the license and entering your password as for the installation 
+            of Temurin JDK21.
+            You may then eject the dmg file from the desktop.
+            A Netbeans folder should appear in the Applications folder,
+             and inside of that is the Apache Netbeans 22 application. 
+            </p>
+            </li>
+          </ol>
+        </p>
+      </section>
+      <section style="height: 30em;">
+        <!-- Extra white space allows Resources section to appear at or near top of page-->
+        </section>    
+    </body>
+</html>

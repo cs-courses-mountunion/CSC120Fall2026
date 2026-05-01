@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Flag.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST2 {color: #009900}
+.ST3 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec03\src\Flag.java</td></tr></table>
+<pre>
+ 1 <span class="literal">import</span> java.awt.*;
+ 2 <span class="comment">/**</span>
+ 3     <span class="ST0">A</span> <span class="ST0">graphical</span> <span class="ST0">class</span> <span class="ST0">that</span> <span class="ST0">displays</span> <span class="ST0">as</span> <span class="ST0">a</span> <span class="ST0">flag</span><span class="ST0">.</span>
+ 4 
+ 5     <span class="comment">The</span> <span class="comment">flag</span> <span class="comment">is</span> <span class="comment">a</span> <span class="comment">rectangle</span> <span class="comment">of</span> <span class="comment">one</span> <span class="comment">color</span> <span class="comment">with</span> <span class="comment">a</span>
+ 6     <span class="comment">vertical</span> <span class="comment">stripe</span> <span class="comment">of</span> <span class="comment">another</span> <span class="comment">color</span><span class="comment">.</span>
+ 7     <span class="comment">Author</span> <span class="comment">Louise</span> <span class="comment">Moses</span><span class="comment">.</span> <span class="comment">Modified</span> <span class="comment">by</span> <span class="comment">John</span> <span class="comment">Kirchmeyer</span>
+ 8     <span class="comment">Version</span><span class="comment"> 1</span><span class="comment">.</span><span class="comment">0 </span><span class="comment">June</span><span class="comment"> 9, 2004</span>
+ 9 <span class="comment">*/</span>
+10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Flag</span> {
+11 
+12     <span class="comment">// The background color of this flag object.</span>
+13     <span class="literal">private</span> Color <span class="ST2">flagColor</span>;
+14 
+15     <span class="comment">// The color of the vertical stripe.</span>
+16     <span class="literal">private</span> Color <span class="ST2">stripeColor</span>;
+17 
+18     <span class="comment">// The horizontal position of the upper left corner of this Flag object.</span>
+19     <span class="literal">private</span> Integer <span class="ST2">over</span>;
+20 
+21     <span class="comment">// The vertical position of the upper left corner of this Flag object.</span>
+22     <span class="literal">private</span> Integer <span class="ST2">down</span>;
+23 
+24     <span class="comment">// The overall width of this Flag object.</span>
+25     <span class="literal">private</span> <span class="literal">final</span> Integer <span class="ST2">WIDTH</span>  = 200;
+26 
+27     <span class="comment">// The overall height of this Flag object.</span>
+28     <span class="literal">private</span> <span class="literal">final</span> Integer <span class="ST2">HEIGHT</span> = 120;
+29 
+30     <span class="comment">/**</span>
+31 <span class="comment">     * </span><span class="ST0">Create</span> <span class="ST0">and</span> <span class="ST0">Initialize</span> <span class="ST0">a</span> <span class="ST0">new</span> <span class="ST0">Flag</span><span class="ST0">.</span>
+32 <span class="comment">     *   </span><span class="comment">ov</span>        <span class="comment">The</span> <span class="comment">horizontal</span> <span class="comment">position</span> <span class="comment">of</span> <span class="comment">the</span> <span class="comment">upper</span> <span class="comment">left</span> <span class="comment">corner</span> <span class="comment">of</span> <span class="comment">this</span> <span class="comment">Flag</span> <span class="comment">object</span><span class="comment">.</span>
+33 <span class="comment">     *   </span><span class="comment">dn</span>        <span class="comment">The</span> <span class="comment">vertical</span> <span class="comment">position</span> <span class="comment">of</span> <span class="comment">the</span> <span class="comment">upper</span> <span class="comment">left</span> <span class="comment">corner</span> <span class="comment">of</span> <span class="comment">this</span> <span class="comment">Flag</span> <span class="comment">object</span><span class="comment">.</span>
+34 <span class="comment">     *   </span><span class="comment">flagCol</span>   <span class="comment">The</span> <span class="comment">background</span> <span class="comment">color</span> <span class="comment">of</span> <span class="comment">this</span> <span class="comment">Flag</span> <span class="comment">object</span><span class="comment">.</span>
+35 <span class="comment">     *   </span><span class="comment">stripeCol</span> <span class="comment">The</span> <span class="comment">color</span> <span class="comment">of</span> <span class="comment">the</span> <span class="comment">horizontal</span> <span class="comment">stripe</span><span class="comment">.</span>
+36      <span class="comment">*/</span>
+37     <span class="literal">public</span> <span class="ST1">Flag</span>(Integer ov, Integer dn, Color flagCol, Color stripeCol) {
+38         <span class="ST2">over</span> = ov;
+39         <span class="ST2">down</span> = dn;
+40         <span class="ST2">flagColor</span> = flagCol;
+41         <span class="ST2">stripeColor</span> = stripeCol;
+42     } <span class="comment">// end of constructor</span>
+43 
+44     <span class="comment">/**</span>
+45 <span class="comment">     * </span><span class="ST0">Draws</span> <span class="ST0">this</span> <span class="ST0">Flag</span> <span class="ST0">object</span> <span class="ST0">on</span> <span class="ST0">the</span> <span class="ST0">Graphics</span> <span class="ST0">context</span> <span class="ST0">g</span><span class="ST0">.</span>
+46 <span class="comment">     *   </span><span class="comment">g</span>       <span class="comment">A</span> <span class="comment">Graphics</span> <span class="comment">context</span> <span class="comment">on</span> <span class="comment">which</span> <span class="comment">to</span> <span class="comment">draw</span><span class="comment">.</span>
+47     <span class="comment">*/</span>
+48     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">draw</span>(Graphics g) {
+49         g.setColor(<span class="ST2">flagColor</span>);
+50         g.fillRect(<span class="ST2">over</span>, <span class="ST2">down</span>, <span class="ST2">WIDTH</span>, <span class="ST2">HEIGHT</span>);
+51 
+52         <span class="comment">//vertical bar in the middle</span>
+53         g.setColor(<span class="ST2">stripeColor</span>);
+54         g.fillRect(<span class="ST2">over</span>+(<span class="ST2">WIDTH</span>/3), <span class="ST2">down</span>, (<span class="ST2">WIDTH</span>/3), <span class="ST2">HEIGHT</span>);
+55 
+56        
+57         <span class="comment">//outline the flag in black</span>
+58         g.setColor(Color.<span class="ST3">BLACK</span>);
+59         g.drawRect(<span class="ST2">over</span>, <span class="ST2">down</span>, <span class="ST2">WIDTH</span>, <span class="ST2">HEIGHT</span>);
+60         
+61     } <span class="comment">// end of draw</span>
+62 
+63     <span class="comment">/**</span>
+64 <span class="comment">     * </span><span class="ST0">Returns</span> <span class="ST0">a</span> <span class="ST0">string</span> <span class="ST0">representation</span> <span class="ST0">of</span> <span class="ST0">the</span> <span class="ST0">values</span> <span class="ST0">of</span> <span class="ST0">this</span> <span class="ST0">Flag</span> <span class="ST0">object</span><span class="ST0">&#39;</span><span class="ST0">s</span> <span class="ST0">over</span><span class="ST0">, </span><span class="ST0">down</span><span class="ST0">, </span><span class="ST0">flagColor</span><span class="ST0">, </span><span class="ST0">and</span> <span class="ST0">stripeColor</span> <span class="ST0">fields</span><span class="ST0">.</span>
+65      <span class="comment">*/</span>
+66     <span class="literal">public</span> String <span class="ST1">toString</span>() {
+67         String tempString;
+68 
+69         tempString = <span class="string">&quot;</span><span class="string">Flag with over=</span><span class="string">&quot;</span> + <span class="ST2">over</span>
+70                     + <span class="string">&quot;</span><span class="string"> down=</span><span class="string">&quot;</span> + <span class="ST2">down</span>
+71                     + <span class="string">&quot;</span><span class="string"> flagColor=</span><span class="string">&quot;</span> + <span class="ST2">flagColor</span>.toString()
+72                     + <span class="string">&quot;</span><span class="string"> stripeColor=</span><span class="string">&quot;</span> + <span class="ST2">stripeColor</span>.toString();
+73         <span class="literal">return</span> tempString;
+74     } <span class="comment">// end of toString</span>
+75 
+76 }<span class="comment">// end of class Flag</span>
+77 
+</pre></body>
+</html>

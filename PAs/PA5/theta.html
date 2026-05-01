@@ -1,0 +1,193 @@
+<html>
+<head>
+  <title>CSC 120 Programming Assignment 5</title>
+</head>
+
+<body vlink="#ff8800" alink="#ff0000" bgcolor="#ffffff" link="#0000ee"
+ text="#000000">
+<font color="#990099">
+<center>
+<h2>CSC 120 Programming Assignment 5</h2>
+</center>
+</font>
+<h4> Note:&nbsp; You should <b>not</b> work on this assignment during
+lecture or lab class-time unless:
+<ol type="a">
+  <li>You have completed all of the in-class assigned work for the day,
+and</li>
+  <li>You have permission from the instructor.</li>
+</ol>
+</h4>
+<h4> This assignment must be submitted to the PA5 D2L dropbox <b>before</b> the beginning of class on the due date.</h4>
+
+<h3> Overview: </h3>
+<blockquote> Write a Java application that draws a pattern in the output window that is drawn
+             with a <code>for</code> loop, and is drawn in successive stages based on the
+			 number of times the user has clicked on a button on screen.&nbsp; For an example
+			 of how your program should work, 
+	<a href="Samples/PA5PatternTheta/index.html" target="_blank"> click here</a>.
+</blockquote>
+
+<h3> Instructions and Requirements: </h3>
+<ol>
+<!-- --------------------------------------------------------------------------
+  <li>
+    <p>Create an application called <span style="font-weight: bold;">PA5
+    </span>(no
+spaces in the name, so <span style="font-weight: bold;">PA5</span>,
+not <span style="font-weight: bold;">PA 5</span>).&nbsp; This program will have only
+two class definitions:&nbsp; the <code>MUFrame</code> class and the <code>MUPanel</code> class.&nbsp;
+The GUI 
+    for the program will have two <code>JButton</code>s and a <code>JLabel</code>, the behavior 
+	of which will be defined below.
+    </p>
+  </li>
+
+  <li>
+    <p>Copy the three files from <b>M:\CSIS\CSIS&nbsp;Faculty\Handout\NetBeansTemplates\MUFrame&nbsp;with&nbsp;GUI&nbsp;designer</b>
+    	as a starting point for this program.&nbsp; Use the Designer to place two Buttons in the 
+		bottom corners of the graphical output screen in MUFrame.java, and
+		a Label in the bottom-center of the screen.&nbsp; Rename the buttons and label so that they have 
+		meaningful names, change the text of the bottom-left button to be "Increase Repetitions", change
+		the text of the bottom-right button to be "Reset Drawing", and change the text of the label 
+		to be "Num. of Repetitions = 1".
+	   </p>
+  </li>
+  <li>
+    <p>You should declare a
+	    private <code>Integer</code> property named <code>numberOfReps</code> in the MUPanel class.&nbsp;
+		In the constructor method of <code>MUPanel</code>, store 1 as the initial
+	    value of the <code>numberOfReps</code> property.
+	   </p>
+  </li>
+--------------------------------------------------------->  
+  <li>
+    <p>You should have
+       a <code>for</code> loop in the <code>paintComponent</code> method of MUPanel that will draw one
+       or more shapes, and will be executed <!--code>numberOfReps</code--> <code>howMany</code> times.&nbsp; You will need some
+	   combination of <code>g.setColor</code>, <code>g.drawRect</code>, 
+	   <code>g.fillRect</code>, <code>g.drawOval</code>, 
+	   <code>g.fillOval</code>, <code>g.drawArc</code> and/or <code>g.fillArc</code> method calls to draw
+	   your assigned pattern.&nbsp; After the shapes are drawn inside the <code>for</code> loop, 
+	   the values of the variables <code>over</code>, <code>down</code>, <code>width</code> and/or
+	   <code>height</code> may need to be changed, based on how your assigned pattern changes.
+	   </p>
+  </li>
+<!-- ----------------------------------------------------------------
+
+  <li>
+    <p>
+	   Define three methods in the MUPanel class in addition to the constructor and <code>paintComponent</code>:
+	   <ul>
+	       <li> <code>increaseReps</code> &rarr; accepts no parameters and returns nothing.  This method should
+                increase the value of the <code>numberOfReps</code> property by one. <br/><br/> </li>
+	       <li> <code>resetReps</code> &rarr; accepts no parameters and returns nothing.  This method should
+                store the value 1 in the <code>numberOfReps</code> property. <br/><br/> </li>
+	       <li> <code>getNumberOfReps</code> &rarr; accepts no parameters and returns an <code>Integer</code>
+		        value, which is the value of the <code>numberOfReps</code> property. <br/><br/> </li>
+	   </ul>
+	   </p>
+  </li>
+  <li>
+    <p>
+       One of the buttons in the GUI should cause the value stored in <code>numberOfReps</code> to be
+       increased by one by calling the appropriate method of the <code>muPanel</code> object, 
+	   set the text of the label to "Num. of Repetitions = " + <code>muPanel.getNumberOfReps()</code>
+	   and then <code>muPanel.repaint()</code> should be called.
+	   </p>
+  </li>
+  <li>
+	<p>
+	   The other button should
+       cause the value of <code>numberOfReps</code> to be reset to 1 by calling the appropriate method of
+	   the <code>muPanel</code> object,
+       set the text of the label to "Num. of Repetitions = " + <code>muPanel.getNumberOfReps()</code>
+	   and then <code>muPanel.repaint()</code> should be called.
+	</p>
+  </li>
+----------------------------------------------------------->
+  <li>
+    <p>
+       Each student in the class has a unique pattern to work on &mdash; you MUST use the pattern that
+	   has been assigned to you for this project.	   
+	</p>
+  </li>
+  <li>
+    <p>
+       Hint:&nbsp; for this pattern, you will want to set the line width in the <code>paintComponent</code> method to 3.&nbsp; You can do this by inserting the following two statements in your <code>paintComponent</code> method immediately <u>before</u> the <code>for</code> loop heading:
+<pre>
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setStroke( new BasicStroke(3) );         
+</pre>	   
+       See the <a href="../PA1/ThickLineDemo/ThickLineDemo.html" target="_blank"> Changing the Line Thickness Demo</a> for more information.
+	</p>
+  </li>
+</ol>
+
+<h3> Turning in your Program for Grading: </h3>
+<blockquote>
+  Convert your
+<b>CSC120\Java\PA5</b> folder into a .zip file named <code><b>PA5.zip</b></code> and submit it to the PA5 dropbox
+in <a href="http://d2l.mountunion.edu" target="_blank"> D2L</a>.
+</blockquote>
+
+<h3> Note:&nbsp; It is expected that each student will complete this
+assignment INDIVIDUALLY. </h3>
+
+<h3> Grading Rubric: </h3>
+			    <table border="1" cellpadding="3" align="left" width="70%">
+                    <tr>
+			            <th>Evaluation Item</th>
+			            <th>Possible<br/>points</th>
+			        </tr>
+			        <tr>
+			            <td>CSC 120, PA 5, name, date, & description comments in MUPanel.java</td>
+			            <td align="center">3</td>
+			        </tr>
+			        <tr>
+			            <td>One private data member:&nbsp; an 
+						    <code>Integer</code> named <code>numberOfReps</code> or something similar. </td>
+			            <td align="center">1</td>
+			        </tr>
+			        <tr>
+			            <td>constructor sets <code>numberOfReps</code> to 1. </td>
+			            <td align="center">1</td>
+			        </tr>
+			        <tr>
+			            <td><code>for</code> loop in the <code>paintComponent</code> method that draws
+						    one or more shapes, and is executed <code>numberOfReps</code> times. </td>
+			            <td align="center">3</td>
+			        </tr>
+			        <tr>
+			            <td>A combination of g. methods used to draw your assigned pattern. </td>
+			            <td align="center">4</td>
+			        </tr>
+			        <tr>
+			            <td>After shapes are drawn inside <code>for</code> loop, <code>over</code>,
+    						<code>down</code>, <code>width</code> and/or <code>height</code> are
+							changed to make pattern change. </td>
+			            <td align="center">6</td>
+			        </tr>
+			        <tr>
+			            <td>One button causes <code>numberOfReps</code> to increase by one.&nbsp; Other 
+                            button causes <code>numberOfReps to be reset to 1.
+						</td>
+			            <td align="center">1</td>
+			        </tr>
+			        <tr>
+			            <td>Pattern is correctly drawn, and matches the pattern assigned to the student.
+						</td>
+			            <td align="center">8</td>
+			        </tr>
+			        <tr>
+			            <td>Organization and readability of the Java code, including appropriate indenting</td>
+			            <td align="center">3</td>
+			        </tr>
+			        <tr>
+			            <th align="right">Total Points ====> </th>
+			            <th align="center">30</th>
+			        </tr>
+			    </table>
+				
+</body>
+</html>

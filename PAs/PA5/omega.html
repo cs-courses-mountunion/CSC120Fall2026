@@ -1,0 +1,200 @@
+<html>
+<head>
+  <title>CSC 120 Programming Assignment 5</title>
+</head>
+
+<body vlink="#ff8800" alink="#ff0000" bgcolor="#ffffff" link="#0000ee"
+ text="#000000">
+<font color="#990099">
+<center>
+<h2>CSC 120 Programming Assignment 5</h2>
+</center>
+</font>
+<h4> Note:&nbsp; You should <b>not</b> work on this assignment during
+lecture or lab class-time unless:
+<ol type="a">
+  <li>You have completed all of the in-class assigned work for the day,
+and</li>
+  <li>You have permission from the instructor.</li>
+</ol>
+</h4>
+<h4> This assignment must be submitted to the PA5 D2L dropbox <b>before</b> the beginning of class on the due date.</h4>
+
+<h3> Overview: </h3>
+<blockquote> Write a Java application that plots the mathematical function <b><code>x = (5-y)*(5-y)</code></b>
+             in a TextArea on screen, using
+             a <code>for</code> loop; the plot is drawn in successive stages based on the
+			 number of times the user has clicked on a button on screen.&nbsp; For an example
+			 of how your program should work, 
+	<a href="Samples/PA5PatternOmega/index.html" target="_blank"> click here</a>.
+</blockquote>
+
+<h3> Instructions and Requirements: </h3>
+<ol>
+<!-- --------------------------------------------------------------------------
+  <li>
+    <p>Create an application called <span style="font-weight: bold;">PA5
+    </span>(no
+spaces in the name, so <span style="font-weight: bold;">PA5</span>,
+not <span style="font-weight: bold;">PA 5</span>).&nbsp; This program will have only
+two class definitions:&nbsp; the <code>MUFrame</code> class and the <code>MUPanel</code> class.&nbsp;
+The GUI 
+    for the program will have two <code>JButton</code>s and a <code>JLabel</code>, the behavior 
+	of which will be defined below.
+    </p>
+  </li>
+
+  <li>
+    <p>Copy the three files from <b>M:\CSIS\CSIS&nbsp;Faculty\Handout\NetBeansTemplates\MUFrame&nbsp;with&nbsp;GUI&nbsp;designer</b>
+    	as a starting point for this program.&nbsp; Use the Designer to place two Buttons in the 
+		bottom corners of the graphical output screen in MUFrame.java, and
+		a Label in the bottom-center of the screen.&nbsp; Rename the buttons and label so that they have 
+		meaningful names, change the text of the bottom-left button to be "Increase Repetitions", change
+		the text of the bottom-right button to be "Reset Drawing", and change the text of the label 
+		to be "Num. of Repetitions = 1".
+	   </p>
+  </li>
+  <li>
+    <p>You should declare a
+	    private <code>Integer</code> property named <code>numberOfReps</code> in the MUPanel class.&nbsp;
+		In the constructor method of <code>MUPanel</code>, store 1 as the initial
+	    value of the <code>numberOfReps</code> property.
+	   </p>
+  </li>
+-------------------------------------------------------------------------->
+  
+  <li>
+    <p>For this assignment, you only need to use an MUFrame class; you won't need an MUPanel, because
+	   this assignment does not use graphics or drawing.<p>
+  </li>
+  <li>  
+    <p>You should write a method in MUFrame that uses
+       a <code>for</code> loop  that will append one line of the plot to the TextArea; the
+       loop should be executed <code>numberOfReps</code> times.&nbsp; Before the
+	   loop begins, use the <code>setText</code> method to display the title line in the 
+	   TextArea, and after the loop ends, be sure to display the bottom axis as shown in the
+	   samples.
+	   </p>
+  </li>
+  <li>
+    <p>Note that in order to draw the asterisks for a particular line, you will need a <code>for</code>
+	   loop.&nbsp; This means that your program will contain an outer <code>for</code> loop that
+	   has an inner <code>for</code> loop inside it.&nbsp; This programming approach is called
+	   using nested loops, and is a very common, important processing technique.
+  </li>
+  <li>
+    <p>There must be two buttons in the interface &ndash; one that adds 1 to the
+	   <code>numberOfReps</code> variable, and another that resets <code>numberOfReps</code>
+	   to 1.&nbsp; When either of these buttons is clicked, the label at the bottom of the
+	   screen must be updated to show the current value of <code>numberOfReps</code>, and
+	   the plot method should be called so that the plot is redrawn in the TextArea showing 
+	   the proper number of lines.
+	</p>
+  </li>
+<!-- --------------------------------------------------------------------------
+  <li>
+    <p>
+	   Define three methods in the MUPanel class in addition to the constructor and <code>paintComponent</code>:
+	   <ul>
+	       <li> <code>increaseReps</code> &rarr; accepts no parameters and returns nothing.  This method should
+                increase the value of the <code>numberOfReps</code> property by one. <br/><br/> </li>
+	       <li> <code>resetReps</code> &rarr; accepts no parameters and returns nothing.  This method should
+                store the value 1 in the <code>numberOfReps</code> property. <br/><br/> </li>
+	       <li> <code>getNumberOfReps</code> &rarr; accepts no parameters and returns an <code>Integer</code>
+		        value, which is the value of the <code>numberOfReps</code> property. <br/><br/> </li>
+	   </ul>
+	   </p>
+  </li>
+  <li>
+    <p>
+       One of the buttons in the GUI should cause the value stored in <code>numberOfReps</code> to be
+       increased by one by calling the appropriate method of the <code>muPanel</code> object, 
+	   set the text of the label to "Num. of Repetitions = " + <code>muPanel.getNumberOfReps()</code>
+	   and then <code>muPanel.repaint()</code> should be called.
+	   </p>
+  </li>
+  <li>
+	<p>
+	   The other button should
+       cause the value of <code>numberOfReps</code> to be reset to 1 by calling the appropriate method of
+	   the <code>muPanel</code> object,
+       set the text of the label to "Num. of Repetitions = " + <code>muPanel.getNumberOfReps()</code>
+	   and then <code>muPanel.repaint()</code> should be called.
+	</p>
+  </li>
+-------------------------------------------------------------------------->
+  <li>
+    <p>
+       Each student in the class has a unique pattern to work on &mdash; you MUST use the pattern that
+	   has been assigned to you for this project.	   
+	</p>
+  </li>
+</ol>
+
+<h3> Turning in your Program for Grading: </h3>
+<blockquote>
+  Convert your
+<b>H:\CSC120\Java\PA5</b> folder into a .zip file named <code><b>PA5.zip</b></code> and submit it to the PA5 dropbox
+in <a href="http://d2l.mountunion.edu" target="_blank"> D2L</a>.
+</blockquote>
+
+<h3> Note:&nbsp; It is expected that each student will complete this
+assignment INDIVIDUALLY. </h3>
+
+<h3> Grading Rubric: </h3>
+			    <table border="1" cellpadding="3" align="left" width="70%">
+                    <tr>
+			            <th>Evaluation Item</th>
+			            <th>Possible<br/>points</th>
+			        </tr>
+			        <tr>
+			            <td>CSC 120, PA 5, name, date, & description comments in MUFrame.java</td>
+			            <td align="center">4</td>
+			        </tr>
+			        <tr>
+			            <td>One private data member:&nbsp; an 
+						    <code>Integer</code> named <code>numberOfReps</code> or something similar. </td>
+			            <td align="center">3</td>
+			        </tr>
+			        <tr>
+			            <td>constructor sets <code>numberOfReps</code> to 1. </td>
+			            <td align="center">4</td>
+			        </tr>
+			        <tr>
+			            <td>Method that uses a <code>for</code> loop in the 
+						    <code>MUFrame</code> class that draws
+						    one or more lines for the plot; the loop is executed 
+							<code>numberOfReps</code> times. </td>
+			            <td align="center">5</td>
+			        </tr>
+			        <tr>
+			            <td>Title line displayed at top of TextArea correctly. </td>
+			            <td align="center">3</td>
+			        </tr>
+			        <tr>
+			            <td>Bottom axis lines are displayed in TextArea after plot correctly. </td>
+			            <td align="center">5</td>
+			        </tr>
+			        <tr>
+			            <td>One button causes <code>numberOfReps</code> to increase by one.&nbsp; Other 
+                            button causes <code>numberOfReps to be reset to 1.
+						</td>
+			            <td align="center">4</td>
+			        </tr>
+			        <tr>
+			            <td>Plot is correctly drawn, and matches the function assigned to the student.
+						</td>
+			            <td align="center">8</td>
+			        </tr>
+			        <tr>
+			            <td>Organization and readability of the Java code, including appropriate indenting</td>
+			            <td align="center">4</td>
+			        </tr>
+			        <tr>
+			            <th align="right">Total Points ====> </th>
+			            <th align="center">40</th>
+			        </tr>
+			    </table>
+				
+</body>
+</html>

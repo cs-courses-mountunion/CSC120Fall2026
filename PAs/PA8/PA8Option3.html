@@ -1,0 +1,103 @@
+<html>
+
+<head>
+  <title>CSC 120 PA8</title>
+</head>
+
+<body>
+
+<h2 align="center"><font color="#800080">CSC 120 Programming Assignment 8  <br/>
+Play a Song</font></h2>
+
+<font size="+1">Note: You should <b>not</b> work on this assignment during class-time unless:</font>
+
+<ol type="a">
+  <li><font size="+1">You have completed all of the in-class assigned work for the day, and</font></li>
+  <li><font size="+1">You have permission from the instructor.</font></li>
+</ol>
+
+<h4> This assignment must be handed in to your instructor's handin
+folder <b>before</b> the beginning of class on the due date.</h4>
+
+<h3>Description:</h3>
+
+<blockquote>
+Your program should accept input that represents notes and durations for some musical song,
+convert this
+input into numeric values, and use the <code>StdAudio</code> class to play the notes on the computer's 
+speakers.
+</blockquote>
+
+<h3>Input format:</h3>
+<blockquote>
+    Each line of the input will consist of three values separated by different delimiters.&nbsp; The
+	three values and the delimiters beween them, in order from left to right, are:
+	<blockquote>
+	    pitch value &nbsp; (an <code>Integer</code>) <br/>
+		"@" &nbsp; (the delimiter that separates notes from durations) <br/>
+	    duration numerator &nbsp; (an <code>Integer</code>) <br/>
+		"/" &nbsp; (the delimiter that separates numerator from denominator) <br/>
+	    duration denominator &nbsp; (an <code>Integer</code>) <br/>
+	</blockquote>
+	Here is an example:
+<pre>
+12 @ 1/8
+</pre>	
+    Note that you should use the <code>trim</code> method of the <code>String</code> class to remove
+	all leading and trailing spaces from the parts of the input line that you split using <code>"@/"</code> as the
+	delimiters before processing the values in your program.
+</blockquote>
+
+<h3>Outline of Processing Logic:</h3>
+<blockquote>
+    When the processing button is clicked by the user, the program should split the input entered by the user
+	in the input area into separate strings for each line of the input.&nbsp; Then for each line,
+	<ol type="a">
+		<li> split the line into three values using the string <code>"[@/]"</code> as the delimiter (note:&nbsp; the square brackets inside the quotes are necessary to make the <code>split</code> method work properly with two different delimiter characters in the input line)</li>
+		<li> trim off leading and trailing spaces from each of the three values obtained in the previous step </li>
+		<li> convert the first value from the input line into an Integer value representing the pitch number </li>
+		<li> convert the second value from the input line into a Double value representing the duration numerator </li>
+		<li> convert the third value from the input line into an Integer value representing the duration denominator </li>
+		<li> calculate the duration by dividing numerator by denominator </li>
+		<li> include these two lines:
+<pre>
+    double[] aNote = StdAudio.note(pitch, duration);
+    StdAudio.play(aNote);
+</pre> </li>	
+        <li> that's the end of the for loop </li>	
+	</ol>
+</blockquote>
+
+<h3><code>StdAudio.java</code> class file</h3>
+<blockquote>
+    In order to complete this assignment, you need to right-click on the following file and save it in
+	the <b>src</b> folder of your NetBeans project:
+	<blockquote>
+	    <a href="StdAudio.java"> StdAudio.java</a>
+	</blockquote>
+</blockquote>
+
+<h3>Input Samples to Use:</h3>
+<blockquote>
+    Your program should be able to process all of these inputs correctly:
+	<ol type="i">
+	    <li> <a href="song_AScale.txt"> The musical scale</a> </li>
+	    <li> <a href="song_yankeedoodle.txt"> Yankee Doodle</a> </li>
+	    <li> <a href="song_entertainer.txt"> The Entertainer</a> </li>
+	    <li> <a href="song_looney.txt"> Theme from Looney Tunes</a> </li>
+	</ol>
+</blockquote>
+
+<h3>Credits:</h3>
+<blockquote>
+    For information about the <code>StdAudio.java</code> class that is used in this assignment, see
+	pages 157 - 161 of the .pdf file that contains the material from 
+	<a href="http://introcs.cs.princeton.edu/java/home/chapter1.pdf" target="_blank"> Chapter 1</a>
+	of the textbook <u>Introduction to Programming in Java</u>, by Robert Sedgewick and Kevin Wayne.
+</blockquote>
+
+<h4> It is expected that each student will complete this assignment INDIVIDUALLY.</h4>
+
+
+</body>
+</html>

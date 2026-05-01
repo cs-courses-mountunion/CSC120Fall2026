@@ -1,0 +1,22 @@
+
+All getter methods have the same structure:
+
+    public ...DataType... getSomething( ) {
+
+        return something;
+
+    } // end of getSomething()
+
+
+
+
+All setter methods have the same structure:
+
+    public void setSomething( ...DataType... parameter ) {
+
+        something = parameter;
+
+    } // end of setSomething()
+
+
+

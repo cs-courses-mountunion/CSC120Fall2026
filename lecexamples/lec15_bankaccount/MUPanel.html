@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.comment {color: #969696}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec15\src\MUPanel.java</td></tr></table>
+<pre>
+ 1 <span class="literal">import</span> java.awt.*;
+ 2 <span class="literal">import</span> javax.swing.*;
+ 3 
+ 4 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 5 
+ 6     <span class="literal">private</span> BankAccount <span class="ST1">acct1</span>, <span class="ST1">acct2</span>;
+ 7 
+ 8     <span class="comment">// constructor method</span>
+ 9     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+10         setLayout(<span class="literal">null</span>);
+11         setPreferredSize(<span class="literal">new</span> Dimension(800, 100));
+12         setName(<span class="string">&quot;</span><span class="string">CSC 120 Lecture # 15</span><span class="string">&quot;</span>);
+13         setBackground(Color.<span class="ST2">WHITE</span>);
+14 
+15         <span class="ST1">acct1</span> = <span class="literal">new</span> BankAccount(<span class="string">&quot;</span><span class="string">000123</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Sammy Scarton</span><span class="string">&quot;</span>, 40.00);
+16         <span class="ST1">acct2</span> = <span class="literal">new</span> BankAccount(<span class="string">&quot;</span><span class="string">099999</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Helga Schwartz</span><span class="string">&quot;</span>, 500.00);
+17         
+18         
+19         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Initially, the balances are:</span><span class="string">&quot;</span>);
+20         System.<span class="ST2">out</span>.println();
+21         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">  acct1:  </span><span class="string">&quot;</span> + <span class="ST1">acct1</span>.toString());
+22         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">  acct2:  </span><span class="string">&quot;</span> + <span class="ST1">acct2</span>.toString());
+23         System.<span class="ST2">out</span>.println();
+24         
+25         <span class="ST1">acct1</span>.makeAWithdrawal(20.00);
+26         <span class="ST1">acct2</span>.makeADeposit(100.00);
+27         <span class="ST1">acct2</span>.makeAWithdrawal(250.00);
+28         <span class="ST1">acct1</span>.makeAWithdrawal(75.00);
+29         
+30         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">==================================</span><span class="string">&quot;</span>);
+31         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">After some transactions, the balances are:</span><span class="string">&quot;</span>);
+32         System.<span class="ST2">out</span>.println();
+33         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">  acct1:  </span><span class="string">&quot;</span> + <span class="ST1">acct1</span>.toString());
+34         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">  acct2:  </span><span class="string">&quot;</span> + <span class="ST1">acct2</span>.toString());
+35         
+36     } <span class="comment">// end of constructor</span>
+37     
+38     @Override
+39     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+40         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+41 
+42         g.setFont(<span class="literal">new</span> Font(<span class="string">&quot;</span><span class="string">SansSerif</span><span class="string">&quot;</span>, Font.<span class="ST2">BOLD</span>, 24));
+43         g.drawString(<span class="string">&quot;</span><span class="string">Look in the Java Console for Output</span><span class="string">&quot;</span>, 250, 60);
+44                 
+45     } <span class="comment">// end of paintComponent()</span>
+46     
+47     
+48     
+49        
+50     
+51     
+52     
+53     <span class="comment">/**</span><span class="comment">*********************************************</span>
+54 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+55 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+56     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">frame</span>() {
+57         <span class="literal">for</span> (Component c: getComponents())
+58             c.setSize(c.getPreferredSize());
+59         JFrame f = <span class="literal">new</span> JFrame(getName());
+60         f.setContentPane(<span class="literal">this</span>);
+61         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+62         f.pack();
+63         f.setVisible(<span class="literal">true</span>);    
+64     }
+65 
+66     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel().frame();}
+67 
+68 } <span class="comment">// end of class MUPanel</span>
+69 
+</pre></body>
+</html>

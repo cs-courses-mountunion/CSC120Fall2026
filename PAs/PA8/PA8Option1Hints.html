@@ -1,0 +1,50 @@
+<html>
+<body>
+<h2 align="center">CSC 120 Programming Assignment # 8 <br/> Hints for Version 1 of PA # 8 </h2>
+
+<h4> Assume that your PA7 project contains the following array of Team objects that are instantiated in the program with these specific values: </h4>
+
+<pre>
+        Team[] teamList = new Team[12];
+		
+        teamList[0]  = new Team("Cleveland", "Browns", 6, 5);
+        teamList[1]  = new Team("Indianapolis", "Colts", 6, 5);
+        teamList[2]  = new Team("Tennessee", "Titans", 8, 3);
+        teamList[3]  = new Team("Dallas", "Cowboys", 7, 3);
+        teamList[4]  = new Team("Chicago", "Bears", 3, 7);
+        teamList[5]  = new Team("Buffalo", "Bills", 6, 4);
+        teamList[6]  = new Team("Kansas City", "Chiefs", 7, 4);
+        teamList[7]  = new Team("Minnesota", "Vikings", 5, 5);
+        teamList[8]  = new Team("Pittsburgh", "Steelers", 5, 4);
+        teamList[9]  = new Team("Philadelphia", "Eagles", 5, 6);
+        teamList[10] = new Team("New York", "Giants", 3, 7);
+        teamList[11] = new Team("Cincinnati", "Bengals", 6, 4);
+</pre>
+
+<h4> For PA8, you would take this data and convert it into separate .txt file with the same information.&nbsp; Note that any String data
+in quotes from the example above should be included in the .txt file WITHOUT the quotes!</h4>
+
+<h4> Here's the data from above in a form that could be stored in a .txt file, using # as the delimiter between fields: </h4>
+
+<pre>
+        Cleveland#Browns#6#5
+        Indianapolis#Colts#6#5
+        Tennessee#Titans#8#3
+        Dallas#Cowboys#7#3
+        Chicago#Bears#3#7
+        Buffalo#Bills#6#4
+        Kansas City#Chiefs#7#4
+        Minnesota#Vikings#5#5
+        Pittsburgh#Steelers#5#4
+        Philadelphia#Eagles#5#6
+        New York#Giants#3#7
+        Cincinnati#Bengals#6#4
+</pre>
+
+<h4> Once you have your .txt file, you must delete the separate instantiations of each element of the array from your PA8 code -- the array will be populated by reading the .txt file data from the input TextArea and using the Java .split method, in a manner similar to that seen in Lab # 12</h4>
+
+<h4> Then make a second .txt file that is formatted exactly the same way as the first .txt file, but that contains specifically different data.&nbsp; Each of the two files MUST be different lengths (contain a different number of lines).
+
+</body>
+
+</html>

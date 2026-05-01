@@ -1,0 +1,32 @@
+To obtain unpredictable values, use an object of the Random class
+
+    such an object has methods that return unpredictable values of certain data types
+
+
+(1) Declare a Random object:
+
+        private Random randGen;
+
+
+(2) Instantiate the previously-declared object:
+
+        randGen = new Random();        // truly random
+
+        randGen = new Random( seed );  // seed is an integer; gives same values each time
+
+
+(3) Use methods of the object:
+
+        Integer x = randGen.nextInt( n );  // an unpredictable value in the range [0, n-1]
+                    // here, n is the number of values in the range
+
+        Integer x = randGen.nextInt( a, b );  // an unpredictable value in the range [a, b-1]
+
+        Double d  = randGen.nextDouble();  // an unpredictable value in the range [0, 1)
+
+        Boolean b = randGen.nextBoolean();  // an unpredictable value of either true or false
+
+
+
+The values returned by a Random object are UNIFORMLY DISTRIBUTED
+    (meaning each possible result is equally likely to be returned)

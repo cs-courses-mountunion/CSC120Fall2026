@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Car.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST2 {color: #009900; font-family: monospace; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: monospace; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec38_CarArrays\src\Car.java</td></tr></table>
+<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment">        A Car class for an array of Car objects.</span>
+  3 <span class="comment">        Revised slightly - Fall, 2008</span>
+  4 <span class="comment">*/</span>
+  5 
+  6 <span class="literal">import</span> java.awt.*;
+  7 
+  8 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">Car</span> {
+  9     
+ 10     <span class="literal">private</span> Integer <span class="ST1">size</span>; <span class="comment">//size represents the width of the car</span>
+ 11     <span class="literal">private</span> Color <span class="ST1">carColor</span>;
+ 12     <span class="literal">private</span> Integer <span class="ST1">maxMph</span>;
+ 13     <span class="literal">private</span> Integer <span class="ST1">mpg</span>;
+ 14     <span class="literal">private</span> String <span class="ST1">name</span>;
+ 15 
+ 16     <span class="literal">public</span> <span class="ST0">Car</span> (Color c, Integer max, Integer m, String n) {
+ 17         <span class="ST1">carColor</span> = c;
+ 18         <span class="ST1">maxMph</span> = max;
+ 19         <span class="ST1">mpg</span> = m;
+ 20         <span class="ST1">name</span> = n;
+ 21         <span class="ST1">size</span> = 40; <span class="comment">//all cars are 40 pixels wide</span>
+ 22     } <span class="comment">// end of constructor</span>
+ 23 
+ 24     
+ 25     <span class="comment">//These are the &quot;getters&quot; that allow MUPanel to &quot;get&quot; properties of a Car</span>
+ 26     <span class="literal">public</span> Integer <span class="ST0">getMaxMph</span>() {
+ 27         <span class="literal">return</span> <span class="ST1">maxMph</span>;
+ 28     }
+ 29     
+ 30     <span class="literal">public</span> Color <span class="ST0">getCarColor</span>() {
+ 31         <span class="literal">return</span> <span class="ST1">carColor</span>;
+ 32     }
+ 33     
+ 34     <span class="literal">public</span> Integer <span class="ST0">getMpg</span>() {
+ 35         <span class="literal">return</span> <span class="ST1">mpg</span>;
+ 36     }
+ 37     
+ 38     <span class="literal">public</span> String <span class="ST0">getName</span>() {
+ 39         <span class="literal">return</span> <span class="ST1">name</span>;
+ 40     }
+ 41 
+ 42     <span class="comment">//These are the &quot;setters&quot; that allow MUPanel to &quot;set&quot;, or change properties of a Car</span>
+ 43     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setMaxMph</span>(Integer max) {
+ 44         <span class="ST1">maxMph</span> = max;
+ 45     }
+ 46     
+ 47     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setCarColor</span>(Color c) {
+ 48         <span class="ST1">carColor</span> = c;
+ 49     }
+ 50     
+ 51     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setMpg</span>(Integer m) {
+ 52         <span class="ST1">mpg</span> = m;
+ 53     }
+ 54     
+ 55     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setName</span>(String n) {
+ 56         <span class="ST1">name</span> = n;
+ 57     }
+ 58     
+ 59 
+ 60     <span class="literal">public</span> String <span class="ST0">toString</span>() {
+ 61         <span class="literal">return</span> <span class="ST1">name</span> + <span class="string">&quot;</span> <span class="string">&quot;</span> + <span class="ST1">maxMph</span> + <span class="string">&quot;</span> <span class="string">&quot;</span> + <span class="ST1">mpg</span> + <span class="string">&quot;</span> <span class="string">&quot;</span> + <span class="ST1">carColor</span>;        
+ 62     } <span class="comment">// end of toString</span>
+ 63 
+ 64         
+ 65         
+ 66     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">draw</span>(Graphics g, Integer over, Integer down) {
+ 67         <span class="comment">//tires</span>
+ 68         g.setColor(Color.<span class="ST2">black</span>);
+ 69         g.fillOval(over+4, down+10, 5, 8);
+ 70         g.fillOval(over+32, down+10, 5, 8);
+ 71 
+ 72         <span class="comment">//top of car</span>
+ 73         g.setColor(<span class="ST1">c</span><span class="ST1">arColor</span>);
+ 74         g.fillRoundRect(over+5, down-8, <span class="ST1">size</span>-10, <span class="ST1">size</span>/4,5,5);
+ 75         g.setColor(Color.<span class="ST2">black</span>);
+ 76         g.drawRoundRect(over+5, down-8, <span class="ST1">size</span>-10, <span class="ST1">size</span>/4, 5, 5);
+ 77 
+ 78         <span class="comment">//bottom of car</span>
+ 79         g.setColor(<span class="ST1">c</span><span class="ST1">arColor</span>);
+ 80         g.fillRoundRect(over, down, <span class="ST1">s</span><span class="ST1">ize</span>, <span class="ST1">size</span>/3,8,8);
+ 81         g.setColor(Color.<span class="ST2">black</span>);
+ 82         g.drawRoundRect(over, down, <span class="ST1">s</span><span class="ST1">ize</span>, <span class="ST1">size</span>/3, 8, 8);
+ 83 
+ 84         <span class="comment">//steering wheel and headlights</span>
+ 85         g.setColor(Color.<span class="ST2">black</span>);
+ 86         g.drawArc(over + <span class="ST1">size</span>/2, down-3, 12, 12, 40, 100);
+ 87         g.setColor(Color.<span class="ST2">YELLOW</span>);
+ 88         g.fillOval(over + <span class="ST1">size</span>/5-2, down + 4, 4,4);
+ 89         g.fillOval(over + 4*<span class="ST1">size</span>/5-2, down + 4, 4,4);
+ 90         g.setColor(Color.<span class="ST2">GRAY</span>);
+ 91         g.drawOval(over + <span class="ST1">size</span>/5-2, down + 4, 4,4);
+ 92         g.drawOval(over + 4*<span class="ST1">size</span>/5-2, down + 4, 4,4);
+ 93 
+ 94         <span class="comment">//printed information under the car drawings</span>
+ 95         g.setColor(Color.<span class="ST2">BLACK</span>);
+ 96         g.drawString(<span class="ST1">n</span><span class="ST1">ame</span>,over, down+32);
+ 97         g.drawString(<span class="string">&quot;</span><span class="string">max </span><span class="string">&quot;</span>+<span class="ST1">maxMph</span>,over, down+48);
+ 98         g.drawString(<span class="string">&quot;</span><span class="string">mpg </span><span class="string">&quot;</span>+<span class="ST1">mpg</span>,over, down+64);
+ 99     } <span class="comment">// end of draw</span>
+100 
+101 } <span class="comment">//  end of class Car</span>
+102 
+</pre></body>
+</html>

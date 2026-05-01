@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec11\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture Example # 11</span>
+  2 <span class="comment"> *</span>
+  3 <span class="comment"> *</span>
+  4 <span class="comment"> *</span>
+  5 <span class="comment"> * Project Description: a program that uses BaseballHitter objects and calls</span>
+  6 <span class="comment">                        methods from that class</span>
+  7 <span class="comment"> *</span>
+  8 <span class="comment"> */</span>
+  9 <span class="literal">import</span> java.awt.*;
+ 10 <span class="literal">import</span> java.text.DecimalFormat;
+ 11 <span class="literal">import</span> javax.swing.*;
+ 12 
+ 13 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 14 
+ 15     <span class="comment">// 1. Declare private objects here:</span>
+ 16     
+ 17     <span class="literal">private</span> BaseballHitter <span class="ST1">one</span>, <span class="ST1">two</span>, <span class="ST1">three</span>, <span class="ST1">four</span>;
+ 18     
+ 19     
+ 20     <span class="comment">// constructor method</span>
+ 21     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 22         setLayout(<span class="literal">null</span>);
+ 23         setPreferredSize(<span class="literal">new</span> Dimension(600, 200));
+ 24         setName(<span class="string">&quot;</span><span class="string">CSC 120 Lecture # 11</span><span class="string">&quot;</span>);
+ 25         setUp();
+ 26         setBackground(Color.<span class="ST2">LIGHT_GRAY</span>);
+ 27 
+ 28         <span class="comment">// 2. Instantiate objects here by calling &quot;new&quot;:</span>
+ 29         
+ 30         <span class="ST1">one</span> = <span class="literal">new</span> BaseballHitter(<span class="string">&quot;</span><span class="string">Jadier Molina</span><span class="string">&quot;</span>, 600, 170, 85, <span class="literal">false</span>);
+ 31         <span class="ST1">two</span> = <span class="literal">new</span> BaseballHitter(<span class="string">&quot;</span><span class="string">Jose Ramirez</span><span class="string">&quot;</span>, 528, 148, 99, <span class="literal">true</span>);
+ 32         <span class="ST1">three</span> = <span class="literal">new</span> BaseballHitter(<span class="string">&quot;</span><span class="string">JD Martinez</span><span class="string">&quot;</span>, 530, 175, 122, <span class="literal">false</span>);
+ 33         <span class="ST1">four</span> = <span class="literal">new</span> BaseballHitter(<span class="string">&quot;</span><span class="string">Mike Trout</span><span class="string">&quot;</span>, 431, 137, 68, <span class="literal">false</span>);
+ 34 
+ 35         
+ 36 
+ 37 
+ 38         
+ 39         System.<span class="ST2">out</span>.println( <span class="string">&quot;</span><span class="string">Here are the baseball hitters we&#39;re tracking here in CSC 120:</span><span class="string">&quot;</span> );
+ 40         System.<span class="ST2">out</span>.println( <span class="string">&quot;</span><span class="string">=============================================================</span><span class="string">&quot;</span> );
+ 41         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Player one is: </span><span class="string">&quot;</span> + <span class="ST1">one</span>.toString());
+ 42         System.<span class="ST2">out</span>.println();
+ 43         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Player two is: </span><span class="string">&quot;</span> + <span class="ST1">two</span>.toString());
+ 44         System.<span class="ST2">out</span>.println();
+ 45         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Player three is: </span><span class="string">&quot;</span> + <span class="ST1">three</span>.toString());
+ 46         System.<span class="ST2">out</span>.println();
+ 47         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Player four is: </span><span class="string">&quot;</span> + <span class="ST1">four</span>.toString());
+ 48         System.<span class="ST2">out</span>.println();
+ 49 
+ 50 
+ 51         Integer oldAtBats;
+ 52         oldAtBats = <span class="ST1">two</span>.getAtBats();
+ 53         Integer updatedAtBats = oldAtBats + 1;
+ 54         <span class="ST1">two</span>.setAtBats( updatedAtBats );
+ 55   
+ 56         Integer tempHits = <span class="ST1">two</span>.getHits();
+ 57         <span class="ST1">two</span>.setHits( tempHits + 1 );
+ 58         
+ 59         <span class="ST1">two</span>.setRBIs( <span class="ST1">two</span>.getRBIs() + 1 );
+ 60         
+ 61         System.<span class="ST2">out</span>.println();
+ 62         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">After the Update, Player two is: </span><span class="string">&quot;</span> + <span class="ST1">two</span>.toString());
+ 63 
+ 64 
+ 65         System.<span class="ST2">out</span>.println();
+ 66         System.<span class="ST2">out</span>.println(<span class="ST1">four</span>.getName() + <span class="string">&quot;</span><span class="string"> currently has </span><span class="string">&quot;</span> + <span class="ST1">four</span>.getRBIs() + <span class="string">&quot;</span><span class="string"> rbis</span><span class="string">&quot;</span>);
+ 67         <span class="ST1">four</span>.setRBIs( <span class="ST1">four</span>.getRBIs() + 4 );
+ 68         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">     If </span><span class="string">&quot;</span> + <span class="ST1">four</span>.getName() + <span class="string">&quot;</span><span class="string"> hits a grand salami tonight, he will have </span><span class="string">&quot;</span>
+ 69                 + <span class="ST1">four</span>.getRBIs() + <span class="string">&quot;</span><span class="string"> rbis</span><span class="string">&quot;</span>);
+ 70         
+ 71         DecimalFormat threeDecimalDigits = <span class="literal">new</span> DecimalFormat(<span class="string">&quot;</span><span class="string">0.000</span><span class="string">&quot;</span>);
+ 72         System.<span class="ST2">out</span>.println();
+ 73         System.<span class="ST2">out</span>.println(<span class="ST1">two</span>.getName() + <span class="string">&quot;</span><span class="string">&#39;s batting average is: </span><span class="string">&quot;</span> + <span class="ST1">two</span>.calculateBattingAvg());
+ 74         System.<span class="ST2">out</span>.println(<span class="ST1">two</span>.getName() + <span class="string">&quot;</span><span class="string">&#39;s batting average is: </span><span class="string">&quot;</span> 
+ 75                 + threeDecimalDigits.format(<span class="ST1">two</span>.calculateBattingAvg()));
+ 76         
+ 77     } <span class="comment">// end of constructor</span>
+ 78     
+ 79     @Override
+ 80     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+ 81         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+ 82 
+ 83         <span class="comment">// 3. Call methods of objects here:</span>
+ 84 
+ 85         g.setColor(Color.<span class="ST2">GREEN</span>.darker());
+ 86         g.setFont( <span class="literal">new</span> Font(<span class="string">&quot;</span><span class="string">Serif</span><span class="string">&quot;</span>, Font.<span class="ST2">BOLD</span>, 24));
+ 87         g.drawString(<span class="string">&quot;</span><span class="string">Answers in Java Console</span><span class="string">&quot;</span>, 100, 100);
+ 88                 
+ 89                 
+ 90     } <span class="comment">// end of paintComponent()</span>
+ 91     
+ 92     
+ 93     
+ 94        
+ 95     
+ 96     
+ 97     
+ 98     <span class="comment">/**</span><span class="comment">*********************************************</span>
+ 99 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+100 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+101     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+102         <span class="literal">for</span> (Component c: getComponents())
+103             c.setSize(c.getPreferredSize());
+104         JFrame f = <span class="literal">new</span> JFrame(getName());
+105         f.setContentPane(<span class="literal">this</span>);
+106         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+107         f.pack();
+108         f.setVisible(<span class="literal">true</span>);    
+109     }
+110 
+111     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+112 
+113 } <span class="comment">// end of class MUPanel</span>
+114 
+</pre></body>
+</html>

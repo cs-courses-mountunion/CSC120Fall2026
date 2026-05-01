@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUFrame.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST6 {color: #0000e6; background-color: #dfdfdf}
+.ST2 {color: #009900; font-family: monospace; font-style: italic}
+.ST3 {font-family: monospace; font-style: italic}
+.ST9 {color: #009900; background-color: #dfdfdf; font-family: monospace; font-style: italic}
+.ST10 {background-color: #dfdfdf; font-family: monospace; font-style: italic}
+.ST11 {font-family: monospace; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.guarded {background-color: #dfdfdf}
+.ST5 {color: #969696; background-color: #dfdfdf}
+.ST8 {color: #009900; background-color: #dfdfdf}
+.ST0 {font-family: monospace; font-weight: bold}
+.ST4 {color: #969696; font-family: monospace; font-weight: bold}
+.ST7 {background-color: #dfdfdf; font-family: monospace; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">Z:\Faculty\cindricbb\000work\CSC120\Java\lec18_s23\src\MUFrame.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture # 18</span>
+  2 <span class="comment"> *</span>
+  3 <span class="comment"> * Decision-making with nested if statements</span>
+  4 <span class="comment"> *</span>
+  5 <span class="comment"> */</span>
+  6 
+  7 <span class="literal">import</span> java.awt.*;
+  8 <span class="literal">import</span> javax.swing.*;
+  9 
+ 10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUFrame</span> <span class="literal">extends</span> javax.swing.JFrame {
+ 11 
+ 12     <span class="literal">private</span> MUPanel <span class="ST1">muPanel</span>;
+ 13     
+ 14     <span class="comment">// declare private data here</span>
+ 15     
+ 16     <span class="literal">private</span> String <span class="ST1">school</span>, <span class="ST1">conference</span>;
+ 17     <span class="literal">private</span> Integer <span class="ST1">place</span>;
+ 18     
+ 19     
+ 20     
+ 21     <span class="comment">// constructor method</span>
+ 22     <span class="literal">public</span> <span class="ST0">MUFrame</span>() {
+ 23         initComponents();
+ 24         <span class="ST1">muPanel</span> = <span class="literal">new</span> MUPanel();
+ 25         <span class="ST1">drawingPanel</span>.add(<span class="ST1">m</span><span class="ST1">uPanel</span>);
+ 26         
+ 27         
+ 28         getValuesFromInput();
+ 29         
+ 30 <span class="comment">//        school = &quot;Kent State&quot;;</span>
+ 31 <span class="comment">//        conference = &quot;MAC&quot;;</span>
+ 32 <span class="comment">//        place = 2;</span>
+ 33         
+ 34 
+ 35         System.<span class="ST2">out</span>.print(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> finished in </span><span class="string">&quot;</span> + <span class="ST1">place</span>);
+ 36         
+ 37         <span class="literal">if</span> ( (<span class="ST1">place</span>%100)/10 == 1 ) {  <span class="comment">// teens!!</span>
+ 38             System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">th</span><span class="string">&quot;</span>);
+ 39         }
+ 40         <span class="literal">else</span> <span class="literal">if</span> (<span class="ST1">place</span>%10 == 1) {
+ 41             System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">st</span><span class="string">&quot;</span>);
+ 42         }
+ 43         <span class="literal">else</span> <span class="literal">if</span> (<span class="ST1">place</span>%10 == 2) {
+ 44             System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">nd</span><span class="string">&quot;</span>);
+ 45         }
+ 46         <span class="literal">else</span> <span class="literal">if</span> (<span class="ST1">place</span>%10 == 3) {
+ 47             System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">rd</span><span class="string">&quot;</span>);
+ 48         }
+ 49         <span class="literal">else</span> {
+ 50             System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">th</span><span class="string">&quot;</span>);
+ 51         }
+ 52         
+ 53         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string"> place in the </span><span class="string">&quot;</span> + <span class="ST1">conference</span> + <span class="string">&quot;</span><span class="string"> conference</span><span class="string">&quot;</span>);
+ 54 
+ 55         
+ 56         <span class="literal">if</span> (<span class="ST1">conference</span>.equals(<span class="string">&quot;</span><span class="string">Big 10</span><span class="string">&quot;</span>)) {
+ 57             <span class="literal">if</span> (<span class="ST1">place</span> &lt;= 8) {
+ 58                 System.<span class="ST2">out</span>.println(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> is going to the big dance!!</span><span class="string">&quot;</span>);
+ 59             }
+ 60             <span class="literal">else</span> {
+ 61                 System.<span class="ST2">out</span>.println(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> does not qualify for the NCAA Tournament</span><span class="string">&quot;</span>);
+ 62             }
+ 63         } <span class="comment">// end if for Big 10</span>
+ 64         <span class="literal">else</span> <span class="literal">if</span> (<span class="ST1">conference</span>.equals(<span class="string">&quot;</span><span class="string">MAC</span><span class="string">&quot;</span>)) {
+ 65             <span class="literal">if</span> (<span class="ST1">place</span> == 1) {
+ 66                 System.<span class="ST2">out</span>.println(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> is going to the big dance!!</span><span class="string">&quot;</span>);
+ 67             }
+ 68             <span class="literal">else</span> {
+ 69                 System.<span class="ST2">out</span>.println(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> does not qualify for the NCAA Tournament</span><span class="string">&quot;</span>);
+ 70             }
+ 71         } <span class="comment">// end if for MAC</span>
+ 72         <span class="literal">else</span> <span class="literal">if</span> (<span class="ST1">conference</span>.equals(<span class="string">&quot;</span><span class="string">ACC</span><span class="string">&quot;</span>)) {
+ 73             <span class="literal">if</span> (<span class="ST1">place</span> &lt;= 4) {
+ 74                 System.<span class="ST2">out</span>.println(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> is going to the big dance!!</span><span class="string">&quot;</span>);
+ 75             }
+ 76             <span class="literal">else</span> {
+ 77                 System.<span class="ST2">out</span>.println(<span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> does not qualify for the NCAA Tournament</span><span class="string">&quot;</span>);
+ 78             }
+ 79         } <span class="comment">// end if for ACC</span>
+ 80         <span class="literal">else</span> {
+ 81             System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Wow, I never heard of the </span><span class="string">&quot;</span> + <span class="ST1">conference</span> + <span class="string">&quot;</span><span class="string"> conference!</span><span class="string">&quot;</span>);
+ 82         }
+ 83         
+ 84 
+ 85         
+ 86     } <span class="comment">// end of constructor</span>
+ 87     
+ 88     <span class="comment">// declare other methods here</span>
+ 89     
+ 90     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">getValuesFromInput</span>() {
+ 91 
+ 92         <span class="ST1">school</span> = JOptionPane.<span class="ST3">showInputDialog</span>(<span class="string">&quot;</span><span class="string">Enter name of school:</span><span class="string">&quot;</span>);
+ 93         
+ 94 
+ 95         Object[] listOfConfs = {<span class="string">&quot;</span><span class="string">Big 10</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">MAC</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">ACC</span><span class="string">&quot;</span>};
+ 96         <span class="ST1">conference</span> = (String) JOptionPane.<span class="ST3">showInputDialog</span>(
+ 97                     <span class="literal">t</span><span class="literal">his</span>,
+ 98                     <span class="string">&quot;</span><span class="string">Enter the Conference in which </span><span class="string">&quot;</span> + <span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> plays:</span><span class="string">&quot;</span>,
+ 99                     <span class="string">&quot;</span><span class="string">Input the Conference</span><span class="string">&quot;</span>,
+100                     JOptionPane.<span class="ST2">PLAIN_MESSAGE</span>,
+101                     <span class="literal">n</span><span class="literal">ull</span>,
+102                     listOfConfs,
+103                     <span class="literal">n</span><span class="literal">ull</span>);
+104 
+105         String temp = JOptionPane.<span class="ST3">showInputDialog</span>(<span class="string">&quot;</span><span class="string">In what place did </span><span class="string">&quot;</span> + <span class="ST1">school</span> + <span class="string">&quot;</span><span class="string"> finish in the </span><span class="string">&quot;</span> 
+106                                                 + <span class="ST1">conference</span> + <span class="string">&quot;</span><span class="string">?</span><span class="string">&quot;</span>);
+107         <span class="ST1">place</span> = Integer.<span class="ST3">parseInt</span>(temp);
+108     } <span class="comment">// end of getValuesFromInput();</span>
+109     
+110     
+111 
+112     <span class="comment">/**</span> <span class="ST4">This</span> <span class="ST4">method</span> <span class="ST4">is</span> <span class="ST4">called</span> <span class="ST4">from</span> <span class="ST4">within</span> <span class="ST4">the</span> <span class="ST4">constructor</span> <span class="ST4">to</span>
+113 <span class="comment">     * </span><span class="ST4">initialize</span> <span class="ST4">the</span> <span class="ST4">form</span><span class="ST4">.</span>
+114 <span class="comment">     * </span><span class="comment">WARNING</span><span class="comment">: </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">modify</span> <span class="comment">this</span> <span class="comment">code</span><span class="comment">.</span> <span class="comment">The</span> <span class="comment">content</span> <span class="comment">of</span> <span class="comment">this</span> <span class="comment">method</span> <span class="comment">is</span>
+115 <span class="comment">     * </span><span class="comment">always</span> <span class="comment">regenerated</span> <span class="comment">by</span> <span class="comment">the</span> <span class="comment">Form</span> <span class="comment">Editor</span><span class="comment">.</span>
+116      <span class="comment">*/</span>
+117     @SuppressWarnings(<span class="string">&quot;</span><span class="string">unchecked</span><span class="string">&quot;</span>)
+118     <span class="ST5">// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;                          </span>
+119     <span class="ST6">private</span> <span class="ST6">void</span> <span class="ST7">initComponents</span><span class="guarded">(</span><span class="guarded">)</span> <span class="guarded">{</span>
+120 
+121         <span class="ST8">drawingPanel</span> <span class="guarded">=</span> <span class="ST6">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JPanel</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+122 
+123         <span class="guarded">setDefaultCloseOperation</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">WindowConstants</span><span class="guarded">.</span><span class="ST9">EXIT_ON_CLOSE</span><span class="guarded">)</span><span class="guarded">;</span>
+124 
+125         <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span> <span class="guarded">drawingPanelLayout</span> <span class="guarded">=</span> <span class="ST6">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">(</span><span class="ST8">d</span><span class="ST8">rawingPanel</span><span class="guarded">)</span><span class="guarded">;</span>
+126         <span class="ST8">drawingPanel</span><span class="guarded">.</span><span class="guarded">setLayout</span><span class="guarded">(</span><span class="guarded">d</span><span class="guarded">rawingPanelLayout</span><span class="guarded">)</span><span class="guarded">;</span>
+127         <span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">setHorizontalGroup</span><span class="guarded">(</span>
+128             <span class="guarded">d</span><span class="guarded">rawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST10">Alignment</span><span class="guarded">.</span><span class="ST9">LEADING</span><span class="guarded">)</span>
+129             <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">0</span><span class="guarded">,</span> <span class="guarded">6</span><span class="guarded">39</span><span class="guarded">,</span> <span class="guarded">S</span><span class="guarded">hort</span><span class="guarded">.</span><span class="ST9">MAX_VALUE</span><span class="guarded">)</span>
+130         <span class="guarded">)</span><span class="guarded">;</span>
+131         <span class="guarded">drawingPanelLayout</span><span class="guarded">.</span><span class="guarded">setVerticalGroup</span><span class="guarded">(</span>
+132             <span class="guarded">d</span><span class="guarded">rawingPanelLayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST10">Alignment</span><span class="guarded">.</span><span class="ST9">LEADING</span><span class="guarded">)</span>
+133             <span class="guarded">.</span><span class="guarded">addGap</span><span class="guarded">(</span><span class="guarded">0</span><span class="guarded">,</span> <span class="guarded">2</span><span class="guarded">99</span><span class="guarded">,</span> <span class="guarded">S</span><span class="guarded">hort</span><span class="guarded">.</span><span class="ST9">MAX_VALUE</span><span class="guarded">)</span>
+134         <span class="guarded">)</span><span class="guarded">;</span>
+135 
+136         <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span> <span class="guarded">layout</span> <span class="guarded">=</span> <span class="ST6">new</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">(</span><span class="guarded">g</span><span class="guarded">etContentPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">)</span><span class="guarded">;</span>
+137         <span class="guarded">getContentPane</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">.</span><span class="guarded">setLayout</span><span class="guarded">(</span><span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">)</span><span class="guarded">;</span>
+138         <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">setHorizontalGroup</span><span class="guarded">(</span>
+139             <span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST10">Alignment</span><span class="guarded">.</span><span class="ST9">LEADING</span><span class="guarded">)</span>
+140             <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST8">d</span><span class="ST8">rawingPanel</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">PREFERRED_SIZE</span><span class="guarded">)</span>
+141         <span class="guarded">)</span><span class="guarded">;</span>
+142         <span class="guarded">layout</span><span class="guarded">.</span><span class="guarded">setVerticalGroup</span><span class="guarded">(</span>
+143             <span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createParallelGroup</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST10">Alignment</span><span class="guarded">.</span><span class="ST9">LEADING</span><span class="guarded">)</span>
+144             <span class="guarded">.</span><span class="guarded">addGroup</span><span class="guarded">(</span><span class="guarded">l</span><span class="guarded">ayout</span><span class="guarded">.</span><span class="guarded">createSequentialGroup</span><span class="guarded">(</span><span class="guarded">)</span>
+145                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">)</span>
+146                 <span class="guarded">.</span><span class="guarded">addComponent</span><span class="guarded">(</span><span class="ST8">d</span><span class="ST8">rawingPanel</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">PREFERRED_SIZE</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">PREFERRED_SIZE</span><span class="guarded">)</span>
+147                 <span class="guarded">.</span><span class="guarded">addContainerGap</span><span class="guarded">(</span><span class="guarded">j</span><span class="guarded">avax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">GroupLayout</span><span class="guarded">.</span><span class="ST9">DEFAULT_SIZE</span><span class="guarded">,</span> <span class="guarded">S</span><span class="guarded">hort</span><span class="guarded">.</span><span class="ST9">MAX_VALUE</span><span class="guarded">)</span><span class="guarded">)</span>
+148         <span class="guarded">)</span><span class="guarded">;</span>
+149 
+150         <span class="guarded">pack</span><span class="guarded">(</span><span class="guarded">)</span><span class="guarded">;</span>
+151     <span class="guarded">}</span><span class="ST5">// &lt;/editor-fold&gt;                        </span>
+152 
+153     <span class="comment">/**</span>
+154 <span class="comment">     * </span><span class="ST4">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+155      <span class="comment">*/</span>
+156     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST11">main</span>(String args[]) {
+157         java.awt.EventQueue.<span class="ST3">invokeLater</span>(<span class="literal">new</span> Runnable() {
+158 
+159             <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">run</span>() {
+160                 <span class="literal">new</span> MUFrame().setVisible(<span class="literal">t</span><span class="literal">rue</span>);
+161             }
+162         });
+163     }
+164     <span class="ST5">// Variables declaration - do not modify                     </span>
+165     <span class="ST6">private</span> <span class="guarded">javax</span><span class="guarded">.</span><span class="guarded">swing</span><span class="guarded">.</span><span class="guarded">JPanel</span> <span class="ST8">drawingPanel</span><span class="guarded">;</span>
+166     <span class="ST5">// End of variables declaration                   </span>
+167 }
+168 
+</pre></body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.literal {color: #336bdd}
+.ST2 {color: #669900; font-family: monospace; font-style: italic}
+.ST1 {color: #669900}
+.comment {color: #969696}
+.string {color: #ff00ff}
+.ST0 {font-family: monospace; font-weight: bold}
+.ST3 {font-family: monospace; font-weight: bold; font-style: italic}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">..\CSC120\Java\lec31_s26\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* </span>
+  2 <span class="comment"> * CSC 120 Lecture 31</span>
+  3 <span class="comment"> *</span>
+  4 <span class="comment"> * EEK - Mice!</span>
+  5 <span class="comment"> *</span>
+  6 <span class="comment"> * </span>
+  7 <span class="comment"> */</span>
+  8 <span class="literal">import</span> java.awt.*;
+  9 <span class="literal">import</span> javax.swing.*;
+ 10 <span class="literal">import</span> java.util.*;
+ 11 
+ 12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 13 
+ 14     <span class="literal">private</span> Mouse[] <span class="ST1">vermin</span>;
+ 15     
+ 16     <span class="literal">private</span> Random <span class="ST1">randGen</span>;
+ 17     
+ 18 
+ 19     <span class="comment">// constructor method</span>
+ 20     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 21         setLayout(<span class="literal">null</span>);
+ 22         setPreferredSize(<span class="literal">new</span> Dimension(760, 640));
+ 23         setName(<span class="string">&quot;</span><span class="string">Mount Union Java Program</span><span class="string">&quot;</span>);
+ 24         setUp();
+ 25         setBackground(<span class="literal">new</span> Color(0xe8, 0xe8, 0xcc));
+ 26 
+ 27         
+ 28         <span class="ST1">randGen</span> = <span class="literal">new</span> Random();
+ 29         
+ 30         
+ 31         <span class="ST1">vermin</span> = <span class="literal">new</span> Mouse[60];
+ 32         
+ 33         <span class="literal">for</span> (Integer m = 0; m &lt; <span class="ST1">vermin</span>.<span class="ST1">length</span>; m++) {
+ 34             Integer over = <span class="ST1">randGen</span>.nextInt(501) + 100;
+ 35             Integer down = <span class="ST1">randGen</span>.nextInt(401) + 50;
+ 36             
+ 37             Integer red = <span class="ST1">randGen</span>.nextInt(140) + 100;
+ 38             Integer green = <span class="ST1">randGen</span>.nextInt(140) + 100;
+ 39             Integer blue = <span class="ST1">randGen</span>.nextInt(140) + 100;
+ 40             
+ 41 <span class="comment">//            Double pct;</span>
+ 42 <span class="comment">//            pct = randGen.nextDouble();</span>
+ 43 <span class="comment">//            if (pct &lt; .15) {</span>
+ 44 <span class="comment">//                vermin[m] = new Mouse(over, down, Color.ORANGE);</span>
+ 45 <span class="comment">//            }</span>
+ 46 <span class="comment">//            else if (pct &lt; .3) {</span>
+ 47 <span class="comment">//                vermin[m] = new Mouse(over, down, Color.GREEN);</span>
+ 48 <span class="comment">//            }</span>
+ 49 <span class="comment">//            else {</span>
+ 50 <span class="comment">//                vermin[m] = new Mouse(over, down, Color.YELLOW);</span>
+ 51 <span class="comment">//            }</span>
+ 52 
+ 53             <span class="ST1">vermin</span>[m] = <span class="literal">new</span> Mouse(over, down, <span class="literal">new</span> Color(red, green, blue));
+ 54             
+ 55             <span class="literal">if</span> (<span class="ST1">randGen</span>.nextBoolean() == <span class="literal">true</span>) {
+ 56                 <span class="ST1">vermin</span>[m].turnAround();
+ 57             }
+ 58         }
+ 59         
+ 60         
+ 61         
+ 62         
+ 63         
+ 64 <span class="comment">//        for (Integer x = 0; x &lt; vermin.length; x++) {</span>
+ 65 <span class="comment">//            Color mouseColor;</span>
+ 66 <span class="comment">//            if (x &lt; 11) {</span>
+ 67 <span class="comment">//                mouseColor = Color.YELLOW;</span>
+ 68 <span class="comment">//            }</span>
+ 69 <span class="comment">//            else {</span>
+ 70 <span class="comment">//                mouseColor = Color.MAGENTA;</span>
+ 71 <span class="comment">//            }</span>
+ 72 <span class="comment">//            vermin[x] = new Mouse(x*4+100, 20*x + 5, mouseColor);</span>
+ 73 <span class="comment">//            if (x % 2 == 1) {</span>
+ 74 <span class="comment">//                vermin[x].turnAround();</span>
+ 75 <span class="comment">//            }</span>
+ 76 <span class="comment">//        }</span>
+ 77         
+ 78         
+ 79         
+ 80         
+ 81 <span class="comment">//        vermin[0] = new Mouse(100, 100, Color.ORANGE);</span>
+ 82 <span class="comment">//        vermin[1] = new Mouse(100, 150, Color.ORANGE);</span>
+ 83 <span class="comment">//        vermin[2] = new Mouse(100, 200, Color.YELLOW);</span>
+ 84 <span class="comment">//        vermin[3] = new Mouse(100, 250, Color.ORANGE);</span>
+ 85 <span class="comment">//        vermin[4] = new Mouse(100, 300, Color.ORANGE);</span>
+ 86 <span class="comment">//        vermin[5] = new Mouse(220, 100, Color.ORANGE);</span>
+ 87 <span class="comment">//        vermin[6] = new Mouse(220, 150, Color.ORANGE);</span>
+ 88 <span class="comment">//        vermin[7] = new Mouse(220, 200, Color.ORANGE);</span>
+ 89 <span class="comment">//        vermin[8] = new Mouse(220, 250, Color.ORANGE);</span>
+ 90 <span class="comment">//        vermin[9] = new Mouse(220, 300, Color.ORANGE);</span>
+ 91 <span class="comment">//        vermin[10] = new Mouse(50, 400, Color.CYAN);</span>
+ 92 <span class="comment">//        vermin[11] = new Mouse(650, 400, Color.GREEN);</span>
+ 93 <span class="comment">//        vermin[11].turnAround();</span>
+ 94 
+ 95         
+ 96 
+ 97     } <span class="comment">// end of constructor</span>
+ 98     
+ 99     @Override
+100     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+101         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+102 
+103         
+104         g.setColor(Color.<span class="ST2">LIGHT_GRAY</span>);
+105         g.drawLine(0, 250, 800, 250);
+106         g.drawLine(200, 0, 200, 600);
+107         g.drawLine(500, 0, 500, 600);
+108         
+109         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">vermin</span>.<span class="ST1">length</span>; x++) {
+110             <span class="ST1">vermin</span>[x].draw(g);
+111         }
+112                 
+113     } <span class="comment">// end of paintComponent()</span>
+114     
+115     
+116     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">moveMiceForward</span>() {
+117         
+118         <span class="literal">for</span> (Integer index=0; index &lt; <span class="ST1">vermin</span>.<span class="ST1">length</span>; index++) {
+119             <span class="ST1">vermin</span>[index].moveForward(1);
+120         }
+121         
+122     } <span class="comment">// end of moveMiceForward</span>
+123     
+124     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">moveLowerMiceForward</span>() {
+125 
+126         <span class="literal">for</span> (Integer index=0; index &lt; <span class="ST1">vermin</span>.<span class="ST1">length</span>; index++) {
+127             <span class="literal">if</span> ( <span class="ST1">vermin</span>[index].getDown() &gt; 250 ) {
+128                 <span class="ST1">vermin</span>[index].moveForward(1);
+129             } <span class="comment">// end if</span>
+130         } <span class="comment">// end for</span>
+131         
+132     } <span class="comment">// end of moveLowerMiceForward</span>
+133     
+134 
+135     
+136     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnMiceAround</span>() {
+137 
+138         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">vermin</span>.<span class="ST1">length</span>; x++) {
+139             <span class="ST1">vermin</span>[x].turnAround();
+140         }
+141         
+142     } <span class="comment">// end of turnMiceAround</span>
+143        
+144     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnOuterMiceAround</span>() {
+145 
+146         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">vermin</span>.<span class="ST1">length</span>; x++) {
+147             <span class="literal">if</span> (<span class="ST1">vermin</span>[x].getOver() &lt; 200 || <span class="ST1">vermin</span>[x].getOver() &gt; 500) {
+148                 <span class="ST1">vermin</span>[x].turnAround();
+149             }
+150         }
+151         
+152     } <span class="comment">// end of turnOuterMiceAround</span>
+153        
+154 
+155 
+156     
+157     <span class="comment">/**</span><span class="comment">*********************************************</span>
+158 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+159 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+160     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+161         <span class="literal">for</span> (Component c: getComponents())
+162             c.setSize(c.getPreferredSize());
+163         JFrame f = <span class="literal">new</span> JFrame(getName());
+164         f.setContentPane(<span class="literal">this</span>);
+165         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+166         f.pack();
+167         f.setVisible(<span class="literal">false</span>);    
+168     }
+169 
+170     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+171 
+172 } <span class="comment">// end of class MUPanel</span>
+173 
+174 
+175 
+176 
+177 
+178 
+179 
+180 
+181 
+182 
+183 
+184 
+185 
+186 
+187 
+188 
+189 
+190 
+191 
+192 
+193 
+194 
+195 
+196 
+197 
+198 
+199 <span class="comment">//        vermin = new Mouse[50];</span>
+200 <span class="comment">//        </span>
+201 <span class="comment">//        </span>
+202 <span class="comment">//        vermin[0] = new Mouse(550, 200);</span>
+203 <span class="comment">//        vermin[1] = new Mouse(300, 300);</span>
+204 <span class="comment">//        vermin[2] = new Mouse(200, 10);</span>
+205 <span class="comment">//        vermin[3] = new Mouse(50, 500);</span>
+206 <span class="comment">//        vermin[4] = new Mouse(150, 200);</span>
+207 <span class="comment">//        vermin[5] = new Mouse(100, 300);</span>
+208 <span class="comment">//        vermin[6] = new Mouse(500, 10);</span>
+209 <span class="comment">//        vermin[7] = new Mouse(450, 500);</span>
+210 <span class="comment">//        vermin[8] = new Mouse(50, 50);</span>
+211 <span class="comment">//        vermin[9] = new Mouse(750, 500);</span>
+212 
+213         
+214 <span class="comment">//        vermin[0].turnAround();</span>
+215 <span class="comment">//        for (Integer index = 0; index &lt; 10; index++) {</span>
+216 <span class="comment">//            vermin[index] = new Mouse(70, 25*index+10, Color.RED);</span>
+217 <span class="comment">//        }</span>
+218 <span class="comment">//        for (Integer index = 10; index &lt; 20; index++) {</span>
+219 <span class="comment">//            vermin[index] = new Mouse(70, 25*index+10);</span>
+220 <span class="comment">//        }</span>
+221 <span class="comment">//        for (Integer index = 20; index &lt; 24; index++) {</span>
+222 <span class="comment">//            vermin[index] = new Mouse(70, 25*index+10, Color.PINK);</span>
+223 <span class="comment">//        }</span>
+224 <span class="comment">//        for (Integer index = 24; index &lt; vermin.length; index++) {</span>
+225 <span class="comment">//            vermin[index] = new Mouse();</span>
+226 <span class="comment">//        }</span>
+227 
+</pre></body>
+</html>

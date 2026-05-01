@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Window.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.comment {color: #969696}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec18part2\src\Window.java</td></tr></table>
+<pre>
+ 1 <span class="literal">import</span> java.awt.*;
+ 2 
+ 3 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">Window</span> {
+ 4     
+ 5     <span class="literal">private</span> Integer <span class="ST1">over</span>, <span class="ST1">down</span>;
+ 6     <span class="literal">private</span> Boolean <span class="ST1">lightsAreOn</span>;
+ 7     
+ 8     <span class="literal">public</span> <span class="ST0">Window</span>(Integer x, Integer y, Boolean lights) {
+ 9         <span class="ST1">over</span> = x;
+10         <span class="ST1">down</span> = y;
+11         <span class="ST1">lightsAreOn</span> = lights;        
+12     } <span class="comment">// end of constructor</span>
+13     
+14     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">draw</span>(Graphics g) {
+15 
+16         <span class="literal">if</span> ( <span class="ST1">lightsAreOn</span> ) {
+17             g.setColor(Color.<span class="ST2">YELLOW</span>);            
+18         } <span class="comment">// end if</span>
+19         <span class="literal">else</span> {
+20             g.setColor(Color.<span class="ST2">LIGHT_GRAY</span>);
+21         }
+22         
+23         g.fillRect(<span class="ST1">over</span>, <span class="ST1">down</span>, 40, 25);
+24         
+25         g.setColor(Color.<span class="ST2">BLACK</span>);
+26         g.drawRect(<span class="ST1">over</span>, <span class="ST1">down</span>, 40, 25);
+27         g.drawLine(<span class="ST1">over</span>, <span class="ST1">down</span>+13, <span class="ST1">over</span>+40, <span class="ST1">down</span>+13);
+28         g.drawLine(<span class="ST1">over</span>+20, <span class="ST1">down</span>, <span class="ST1">over</span>+20, <span class="ST1">down</span>+25);
+29     } <span class="comment">// end of draw</span>
+30     
+31     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnLightsOn</span>() {
+32         <span class="ST1">lightsAreOn</span> = <span class="literal">true</span>;
+33     } <span class="comment">// end of turnLightsOn()</span>
+34     
+35     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnLightsOff</span>() {
+36         <span class="ST1">lightsAreOn</span> = <span class="literal">false</span>;
+37     } <span class="comment">// end of turnLightsOff</span>
+38     
+39     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">toggleLights</span>() {
+40         <span class="literal">if</span> ( <span class="ST1">lightsAreOn</span> == <span class="literal">true</span> ) {
+41             <span class="ST1">lightsAreOn</span> = <span class="literal">false</span>;
+42         }
+43         <span class="literal">else</span> {
+44             <span class="ST1">lightsAreOn</span> = <span class="literal">true</span>;
+45         }
+46     } <span class="comment">// end of toggleLights()</span>
+47  
+48 } <span class="comment">// end of class Window</span>
+49 
+</pre></body>
+</html>

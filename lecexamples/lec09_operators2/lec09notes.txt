@@ -1,0 +1,79 @@
+
+Data Types for Object Properties
+================================
+
+    Integer -- positive or negative whole number, or zero
+
+       (3 other types for non-decimal numbers:  Byte, Short, Long)
+
+    Double -- number with a digits to the left and right of 
+              the decimal point
+
+       ( 1 other type for decimal numbers:  Float)
+
+    String -- text data
+
+    Boolean -- true or false value
+
+    Color, Font, Graphics -- classes that come with Java
+            in the Java Class Hierarchy
+
+    Balloon, Flag, SmileySun, Boat -- classes that we write
+
+
+
+Operators
+=========
+
+   Symbols that have meaning in a Java program
+
+   data type of the result of the operation depends upon the data
+          type(s) of the values being operated upon (the operands)
+
+   Integer operators (both operands are Integers; result is an Integer)
+   --------------------------------------------------------------------
+
+      +  :  addition
+
+      -  :  subtraction
+
+      *  :  multiplication
+
+      /  :  integer division
+
+      %  :  remainder
+
+
+   Double operators (one or both operands are Doubles; result is a Double)
+   -------------------------------------------------------------------
+
+      +  :  addition
+
+      -  :  subtraction
+
+      *  :  multiplication
+
+      /  :  real division (gives a decimal part to the answer)
+
+
+   String operator (one or both operands are Strings; result is a String)
+   ----------------------------------------------------------------------
+
+      +  :  concatenation (making a new text string out of two pieces)
+
+           ex.  "Hello" + "Goodbye"   --->    "HelloGoodbye"
+
+                "The answer is " + 15.7    --->    "The answer is 15.7"
+
+
+
+Operator Precedence Rules
+=========================
+   
+      ( )
+	  
+      *  /  %
+
+      +  - 
+
+

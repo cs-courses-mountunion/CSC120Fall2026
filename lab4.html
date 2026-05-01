@@ -1,0 +1,109 @@
+<html>
+<head>
+<title> CS 121 Lab # 4 </title>
+</head>
+
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#ff8800" alink="#FF0000">
+
+<font color="#990099">
+<center><h2>CS 121 &nbsp;&nbsp; -- &nbsp;&nbsp; Lab 4 &nbsp;&nbsp; </h2></center>
+</font>
+<p>
+
+        This lab will give you experience with selection statements in Java:  the <em>if</em> and the
+        <em>if/else</em> statements.<br>
+<hr>
+<ol>
+   <li> Open the CodeWarrior IDE, and open the file named "CS121.html" in the CS121 folder of your
+        Public.www folder.&nbsp; Copy the two lines in the editor window that look like this:
+<pre>
+    &lt;p&gt; &lt;a href="lab2/TheApplet.html"&gt; Lab 2 &lt;/a&gt;
+    &lt;p&gt; &lt;a href="lab2a/TheApplet.html"&gt; Part a of Lab 2 &lt;/a&gt;
+</pre>
+        and then paste them into the editor window immediately after the &lt;strong&gt; line in
+        the file.&nbsp; Change every occurrance of the digit "2" in the copied lines to "4".&nbsp;
+        <br><br>
+        What you've just done is to add two new links to your CS121 web page that will point to the
+        projects you'll create in lab today.&nbsp; Every time you create a new project for this class,
+        you should add a link to that project in the CS121.html file.
+        <br><br>
+
+   <li> Using the CodeWarrior IDE, create a new Default project in the CS121 folder of your 
+            Public.www folder.&nbsp; Name the new projet <strong>lab4</strong>.&nbsp; Open the 
+            file named "TheApplet.java", delete the entire contents of the file, and copy the
+            contents of the program found by clicking <A HREF="lab4src1.html">THIS LINK</A>
+            into the editor window.&nbsp; Examine this program, and notice that there are several
+            <em> if </em> statements in the program.&nbsp; Try to predict what the output of the
+            program will be, and then run the program to see if your prediction was correct.
+            <br><br>
+
+   <li> Change the values that are assigned to <em>num</em> and <em>text</em> so that 
+            there are only three lines of output displayed in the Java Console
+            when the program is run.&nbsp; Ask your lab instructor
+            for help if you don't understand what to do.
+            <br><br>
+
+   <li> Add an <em>else</em> statement to the first <em>if</em> statement in the
+            <em>init()</em> method so that if the boolean expression being tested is false, the
+            message "num is less than or exactly 30" is printed in the Java Console.&nbsp; Then run
+            the program; you should obtain 4 lines of output in the Java Console for this version.
+            <br><br>
+
+   <li> Paste the following code into the bottom of the <em>init()</em> method of your program:
+<pre>
+            if (person.equals("Judy Garland") ) {
+                System.out.println(person + " wears ruby slippers");
+            }
+            else if (person.equals("Tommy Franks") ) {
+                System.out.println(person + " wears army boots");
+            }
+            else if (person.equals("Omar Vizquel") ) {
+                System.out.println(person + " wears baseball cleats");
+            }
+            else {
+                System.out.println(person + " wears black shoes");
+            }
+</pre>
+             Run this program several times, changing the initial value stored in the String object
+             <em>person</em> so that different output is obtained for each run.
+            <br><br>
+
+   <li> Add another "else if" option to the code above, testing to see if <em>person</em> contains
+           the value "Elvis"; if so, display the output that he wears blue suede shoes.&nbsp; When
+           you have done this, show your output to your instructor.
+            <br><br>
+
+   <li> Close this CodeWarrior project, and create a new Default project in your CS121 folder named
+            <strong>lab4a</strong>.&nbsp; Copy the code found at <A HREF="lab4src2.html"> THIS
+            LINK</A> into the file named "TheApplet.java".&nbsp; Run the program, and notice that
+            this program has three Buttons that can be clicked on the screen, and depending on which
+            button is clicked, the appropriate message is displayed on the screen.<br><br>
+
+            Copy the following code into the very beginning of the body of the 
+            <em>paint()</em> method in the program:
+<pre>
+            if (usersChoice == ROCK && computersChoice == PAPER) {
+                g.drawString("Paper covers Rock -- I win!", 10, 300);
+            }
+            else if (usersChoice == PAPER && computersChoice == ROCK) {
+                g.drawString("Paper covers Rock -- you win", 10, 300);
+            }
+            else {
+                g.drawString("no winner this time", 10, 300);
+            }
+</pre>
+            Run this program several times, and see if you can win by choosing the PAPER button.&nbsp;
+            Also see if you can lose by choosing the ROCK button.
+            <br><br>
+
+   <li> Add several more "else if" statements to the <em>paint()</em> method,
+           to handle the situations in the Rock, Paper, Scissors game where Scissors cut Paper and
+           Rock breaks Scissors.&nbsp; Be sure to handle these cases where the user wins as well as
+           when the computer wins.&nbsp; Show this to your instructor when you have a complete
+           game working.
+            <br><br>
+
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST2 {color: #009900; font-family: monospace; font-style: italic}
+.ST3 {font-family: monospace; font-style: italic}
+.ST4 {font-family: monospace; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: monospace; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">..\CSC120\Java\lec38_f22\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture # 38</span>
+  2 <span class="comment"> * Project Description: Example of use of Math class methods for finding</span>
+  3 <span class="comment"> *                      mean and std deviation of a sample</span>
+  4 <span class="comment"> */</span>
+  5 
+  6 <span class="literal">import</span> java.awt.*;
+  7 <span class="literal">import</span> javax.swing.*;
+  8 <span class="literal">import</span> java.util.*;
+  9 
+ 10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 11 
+ 12     <span class="literal">private</span> <span class="literal">final</span> Integer <span class="ST1">SAMPLE_SIZE</span> = 7000;
+ 13     
+ 14     <span class="literal">private</span> Integer[] <span class="ST1">sample1</span>, <span class="ST1">sample2</span>;
+ 15     
+ 16 
+ 17     <span class="comment">// constructor method</span>
+ 18     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 19         setLayout(<span class="literal">n</span><span class="literal">ull</span>);
+ 20         setPreferredSize(<span class="literal">new</span> Dimension(1000, 800));
+ 21         setName(<span class="string">&quot;</span><span class="string">Mean and Std Deviation of a Sample</span><span class="string">&quot;</span>);
+ 22         setUp();
+ 23         setBackground(Color.<span class="ST2">WHITE</span>);
+ 24 
+ 25         
+ 26         <span class="comment">// sample1 is based on the range [40, 60]</span>
+ 27         <span class="ST1">sample1</span> = <span class="literal">new</span> Integer[<span class="ST1">SAMPLE_SIZE</span>];
+ 28         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">sample1</span>.<span class="ST1">length</span>; x++) {
+ 29             <span class="ST1">sample1</span>[x] = randomValueFromRange(40, 60);
+ 30         } <span class="comment">// end for</span>
+ 31         
+ 32         <span class="comment">// sample2 is based on the range [0, 100]</span>
+ 33         <span class="ST1">sample2</span> = <span class="literal">new</span> Integer[<span class="ST1">SAMPLE_SIZE</span>];
+ 34         <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">sample1</span>.<span class="ST1">length</span>; x++) {
+ 35             <span class="ST1">sample2</span>[x] = randomValueFromRange(10, 90);
+ 36         } <span class="comment">// end for</span>
+ 37 
+ 38         
+ 39     } <span class="comment">// end of constructor</span>
+ 40     
+ 41     <span class="literal">public</span> Integer <span class="ST0">randomValueFromRange</span>(Integer low, Integer high) {
+ 42         Random randGen = <span class="literal">new</span> Random();
+ 43         <span class="literal">return</span> randGen.nextInt(high-low+1) + low;
+ 44     } <span class="comment">// end of randomValueFromRange</span>
+ 45     
+ 46     @Override
+ 47     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+ 48         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+ 49 
+ 50             g.setColor(Color.<span class="ST2">BLACK</span>);
+ 51             g.fillRect(0, 395, 1000, 10);
+ 52             g.drawLine(0, 380, 1000, 380);
+ 53             g.drawLine(0, 780, 1000, 780);
+ 54             
+ 55             g.setFont(<span class="literal">new</span> Font(<span class="string">&quot;</span><span class="string">SansSerif</span><span class="string">&quot;</span>, Font.<span class="ST2">BOLD</span>, 14));
+ 56             <span class="literal">for</span> (Integer num = 0; num &lt;= 100; num += 10) {
+ 57                 g.drawString(<span class="string">&quot;&quot;</span>+num, num*9+50, 395);
+ 58                 g.drawString(<span class="string">&quot;&quot;</span>+num, num*9+50, 795);
+ 59             }
+ 60             
+ 61             drawGridlines(g);
+ 62                 
+ 63             <span class="comment">// draw histogram for sample1 in upper screen area</span>
+ 64             g.setColor(Color.<span class="ST2">RED</span>);
+ 65             Integer[] buckets = <span class="literal">new</span> Integer[101];
+ 66             <span class="literal">for</span> (Integer b = 0; b &lt; buckets.<span class="ST1">length</span>; b++) {
+ 67                 buckets[b] = 0;
+ 68             }
+ 69             <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">sample1</span>.<span class="ST1">length</span>; x++) {
+ 70                 buckets[<span class="ST1">sample1</span>[x]]++;
+ 71             }
+ 72             <span class="literal">for</span> (Integer b = 0; b &lt; buckets.<span class="ST1">length</span>; b++) {
+ 73                 g.fillRect(b*9+50, 380-buckets[b], 6, buckets[b]);
+ 74             }
+ 75             g.setColor(Color.<span class="ST2">BLACK</span>);
+ 76             g.setFont(<span class="literal">new</span> Font(<span class="string">&quot;</span><span class="string">SansSerif</span><span class="string">&quot;</span>, Font.<span class="ST2">BOLD</span>, 18));
+ 77             g.drawString(<span class="string">&quot;</span><span class="string">Sample 1:</span><span class="string">&quot;</span>, 20, 50);
+ 78             g.drawString(<span class="string">&quot;</span><span class="string">Mean = </span><span class="string">&quot;</span> + calcMean(<span class="ST1">s</span><span class="ST1">ample1</span>), 30, 75);
+ 79             g.drawString(<span class="string">&quot;</span><span class="string">Std. Dev. = </span><span class="string">&quot;</span> + calcStdDev(<span class="ST1">s</span><span class="ST1">ample1</span>), 30, 100);
+ 80             
+ 81             <span class="comment">// draw histogram for sample2 in lower screen area</span>
+ 82             g.setColor(Color.<span class="ST2">RED</span>);
+ 83             <span class="literal">for</span> (Integer b = 0; b &lt; buckets.<span class="ST1">length</span>; b++) {
+ 84                 buckets[b] = 0;
+ 85             }
+ 86             <span class="literal">for</span> (Integer x = 0; x &lt; <span class="ST1">sample2</span>.<span class="ST1">length</span>; x++) {
+ 87                 buckets[<span class="ST1">sample2</span>[x]]++;
+ 88             }
+ 89             <span class="literal">for</span> (Integer b = 0; b &lt; buckets.<span class="ST1">length</span>; b++) {
+ 90                 g.fillRect(b*9+50, 780-buckets[b], 6, buckets[b]);
+ 91             }
+ 92             g.setColor(Color.<span class="ST2">BLACK</span>);
+ 93             g.drawString(<span class="string">&quot;</span><span class="string">Sample 2:</span><span class="string">&quot;</span>, 20, 450);
+ 94             g.drawString(<span class="string">&quot;</span><span class="string">Mean = </span><span class="string">&quot;</span> + calcMean(<span class="ST1">s</span><span class="ST1">ample2</span>), 30, 475);
+ 95             g.drawString(<span class="string">&quot;</span><span class="string">Std. Dev. = </span><span class="string">&quot;</span> + calcStdDev(<span class="ST1">s</span><span class="ST1">ample2</span>), 30, 500);
+ 96             
+ 97     } <span class="comment">// end of paintComponent()</span>
+ 98     
+ 99     
+100     
+101        
+102     
+103     <span class="literal">public</span> Double <span class="ST0">calcMean</span>(Integer[] sample) {
+104         Double mean;
+105         Double sum = 0.0;
+106         
+107         <span class="literal">for</span> (Integer i = 0; i &lt; sample.<span class="ST1">length</span>; i++) {
+108             sum += sample[i];
+109         }
+110         mean = sum / sample.<span class="ST1">length</span>;
+111         
+112         <span class="literal">return</span> mean;
+113     }
+114 
+115     
+116     <span class="literal">public</span> Double <span class="ST0">calcStdDev</span>(Integer[] sample) {
+117         Double stdDev;
+118         
+119         Double mean;
+120         mean = calcMean(sample);
+121         
+122         Double numerator = 0.0;
+123         <span class="literal">for</span> (Integer i = 0; i &lt; sample.<span class="ST1">length</span>; i++) {
+124             numerator += Math.<span class="ST3">pow</span>( (sample[i]-mean), 2 );
+125         }
+126         
+127         stdDev = Math.<span class="ST3">sqrt</span>( numerator / (sample.<span class="ST1">length</span>-1) );
+128         
+129         <span class="literal">return</span> stdDev;
+130     }
+131     
+132     
+133     
+134     
+135     
+136     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">drawGridlines</span>(Graphics g) {
+137         g.setColor(Color.<span class="ST2">LIGHT_GRAY</span>);
+138         
+139         <span class="comment">// top part</span>
+140         <span class="literal">for</span> (Integer y = 30; y &lt; 380; y += 50) {
+141             g.drawLine(0, y, 1000, y);
+142             <span class="literal">if</span> (380-y == 50) {
+143                 g.drawString(<span class="string">&quot;</span>  <span class="string">&quot;</span>+(380-y), 975, y);
+144             }
+145             <span class="literal">else</span> {
+146                 g.drawString(<span class="string">&quot;&quot;</span>+(380-y), 975, y);
+147             }
+148         }
+149         
+150         <span class="comment">// bottom part</span>
+151         <span class="literal">for</span> (Integer y = 430; y &lt; 780; y += 50) {
+152             g.drawLine(0, y, 1000, y);
+153             <span class="literal">if</span> (780-y == 50) {
+154                 g.drawString(<span class="string">&quot;</span>  <span class="string">&quot;</span>+(780-y), 975, y);
+155             }
+156             <span class="literal">else</span> {
+157                 g.drawString(<span class="string">&quot;&quot;</span>+(780-y), 975, y);
+158             }
+159         }
+160         
+161         
+162     } <span class="comment">// end of drawGridlines</span>
+163     
+164     <span class="comment">/**</span><span class="comment">*********************************************</span>
+165 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+166 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+167     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+168         <span class="literal">for</span> (Component c: getComponents())
+169             c.setSize(c.getPreferredSize());
+170         JFrame f = <span class="literal">new</span> JFrame(getName());
+171         f.setContentPane(<span class="literal">t</span><span class="literal">his</span>);
+172         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+173         f.pack();
+174         f.setVisible(<span class="literal">t</span><span class="literal">rue</span>);    
+175     }
+176 
+177     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST4">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+178 
+179 } <span class="comment">// end of class MUPanel</span>
+180 
+</pre></body>
+</html>

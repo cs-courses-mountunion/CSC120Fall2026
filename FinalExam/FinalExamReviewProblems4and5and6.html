@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <title>Univ. of Mount Union Computer Science and Information Systems</title>
+  </head>
+  <body>
+
+<pre>
+
+/**
+ *
+ * Final Exam Review Problem 4.
+ * Bike class.
+ *
+ * There are three private data members.
+ * color, which is a Color 
+ * price, which is a double 
+ * hasGears, which is a boolean 
+ * There is one constructor: 
+ * A 3-parameter constructor that uses the 3 parameters to initialize the 3 data members. 
+ * Write a getColor method, a setColor method, a getPrice method, and a setPrice method.
+
+ * Write a toString method that (as usual) returns a String describing the bike in terms of the data members. The description must label the values returned. For example it might return
+ *     Color=java.awt.Color[r=255,g=0,b=0] price=150.99 hasGears=true
+ * instead of
+ *     java.awt.Color[r=255,g=0,b=0] 150.99 true
+ */
+ 
+import java.awt.*;
+
+public class Bike {
+    private Boolean hasGears;
+    private Double price;
+    private Color color;
+
+    public Bike( Boolean h, Double p, Color c) {
+       
+        hasGears = h;
+        setPrice(p);
+        color = c;
+        
+    } // end of constructor
+    
+    public Double getPrice() {
+        return price;
+    } // end of getPrice()
+    
+    public void setPrice(Double p) {
+        if (p &lt; 0) {
+            price = 0;
+        }
+        else if (p > 1000) {
+            price = 1000;
+        }
+        else {
+            price = p;
+        }
+    } // end of setPrice()
+    
+    public Color getColor() {
+        return color;
+    } // end of getColor()
+    
+    public void setColor(Color c) {
+        color = c;
+    } // end of setColor()
+    
+    public String toString() {
+        String temp;
+        temp = "Color = " + color ;
+        temp = temp + ", hasGears = " + hasGears +  ", price: " + price;
+        return temp;
+    } // end of toString()
+    
+} // end of class Bike
+
+
+/**
+* This class tests some methods of the Bike class for problem 4.
+* It also contains the methods for problems 5a, b, c.
+*/
+import java.awt.*;
+import javax.swing.*;
+
+public class MUPanel extends JPanel {
+  
+    private Bike mine, hers;
+   
+    public MUPanel() {
+
+        setBackground( Color.WHITE );
+        setPreferredSize( new Dimension( 600, 400) );
+        
+        //These lines of code "test" the Bike class definition
+        mine = new Bike(true, 79.95, Color.GREEN);
+        hers = new Bike( false, 99.99, Color.RED );
+        
+        System.out.println( hers.getColor() );
+        hers.setColor( Color.BLUE );
+        System.out.println( hers.getColor() );
+        
+        System.out.println( hers.getPrice() );
+        hers.setPrice( 555.07 );
+        System.out.println( hers.getPrice() );
+        
+        System.out.println( mine.toString() );
+        System.out.println( hers.toString() );
+		
+    } // end of constructor
+    
+/////// problems 5, a, b, c
+// Writing Methods. For each of the following write the header (and body) for the method. 
+//    
+// getSmallest method that has two integer parameters and returns the smallest of the two parameter values.
+//
+// isLarge method that has one integer parameter and returns true if the value of the parameter is greater than 500, and otherwise returns false.
+//
+// add100 method that has no parameters and returns nothing. This method assumes we are in a class that has a private data member called size, and this method adds 100 to the current value of size.
+
+    public Integer getSmallest( Integer firstNum, Integer secondNum ) {
+        if ( firstNum &lt; secondNum ) {
+            return firstNum;
+        }
+        else {
+            return secondNum;
+        }
+    } // end of getSmallest()
+    
+	
+    public Boolean isLarge( Integer num ) {
+        if (num > 500) {
+            return true;
+        }
+		else {
+            return false;
+        }
+    } // end of isLarge()
+    
+	
+    Integer size = 27;
+    public void add100() {
+        size = size + 100;
+    } // end of add100() 
+    
+	
+} // end of class MUPanel
+
+
+
+</pre>
+
+</body>
+</html>
+
+

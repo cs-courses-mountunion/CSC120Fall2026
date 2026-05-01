@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>SoccerTeam.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.line-number {background-color: #e9e8e2}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.character {color: #ce7b00}
+.keyword-directive {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec33_summaxmin\src\SoccerTeam.java</td></tr></table>
+<pre>
+<span class="line-number"> 1</span> <span class="comment">/*</span>
+<span class="line-number"> 2</span> <span class="comment"> * To change this template, choose Tools | Templates</span>
+<span class="line-number"> 3</span> <span class="comment"> * and open the template in the editor.</span>
+<span class="line-number"> 4</span> <span class="comment"> */</span>
+<span class="line-number"> 5</span> 
+<span class="line-number"> 6</span> <span class="comment">/**</span>
+<span class="line-number"> 7</span> <span class="comment"> *</span>
+<span class="line-number"> 8</span> <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">cindricbb</span>
+<span class="line-number"> 9</span>  <span class="comment">*/</span>
+<span class="line-number">10</span> <span class="keyword-directive">public</span> <span class="keyword-directive">class</span> SoccerTeam {
+<span class="line-number">11</span>     
+<span class="line-number">12</span>     <span class="keyword-directive">private</span> Integer year, wins, losses;
+<span class="line-number">13</span>     
+<span class="line-number">14</span>     <span class="keyword-directive">public</span> SoccerTeam( Integer y, Integer w, Integer loss) {
+<span class="line-number">15</span>         year = y;
+<span class="line-number">16</span>         wins = w;
+<span class="line-number">17</span>         losses = loss;
+<span class="line-number">18</span>     } <span class="comment">// end of constructor</span>
+<span class="line-number">19</span>     
+<span class="line-number">20</span>     <span class="keyword-directive">public</span> Integer getYear() {
+<span class="line-number">21</span>         <span class="keyword-directive">return</span> year;
+<span class="line-number">22</span>     } <span class="comment">// end of getYear</span>
+<span class="line-number">23</span>     
+<span class="line-number">24</span>     <span class="keyword-directive">public</span> Integer getWins() {
+<span class="line-number">25</span>         <span class="keyword-directive">return</span> wins;
+<span class="line-number">26</span>     } <span class="comment">// end of getWins</span>
+<span class="line-number">27</span>     
+<span class="line-number">28</span>     <span class="keyword-directive">public</span> Integer getLosses() {
+<span class="line-number">29</span>         <span class="keyword-directive">return</span> losses;
+<span class="line-number">30</span>     } <span class="comment">// end of getLosses</span>
+<span class="line-number">31</span>     
+<span class="line-number">32</span>     <span class="keyword-directive">public</span> String toString() {
+<span class="line-number">33</span>         <span class="keyword-directive">return</span> <span class="character">&quot;</span><span class="character">In the year </span><span class="character">&quot;</span> + year
+<span class="line-number">34</span>                 + <span class="character">&quot;</span><span class="character">, Mount Union&#39;s Women&#39;s Soccer team had a record of </span><span class="character">&quot;</span>
+<span class="line-number">35</span>                 + wins + <span class="character">&quot;</span><span class="character"> wins and </span><span class="character">&quot;</span> + losses + <span class="character">&quot;</span><span class="character"> losses</span><span class="character">&quot;</span>;
+<span class="line-number">36</span>     }
+<span class="line-number">37</span>     
+<span class="line-number">38</span> }  <span class="comment">// end of class SoccerTeam</span>
+<span class="line-number">39</span> 
+<span class="line-number">40</span> 
+</pre></body>
+</html>

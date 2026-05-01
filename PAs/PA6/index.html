@@ -1,0 +1,201 @@
+<html>
+<head>
+  <title>CSC 120 PA 6</title>
+</head>
+
+<body vlink="#ff8800" alink="#ff0000" link="#0000ee">
+
+
+
+<h2 align="center"><font color="#990099">CSC 120 Programming Assignment 6</font>
+</h2>
+
+<font size="+1">Note: You should <b>not</b> work on this assignment during
+lecture or lab class-time unless:</font>
+
+<ol type="a">
+  <li><font size="+1">You have completed all of the in-class assigned work for the day, and</font></li>
+  <li><font size="+1">You have permission from the instructor.</font></li>
+</ol>
+
+
+<h4> This assignment must be submitted to the PA6 D2L dropbox <b>before</b> the beginning of class on the due date.</h4>
+
+
+<h3>Overview:</h3>
+
+<blockquote>Write a Java Application program that declares, instantiates and uses an array of 
+objects. In addition to the <b>MUFrame.java</b> and <b>MUPanel.java</b> files, your program 
+must include at least two additional class definitions:
+<ul>
+    <li> a &ldquo;hero&rdquo; class that will be used to set up a visual object that can be moved around
+	     the screen with button clicks, and </li>
+    <li> an &ldquo;obstacle&rdquo; class that will be used to set up an array of visual objects that the
+    	 &ldquo;hero&rdquo; object will attempt to avoid or capture. </li>
+</ul>
+</blockquote>
+
+<h3>Instructions:</h3>
+
+<ol>
+    <li>Create an application called <b>PA6.</b> It should contain two classes named <b>MUFrame</b> and 
+	<b>MUPanel</b>.&nbsp; Start with the three files in the MUFrame&nbsp;with&nbsp;GUI&nbsp;designer
+	.zip file available on the Student Resources page of the course web site.<br /><br />
+    </li>
+
+    <li>The &ldquo;obstacle&rdquo;  class should have a constructor that determines the position of the object 
+	    randomly, or with a formula.&nbsp; That way, the obstacle objects in the array can be instantiated
+		with a loop, instead of individually.&nbsp; For example, if you want to have 100 obstacles
+		in your program, you can write a loop that is three lines long and is executed 100 
+		times, instead of writing 100 separate instantiation statements.<br /><br />
+    </li>
+
+    <li>The program must have buttons that will be used to move the &ldquo;hero&rdquo; object around the
+	    graphical output window.&nbsp; Use the designer to position the buttons outside the
+		drawing panel of your application. <br /><br />
+    </li>
+  
+    <li>Instantiate one &ldquo;hero&rdquo; object and an array of &ldquo;obstacle&rdquo; objects in the constructor
+	    method of the <b>MUPanel.java</b> file.<br /><br />
+    </li>
+
+    <li>There must be a goal that the user is attempting to attain.&nbsp; The goal can either 
+	    be an area of the screen that the &ldquo;hero&rdquo; is attempting to reach while avoiding the
+		obstacles, one special obstacle that the &ldquo;hero&rdquo; will try to "capture" while avoiding
+		all the OTHER obstacles, or somehow avoiding or capturing all the obstacles before 
+		something happens (the obstacles reach a certain point on the screen, a maximum number
+		of button clicks has occurred, or a timer runs out).&nbsp; See the examples below for 
+		some ideas -- let your imagination guide you, and have fun!<br /><br />
+    </li>
+
+    <li>The program must be able to detect when the &ldquo;hero&rdquo; has reached the goal, and display a 
+	    message on screen when the goal is reached -- something like "You win!" <br /><br />
+    </li>
+  
+    <li>When a button is clicked, the &ldquo;hero&rdquo; must move on screen appropriately.&nbsp; Also, when
+	    any button is clicked, ALL of the obstacles must move somehow (either all the same 
+		way, or a randomly determined amount or direction).&nbsp; Once again, see the examples
+		to understand this feature.<br /><br />
+    </li>
+
+    <li><b>IMPORTANT:</b>&nbsp;  The &ldquo;hero&rdquo; class must include a method that is capable of detecting
+	    when the &ldquo;hero&rdquo;&nbsp;&rsquo;s bounding box or drawing area has overlapped (or in other words, is touching)
+		an obstacle.&nbsp; This method should accept one parameter, which is an &ldquo;obstacle&rdquo; object,
+		and returns a Boolean value.&nbsp; If any part of the bounding rectangle for the obstacle 
+		object is within the bounding rectangle of the &ldquo;hero&rdquo; object, return <b>true</b>; else, 
+		return <b>false</b>.&nbsp; This method will be called from the 
+		<b>MUPanel.java</b> file when the button is clicked -- after the &ldquo;hero&rdquo; and all obstacles
+		have been moved, write a loop that will test each element in the array of obstacles to see 
+		if that obstacle has collided with the &ldquo;hero&rdquo;. <br /><br />
+    </li>
+    
+    <li>Don't forget your comment header for MUPanel, and put a comment header in each of the
+        &ldquo;hero&rdquo; and &ldquo;obstacle&rdquo; class files.<br /><br />
+    </li>
+
+    <li>As usual, make a .zip file from the entire PA6 folder from your H:\CSC120\Java space
+        and submit it to the PA6 Dropbox in <a href="http://d2l.mountunion.edu" target="_blank"> D2L</a> before the
+		due date.<br /><br />
+    </li>
+</ol>
+    
+<h3>Note: It is expected that each student will complete this assignment INDIVIDUALLY.</h3>
+
+<h3>Examples (some of these include enhancements
+			    over and above the basic requirements): </h3>
+				<ul> 
+				    <li> <a href="PA6DemoVideo01.mp4" target="_blank"> 
+					         Basic example with no enhancements</a> &mdash; move the hero to the right edge of 
+							 the window </li>
+				    <li> <a href="PA6DemoVideo02.mp4" target="_blank"> 
+					         Crude Space Invaders</a> &mdash; touch all the monsters before any of them are
+							 able to move below you!</li>
+				    <li> <a href="PA6DemoVideo03.mp4" target="_blank"> 
+					         MU Frogger</a> &mdash; Can you jump across the highway and avoid being squished
+                   by the cars?!?</li>
+				</ul>
+				</li>
+				
+<h3>Ideas for Enhancement of the Basic Requirements:</h3>
+<blockquote>
+Use your creativity to enhance the basic requirements shown above.&nbsp;  You don't have to do this, but it might make your work
+more interesting for you.&nbsp; Here are some suggestions
+    for enhancing your project (you are not limited to this list - try things out!):
+    <ul>
+        <li> Draw interesting shapes for your hero and/or obstacles on screen.<br><br>
+
+        <li> Use Images for the hero and/or obstacles, or have an image as the background of the screen.<br><br>
+
+        <li> Use animation (as seen in the optional part of Lab 8) to make things move or otherwise change on screen between button clicks.<br><br>
+
+        <li> Implement some actual game that you have played and like.<br><br>
+
+    </ul>
+
+    There are many more fun things you could include in this project.&nbsp; Enjoy!
+</blockquote>				
+				
+				
+<h3> Grading Rubric:</h3>
+		
+    <table border="1" cellpadding="3">
+        <tr>
+            <td>CSC 120, PA6, your name, date & Description comments in MUPanel.java.
+            </td>
+            <td align="right">3</td>
+        </tr>
+        <tr>
+            <td>The Description comment
+			    must include a discussion of the goal of the program; what is the &ldquo;hero&rdquo; object attempting
+				to accomplish?&nbsp; Should the &ldquo;hero&rdquo; be moved to a certain screen area, attempt to "capture"
+				all of the obstacles, or what?
+            </td>
+            <td align="right">3</td>
+        </tr>
+        <tr>
+            <td>Project contains a &ldquo;hero&rdquo; class and one &ldquo;hero&rdquo; object that is drawn on screen and may be
+			    moved by button clicks or other GUI actions.
+            </td>
+            <td align="right">6</td>
+        </tr>
+        <tr>
+            <td>Project contains an &ldquo;obstacle&rdquo; class and an array of &ldquo;obstacle&rdquo; objects that are drawn on 
+			    screen and have a different appearance from the &ldquo;hero&rdquo; object.
+            </td>
+            <td align="right">6</td>
+        </tr>
+        <tr>
+            <td>&ldquo;hero&rdquo; object moves correctly according to labels on the buttons.
+            </td>
+            <td align="right">7</td>
+        </tr>
+        <tr>
+            <td>all &ldquo;obstacles&rdquo; move, grow and/or shrink when every button controlling the &ldquo;hero&rdquo; is clicked.
+            </td>
+            <td align="right">8</td>
+        </tr>
+        <tr>
+            <td>Program detects when &ldquo;hero&rdquo; is overlapping any &ldquo;obstacle&rdquo; object and responds appropriately.
+            </td>
+            <td align="right">5</td>
+        </tr>
+        <tr>
+            <td>If &ldquo;hero&rdquo; reaches the goal, a message to that effect is displayed on screen.
+            </td>
+            <td align="right">4</td>
+        </tr>
+        <tr>
+            <td>Your code is easy to read, and indented consistently.
+            </td>
+            <td align="right">3</td>
+        </tr>
+        <tr>
+            <td align="right">Total</td>
+            <td align="right">45</td>
+        </tr>
+    </table>
+
+
+<br><br><br><br>
+</body>
+</html>

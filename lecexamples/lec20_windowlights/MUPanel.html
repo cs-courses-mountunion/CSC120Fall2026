@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec18part2\src\MUPanel.java</td></tr></table>
+<pre>
+ 1 
+ 2 <span class="literal">import</span> java.awt.*;
+ 3 <span class="literal">import</span> javax.swing.*;
+ 4 
+ 5 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 6 
+ 7     <span class="comment">// 1. Declare private objects here:</span>
+ 8     
+ 9     <span class="literal">private</span> House <span class="ST1">myHouse</span>, <span class="ST1">myMansion</span>;
+10 
+11     <span class="comment">// constructor method</span>
+12     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+13         setLayout(<span class="literal">null</span>);
+14         setPreferredSize(<span class="literal">new</span> Dimension(800, 600));
+15         setName(<span class="string">&quot;</span><span class="string">Mount Union Java Program</span><span class="string">&quot;</span>);
+16         setUp();
+17         setBackground(Color.<span class="ST2">WHITE</span>);
+18 
+19         <span class="comment">// 2. Instantiate objects here by calling &quot;new&quot;:</span>
+20         
+21         <span class="ST1">myHouse</span> = <span class="literal">new</span> House(100, 250);
+22         <span class="ST1">myMansion</span> = <span class="literal">new</span> House(450, 120);
+23         
+24     } <span class="comment">// end of constructor</span>
+25     
+26     @Override
+27     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+28         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+29 
+30         <span class="comment">// 3. Call methods of objects here:</span>
+31 
+32         <span class="ST1">myHouse</span>.draw(g);
+33         <span class="ST1">myMansion</span>.draw(g);
+34                 
+35                 
+36     } <span class="comment">// end of paintComponent()</span>
+37     
+38     
+39     
+40     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnOnAllLightsInAllHouses</span>() {
+41         <span class="ST1">myHouse</span>.turnOnAllLights();
+42         <span class="ST1">myMansion</span>.turnOnAllLights();
+43     }
+44   
+45 
+46     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnOffAllLightsInAllHouses</span>() {
+47         <span class="ST1">myHouse</span>.turnOffAllLights();
+48         <span class="ST1">myMansion</span>.turnOffAllLights();
+49     }
+50   
+51 
+52     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">toggleLightsInAllHouses</span>() {
+53         <span class="ST1">myHouse</span>.toggleWindowLights();
+54         <span class="ST1">myMansion</span>.toggleWindowLights();
+55     }
+56   
+57    
+58     <span class="comment">/**</span><span class="comment">*********************************************</span>
+59 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+60 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+61     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+62         <span class="literal">for</span> (Component c: getComponents())
+63             c.setSize(c.getPreferredSize());
+64         JFrame f = <span class="literal">new</span> JFrame(getName());
+65         f.setContentPane(<span class="literal">this</span>);
+66         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+67         f.pack();
+68         f.setVisible(<span class="literal">false</span>);    
+69     }
+70 
+71     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+72 
+73 } <span class="comment">// end of class MUPanel</span>
+74 
+</pre></body>
+</html>

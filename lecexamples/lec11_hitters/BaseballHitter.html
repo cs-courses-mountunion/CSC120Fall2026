@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>BaseballHitter.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.comment {color: #969696}
+.ST2 {color: #009900}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec11\src\BaseballHitter.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * To change this license header, choose License Headers in Project Properties.</span>
+ 3 <span class="comment"> * To change this template file, choose Tools | Templates</span>
+ 4 <span class="comment"> * and open the template in the editor.</span>
+ 5 <span class="comment"> */</span>
+ 6 
+ 7 <span class="comment">/**</span>
+ 8 <span class="comment"> *</span>
+ 9 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">CINDRICBB</span>
+10  <span class="comment">*/</span>
+11 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">BaseballHitter</span> {
+12     
+13     <span class="literal">private</span> String <span class="ST2">name</span>;
+14     <span class="literal">private</span> Integer <span class="ST2">atBats</span>, <span class="ST2">hits</span>, <span class="ST2">rbis</span>;
+15     <span class="literal">private</span> Boolean <span class="ST2">isSwitchHitter</span>;
+16     
+17     
+18     <span class="literal">public</span> <span class="ST1">BaseballHitter</span>( String n, Integer ab, Integer h, Integer r, Boolean sh ) {
+19         <span class="ST2">name</span> = n;
+20         <span class="ST2">atBats</span> = ab;
+21         <span class="ST2">hits</span> = h;
+22         <span class="ST2">rbis</span> = r;
+23         <span class="ST2">isSwitchHitter</span> = sh;
+24     } <span class="comment">// end of constructor</span>
+25     
+26     
+27     <span class="comment">// getters</span>
+28     
+29     <span class="literal">public</span> String <span class="ST1">getName</span>() {
+30         <span class="literal">return</span> <span class="ST2">name</span>;
+31     }  <span class="comment">// end of getName </span>
+32     
+33     <span class="literal">public</span> Integer <span class="ST1">getAtBats</span>() {
+34         <span class="literal">return</span> <span class="ST2">atBats</span>;
+35     }  <span class="comment">// end of getAtBats</span>
+36     
+37     <span class="literal">public</span> Integer <span class="ST1">getHits</span>() {
+38         <span class="literal">return</span> <span class="ST2">hits</span>;
+39     }  <span class="comment">// end of getHits</span>
+40     
+41     <span class="literal">public</span> Integer <span class="ST1">getRBIs</span>() {
+42         <span class="literal">return</span> <span class="ST2">rbis</span>;
+43     }  <span class="comment">// end of getRBIs</span>
+44     
+45     <span class="literal">public</span> Boolean <span class="ST1">getIsSwitchHitter</span>() {
+46         <span class="literal">return</span> <span class="ST2">isSwitchHitter</span>;
+47     }  <span class="comment">// end of getIsSwitchHitter </span>
+48     
+49     
+50     <span class="comment">// setters</span>
+51     
+52     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setName</span>( String n ) {
+53         <span class="ST2">name</span> = n;
+54     } <span class="comment">// end of setName</span>
+55     
+56     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setAtBats</span>( Integer ab ) {
+57         <span class="ST2">atBats</span> = ab;
+58     } <span class="comment">// end of setAtBats</span>
+59     
+60     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setHits</span>( Integer h ) {
+61         <span class="ST2">hits</span> = h;
+62     } <span class="comment">// end of setHits</span>
+63     
+64     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setRBIs</span>( Integer r ) {
+65         <span class="ST2">rbis</span> = r;
+66     } <span class="comment">// end of setRBIs</span>
+67     
+68     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setIsSwitchHitter</span>( Boolean sh ) {
+69         <span class="ST2">isSwitchHitter</span> = 
+70                 sh;
+71     } <span class="comment">// end of setIsSwitchHitter</span>
+72     
+73 
+74     <span class="comment">// other methods...</span>
+75     
+76     <span class="literal">public</span> String <span class="ST1">toString</span>() {
+77         <span class="literal">return</span> <span class="ST2">name</span> + <span class="string">&quot;</span><span class="string"> has </span><span class="string">&quot;</span> + <span class="ST2">hits</span> + <span class="string">&quot;</span><span class="string"> hits in </span><span class="string">&quot;</span> 
+78                 + <span class="ST2">atBats</span> + <span class="string">&quot;</span><span class="string"> atBats, and has driven in </span><span class="string">&quot;</span> + <span class="ST2">rbis</span>
+79                 + <span class="string">&quot;</span><span class="string"> runs. It is </span><span class="string">&quot;</span>
+80                 + <span class="ST2">isSwitchHitter</span> + <span class="string">&quot;</span><span class="string"> that </span><span class="string">&quot;</span> + <span class="ST2">name</span> + <span class="string">&quot;</span><span class="string"> is a switch-hitter</span><span class="string">&quot;</span>;
+81     } <span class="comment">// end of toString</span>
+82      
+83 
+84     <span class="literal">public</span> Double <span class="ST1">calculateBattingAvg</span>() {
+85         <span class="literal">return</span> 1.0 * <span class="ST2">hits</span> / <span class="ST2">atBats</span>;
+86     } <span class="comment">// end of calculateBattingAvg</span>
+87     
+88 
+89 } <span class="comment">// end of class BaseballHitter</span>
+90 
+91 
+92 
+93 
+94 
+95 
+96 
+97 
+98 
+</pre></body>
+</html>

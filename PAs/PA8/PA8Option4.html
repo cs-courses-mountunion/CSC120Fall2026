@@ -1,0 +1,178 @@
+<html>
+
+<head>
+  <title>CSC 120 PA8</title>
+</head>
+
+<body>
+
+<h2 align="center"><font color="#800080">CSC 120 Programming Assignment 8 Option 4 <br/>
+Display an Image</font></h2>
+
+<font size="+1">Note: You should <b>not</b> work on this assignment during class-time unless:</font>
+
+<ol type="a">
+  <li><font size="+1">You have completed all of the in-class assigned work for the day, and</font></li>
+  <li><font size="+1">You have permission from the instructor.</font></li>
+</ol>
+
+<h4> This assignment must be handed in to your instructor's handin
+folder <b>before</b> the beginning of class on the due date.</h4>
+
+<h3>Description:</h3>
+<blockquote>
+Your program should accept input that represents an image encoded using the PPM format,
+convert this
+input into numeric values, and use an <b>MUPanel</b> to display the image on the computer screen. <br/><br/>
+This is the most difficult option for PA8, and it is not worth any more points than the other options.&nbsp; 
+The instructor will try to help with minor issues, but will not write the program for the student; if you can't
+get this option to work, you should choose one of the other options.
+</blockquote>
+
+<h3>Change in User Interface for this Option</h3>
+<blockquote>
+If you choose this option for PA8, your program does not need an output TextArea -- instead, you should 
+have an output drawingPanel that contains an MUPanel object, so that the image may be drawn on the
+screen. <br/><br/>
+
+The following .zip file archive contains three files (<b>MUFrame.java</b>, <b>MUFrame.form</b> and 
+<b>MUPanel.java</b>) that implement a version of the user interface that you need for this option of PA8.&nbsp;
+Feel free to Extract All files from this .zip file and copy the results into the src folder of your PA8
+project:
+    <blockquote>
+	    <a href="PA8_Starter.zip"> PA8_Starter.zip</a>
+	</blockquote>
+</blockquote>
+
+<h3>Input format:</h3>
+<blockquote>
+    The PPM image format encodes an image in a pixel-by-pixel manner.&nbsp; The first three lines of the file
+    are the heading of the file, and have the following format:
+	<blockquote>
+	    P3 <br/>
+		&lt;widthInPixels&gt; &lt;heightInPixels&gt; <br/>
+	    &lt;maximumColorValue&gt; <br/>
+	</blockquote>
+	After the heading lines, the file contains &lt;widthInPixels&gt; * &lt;heightInPixels&gt; * 3 numeric 
+	values in the range from 0 to &lt;maximumColorValue&gt;, inclusive.&nbsp; Each triplet of numbers
+	represents the red, green and blue components of one pixel, in that order.&nbsp; Pixels are specified in
+	the file from top to bottom, left to right in the file (called column-major order).&nbsp; When more than
+	one value is given on a line, the values are separated by a space. <br/><br/>
+	
+	Here is an example that defines a 4x4 image that has color values in the range from 0 to 100:
+<pre>
+P3
+4 4
+100
+0 0 0
+0 0 0
+10 20 80
+0 0 0
+0 0 0
+0 0 0
+10 20 80
+0 0 0
+0 0 0
+0 0 0
+10 60 80
+0 0 0
+0 0 0
+0 0 0
+10 60 80
+0 0 0
+</pre>	
+    There are 4x4x3 == 48 values afer the first 3 lines that represent the 16 pixels of the image.&nbsp;
+	The first four pixel lines represent the left-most column of pixels in the image.<br/><br/>
+	
+    Note that you should use the <code>trim</code> method of the <code>String</code> class to remove
+	all leading and trailing spaces from all parts of the input before processing the values in your program.
+</blockquote>
+
+<h3>Methods and Objects to define in MUPanel.java:</h3>
+<blockquote>
+    At the top of MUPanel.java, declare a two-dimensional array of Color values named <code><b>pixel</b></code> 
+	and an Integer named <code><b>colorMax</b></code>, like this:
+<pre>
+    private Color[][] pixel; 
+    private Integer colorMax;
+</pre>
+    Next, add this code to the <code><b>paintComponent</b></code> method of the MUPanel class:
+<pre>
+        if (pixel != null) {
+            for (int w = 0; w &lt; pixel.length; w++) {
+                for (int h = 0; h &lt; pixel[0].length; h++) {
+                    g.setColor(pixel[h][w]);
+                    g.fillRect(w, h, 1, 1);
+                }
+            }
+        }
+</pre>
+    Then copy these methods into MUPanel.java after the <code><b>paintComponent</b></code> method:
+<pre>
+    public void makePixelMap(int width, int height, int cm) {
+        pixel = new Color[width][height];
+        for (int w = 0; w &lt; width; w++) {
+            for (int h = 0; h &lt; height; h++) {
+                pixel[w][h] = Color.BLACK;
+            }
+        }
+        colorMax = cm;
+    }
+       
+    public void setAPixel(int lineNum, float red, float green, float blue) {
+        int x = lineNum / pixel[0].length;
+        int y = lineNum % pixel[0].length;
+        pixel[x][y] = new Color(red/colorMax, green/colorMax, blue/colorMax);
+    }
+</pre>
+</blockquote>
+
+<h3>Outline of Processing Logic in MUFrame.java:</h3>
+<blockquote>
+    When the processing button is clicked by the user, the program should split the input entered by the user
+	in the input area into separate strings for each line of the input.&nbsp; Next, process the first three
+	lines of input separately to obtain the width, height and maxColorValue values from the input.&nbsp; Once you 
+	have those values in <code><b>Integer</b></code> variables, call this method of the <code><b>muPanel</b></code>
+	object:
+<pre>
+    muPanel.makePixelMap( width, height, maxColorValue );
+</pre>
+	Then for each line of image data in the input (starting with 3 and continuing as long as we are &lt; the length of the input line array),
+	<ol type="a">
+		<li> split the line into three values using the string <code>" "</code> as the delimiter (there is <b>one</b> space between the quotes)</li>
+		<li> trim off leading and trailing spaces from each of the three values obtained in the previous step </li>
+		<li> convert the three values from the input line into Floats representing the colors of the pixel (use <code><b>Float.parseFloat</b></code> to do the conversion) </li>
+		<li> call the <code><b>setAPixel</b></code> method of muPanel using syntax like this:
+<pre>
+    muPanel.setAPixel(lineNum-3, red, green, blue);
+</pre>
+		</li>
+		<li> that's the end of the for loop </li>	
+	</ol>
+	Be sure to call <code>muPanel.repaint();</code> at the end of your actionPerformed method in <b>MUFrame</b>
+</blockquote>
+
+<h3>Input Samples to Use:</h3>
+<blockquote>
+    Your program should be able to process all of these inputs correctly:
+	<ol type="i">
+	    <li> <a href="img_horizstripes.txt"> A horizontally-striped pattern</a> &nbsp; (50 &times; 50) </li>
+	    <li> <a href="img_blackbuck.txt"> A picture of an antelope</a> &nbsp; (102 &times; 102) </li>
+	    <li> <a href="img_marbles.txt"> A picture of marbles</a> &nbsp; (150 &times; 150) </li>
+	    <li> <a href="img_mandel.txt"> A zoom into the Mandelbrot Set</a> &nbsp; (247 &times; 247) </li>
+	    <li> <a href="img_weirdstar.txt"> A weird star-like pattern</a> &nbsp; (275 &times; 275) </li>
+	    <li> <a href="img_cindricincollege.txt"> Prof. Cindric's college senior photo</a> &nbsp; (100 &times; 100) </li>
+	</ol>
+</blockquote>
+
+<h3>Credits:</h3>
+<blockquote>
+    For more information about the PPM image format, visit 
+	<a href="http://paulbourke.net/dataformats/ppm/" target="_blank"> Paul Bourke's PPM page</a>.
+</blockquote>
+
+<h4> It is expected that each student will complete this assignment INDIVIDUALLY.</h4>
+
+
+</body>
+</html>

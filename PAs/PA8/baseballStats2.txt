@@ -1,0 +1,17 @@
+Brouthers, Dennis # 106 # .342 # 2296 # 1296 # 256
+Charelston, Oscar # 143 # .363 # 1210 # 853 # 210
+Cobb, Ty # 117 # .367 # 4191 # 1938 # 892
+Delahanty, Ed # 101 # .346 # 2596 # 1464 # 455
+Gibson, Josh # 174 # .372 # 838 # 751 # 42
+Hamilton, Billy # 40 # .344 # 2159 # 739 # 912
+Heilmann, Harry # 183 # .342 # 2660 # 1539 # 113
+Hornsby, Rogers # 301 # .358 # 2930 # 1584 # 135
+Keeler, Willie # 33 # .341 # 2932 # 810 # 495
+Leonard, Buck # 98 # .345 # 772 # 564 # 33
+Ruth, Babe # 714 # .342 # 2873 # 2213 # 123
+Sisler, Gene # 102 # .340 # 2812 # 1175 # 375
+Speaker, Tris # 117 # .345 # 3515 # 1529 # 432
+Stearnes, Turkey # 187 # .348 # 1326 # 1009 # 130
+Terry, Bill # 154 # .341 # 2193 # 1078 # 56
+Williams, Ted # 521 # .344 # 2654 # 1839 # 24
+Wilson, Jud # 77 # .350 # 1080 # 728 # 104

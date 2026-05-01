@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.string {color: #ce7b00}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec03\src\MUPanel.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/* CSC 120 Lecture # 3</span>
+ 2 <span class="comment"> * Blase B. Cindric</span>
+ 3 <span class="comment"> *</span>
+ 4 <span class="comment"> *</span>
+ 5 <span class="comment"> * Project Description:</span>
+ 6 <span class="comment">      Several fascinating examples of using the Flag class</span>
+ 7 <span class="comment"> *</span>
+ 8 <span class="comment"> */</span>
+ 9 <span class="literal">import</span> java.awt.*;
+10 <span class="literal">import</span> javax.swing.*;
+11 
+12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+13 
+14     <span class="comment">// 1. Declare private objects here:</span>
+15     
+16     <span class="literal">private</span> Flag <span class="ST1">myFlag</span>, <span class="ST1">anotherFlag</span>, <span class="ST1">flag3</span>;
+17     
+18 
+19     <span class="comment">// constructor method</span>
+20     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+21         setLayout(<span class="literal">null</span>);
+22         setPreferredSize(<span class="literal">new</span> Dimension(800, 600)); <span class="comment">// this is the size of the output window</span>
+23         setName(<span class="string">&quot;</span><span class="string">Mount Union Java Program</span><span class="string">&quot;</span>);
+24         setUp();
+25         setBackground(Color.<span class="ST2">WHITE</span>);
+26 
+27         <span class="comment">// 2. Instantiate objects here by calling &quot;new&quot;:</span>
+28         
+29         <span class="ST1">myFlag</span> = <span class="literal">new</span> Flag(50, 100, Color.<span class="ST2">RED</span>, Color.<span class="ST2">WHITE</span>);
+30         <span class="ST1">anotherFlag</span> = <span class="literal">new</span> Flag(50, 275, Color.<span class="ST2">CYAN</span>, Color.<span class="ST2">WHITE</span>);
+31         <span class="ST1">flag3</span> = <span class="literal">new</span> Flag(50, 450, Color.<span class="ST2">RED</span>, Color.<span class="ST2">BLUE</span>);
+32         
+33     } <span class="comment">// end of constructor</span>
+34     
+35     @Override
+36     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+37         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+38 
+39         <span class="comment">// 3. Call methods of objects here:</span>
+40 
+41         g.drawString(<span class="string">&quot;</span><span class="string">Here are some flags from countries of the world</span><span class="string">&quot;</span>, 50, 40);
+42         
+43         <span class="ST1">myFlag</span>.draw(g);
+44         <span class="ST1">anotherFlag</span>.draw(g);
+45         <span class="ST1">flag3</span>.draw(g);
+46         
+47         g.drawString(<span class="string">&quot;</span><span class="string">Flag of Peru</span><span class="string">&quot;</span>, 300, 160);
+48         g.drawString(<span class="string">&quot;</span><span class="string">Flag of Guatemala</span><span class="string">&quot;</span>, 300, 335);
+49         g.drawString(<span class="string">&quot;</span><span class="string">Flag of Mongolia</span><span class="string">&quot;</span>, 300, 510);
+50                 
+51     } <span class="comment">// end of paintComponent()</span>
+52     
+53     
+54     
+55        
+56     
+57     
+58     
+59     <span class="comment">/**</span><span class="comment">*********************************************</span>
+60 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+61 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+62     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+63         <span class="literal">for</span> (Component c: getComponents())
+64             c.setSize(c.getPreferredSize());
+65         JFrame f = <span class="literal">new</span> JFrame(getName());
+66         f.setContentPane(<span class="literal">this</span>);
+67         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+68         f.pack();
+69         f.setVisible(<span class="literal">true</span>);    
+70     }
+71 
+72     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+73 
+74 } <span class="comment">// end of class MUPanel</span>
+75 
+</pre></body>
+</html>

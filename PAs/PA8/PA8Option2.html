@@ -1,0 +1,90 @@
+<html>
+
+<head>
+  <title>CSC 120 PA8</title>
+</head>
+
+<body>
+
+<h2 align="center"><font color="#800080">CSC 120 Programming Assignment 8 Option 2 <br/>
+Baseball Statistics</font></h2>
+
+<font size="+1">Note: You should <b>not</b> work on this assignment during class-time unless:</font>
+
+<ol type="a">
+  <li><font size="+1">You have completed all of the in-class assigned work for the day, and</font></li>
+  <li><font size="+1">You have permission from the instructor.</font></li>
+</ol>
+
+<h4> This assignment must be handed in to your instructor's handin
+folder <b>before</b> the beginning of class on the due date.</h4>
+
+<h3>Description:</h3>
+
+<blockquote>
+Your program should accept input that represents statistics for some number of baseball players, convert this
+input into an array of <b>BaseballPlayer</b> objects, and display specific results obtained by processing the 
+array.
+</blockquote>
+
+<h3>Input format:</h3>
+<blockquote>
+    Each line of the input will consist of six values that will be separated by a # character.&nbsp; The
+	six values in order from left to right are:
+	<blockquote>
+	    Player Name &nbsp; (a <code>String</code>) <br/>
+	    Home Runs &nbsp; (an <code>Integer</code>) <br/>
+	    Batting Average &nbsp; (a <code>Double</code>) <br/>
+	    Base Hits &nbsp; (an <code>Integer</code>) <br/>
+	    Runs Batted In &nbsp; (an <code>Integer</code>) <br/>
+	    Stolen Bases &nbsp; (an <code>Integer</code>) <br/>
+	</blockquote>
+	Here is an example:
+<pre>
+Aaron, Hank # 755 # .305 # 3771 # 2297 # 240
+</pre>	
+    Note that you should use the <code>trim</code> method of the <code>String</code> class to remove
+	all leading and trailing spaces from the parts of the input line that you split using "#" as the
+	delimiter before processing the values in your program.
+</blockquote>
+
+<h3>Array of Objects:</h3>
+<blockquote>
+    You will need to define a class in your NetBeans project to represent Baseball Players.&nbsp; The class
+	definition should have a private data member for each of the values shown above, a constructor method
+	that accepts as many parameters as the class has private data members, a "getter" method for each
+	private data member, and a toString method. <br/><br/>
+	
+	The input data should be stored in an array of Baseball Player objects.&nbsp; See Lab # 12 for an example
+	of how to do this.
+</blockquote>
+
+<h3>Results of Processing to Display</h3>
+<blockquote>
+    The following should be displayed in the output text area, separated by several blank lines for 
+	readability:
+	<ol type="a">
+	    <li> all of the data in the input, on separate lines (display the result of the toString method, so 
+		     that all data are shown in the output area) </li>
+        <li> all players who have hit 520 home runs or more </li>
+        <li> all players who have a batting average of .310 or higher </li>
+		<li> the single player with the most RBIs of any player in the input </li>
+	</ol>
+</blockquote>
+
+<h3>Input Samples to Use:</h3>
+<blockquote>
+    Your program should be able to process both of these inputs correctly:
+	<ol type="i">
+	    <li> <a href="baseballStats1.txt"> Top 60 Home Run Hitters of all time</a> </li>
+	    <li> <a href="baseballStats2.txt"> Top 17 Batters of all time</a> </li>
+	</ol>
+</blockquote>
+
+
+
+<h4> It is expected that each student will complete this assignment INDIVIDUALLY.</h4>
+
+
+</body>
+</html>

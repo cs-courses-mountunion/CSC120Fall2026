@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>House.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.ST1 {color: #009900}
+.comment {color: #969696}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec18part2\src\House.java</td></tr></table>
+<pre>
+ 1 <span class="literal">import</span> java.awt.*;
+ 2 
+ 3 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">House</span> {
+ 4     
+ 5     <span class="literal">private</span> Integer <span class="ST1">over</span>, <span class="ST1">down</span>;
+ 6     <span class="literal">private</span> Window <span class="ST1">w1</span>, <span class="ST1">w2</span>, <span class="ST1">w3</span>;
+ 7     
+ 8     <span class="literal">public</span> <span class="ST0">House</span>(Integer x, Integer y) {
+ 9         <span class="ST1">over</span> = x;
+10         <span class="ST1">down</span> = y;
+11         <span class="ST1">w1</span> = <span class="literal">new</span> Window(<span class="ST1">over</span> + 10, <span class="ST1">down</span>+15, <span class="literal">true</span>);
+12         <span class="ST1">w2</span> = <span class="literal">new</span> Window(<span class="ST1">over</span> + 100, <span class="ST1">down</span>+15, <span class="literal">false</span>);
+13         <span class="ST1">w3</span> = <span class="literal">new</span> Window(<span class="ST1">over</span> + 55, <span class="ST1">down</span>+60, <span class="literal">true</span>);
+14         
+15     } <span class="comment">// end of constructor</span>
+16     
+17     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">draw</span>(Graphics g) {
+18         g.setColor(Color.<span class="ST2">BLACK</span>);
+19         g.drawRect(<span class="ST1">over</span>, <span class="ST1">down</span>, 150, 100);
+20         g.drawLine(<span class="ST1">over</span>, <span class="ST1">down</span>, <span class="ST1">over</span>+75, <span class="ST1">down</span>-60);
+21         g.drawLine(<span class="ST1">over</span>+75, <span class="ST1">down</span>-60, <span class="ST1">over</span>+150, <span class="ST1">down</span>);
+22         
+23         <span class="ST1">w1</span>.draw(g);
+24         <span class="ST1">w2</span>.draw(g);
+25         <span class="ST1">w3</span>.draw(g);
+26     } <span class="comment">// end of draw()</span>
+27     
+28     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnOnAllLights</span>() {
+29         <span class="ST1">w1</span>.turnLightsOn();
+30         <span class="ST1">w2</span>.turnLightsOn();
+31         <span class="ST1">w3</span>.turnLightsOn();
+32     }
+33     
+34     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">turnOffAllLights</span>() {
+35         <span class="ST1">w1</span>.turnLightsOff();
+36         <span class="ST1">w2</span>.turnLightsOff();
+37         <span class="ST1">w3</span>.turnLightsOff();
+38     }
+39 
+40     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">toggleWindowLights</span>() {
+41         <span class="ST1">w1</span>.toggleLights();
+42         <span class="ST1">w2</span>.toggleLights();
+43         <span class="ST1">w3</span>.toggleLights();
+44     }
+45 
+46   
+47 
+48 } <span class="comment">// end of class House</span>
+49 
+</pre></body>
+</html>

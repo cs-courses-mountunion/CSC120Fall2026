@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST2 {color: #009900; font-family: monospace; font-style: italic}
+.ST3 {font-family: monospace; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: monospace; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\prevsemesters\Fall18\lec29\src\MUPanel.java</td></tr></table>
+<pre>
+ 1 
+ 2 <span class="literal">import</span> java.awt.*;
+ 3 <span class="literal">import</span> javax.swing.*;
+ 4 
+ 5 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 6 
+ 7     <span class="comment">// 1. Declare private objects here:</span>
+ 8     
+ 9     <span class="literal">private</span> Integer <span class="ST1">numRows</span>;
+10     <span class="literal">private</span> Integer <span class="ST1">numCols</span>;
+11 
+12     <span class="comment">// constructor method</span>
+13     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+14         setLayout(<span class="literal">n</span><span class="literal">ull</span>);
+15         setPreferredSize(<span class="literal">new</span> Dimension(800, 600));
+16         setName(<span class="string">&quot;</span><span class="string">Mount Union Java Program</span><span class="string">&quot;</span>);
+17         setUp();
+18         setBackground(Color.<span class="ST2">BLACK</span>);
+19 
+20         <span class="comment">// 2. Instantiate objects here by calling &quot;new&quot;:</span>
+21         
+22         <span class="ST1">numRows</span> = 10;
+23         <span class="ST1">numCols</span> = 15;
+24         
+25     } <span class="comment">// end of constructor</span>
+26     
+27     @Override
+28     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+29         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+30 
+31         Integer over, down, width, height;
+32         
+33         over = 40;
+34         down = 50;
+35         width = 15;
+36         height = 15;
+37         
+38         <span class="literal">for</span> (<span class="literal">int</span> col = 1; col &lt;= <span class="ST1">numCols</span>; col++) {
+39             <span class="literal">for</span> (<span class="literal">int</span> row = 1; row &lt;= <span class="ST1">numRows</span>; row++) {
+40                 <span class="literal">if</span> ( row % 2 == 0 || col % 2 == 0) {
+41                     g.setColor(Color.<span class="ST2">YELLOW</span>);
+42                 }
+43                 <span class="literal">else</span> {
+44                     g.setColor(Color.<span class="ST2">RED</span>);
+45                 }
+46                 g.fillOval(over, down, width, height);
+47 
+48                 down += 20;
+49             } <span class="comment">// end of one column</span>
+50             over += 20;
+51             down = 50;
+52         } <span class="comment">// end outer for</span>
+53                 
+54     } <span class="comment">// end of paintComponent()</span>
+55     
+56     
+57     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setNumRows</span>(<span class="literal">int</span> r) {
+58         <span class="ST1">numRows</span> = r;
+59     }
+60     
+61     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setNumCols</span>(<span class="literal">int</span> c) {
+62         <span class="ST1">numCols</span> = c;
+63     }
+64     
+65     <span class="comment">/**</span><span class="comment">*********************************************</span>
+66 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+67 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+68     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+69         <span class="literal">for</span> (Component c: getComponents())
+70             c.setSize(c.getPreferredSize());
+71         JFrame f = <span class="literal">new</span> JFrame(getName());
+72         f.setContentPane(<span class="literal">this</span>);
+73         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+74         f.pack();
+75         f.setVisible(<span class="literal">f</span><span class="literal">alse</span>);    
+76     }
+77 
+78     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+79 
+80 } <span class="comment">// end of class MUPanel</span>
+81 
+</pre></body>
+</html>

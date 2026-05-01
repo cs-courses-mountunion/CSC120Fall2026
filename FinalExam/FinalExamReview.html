@@ -1,0 +1,268 @@
+<html>
+<head>
+  <title> CSC 120 Final Exam Review</title>
+</head>
+<body style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"
+ link="#0000ee" vlink="#ff8800" alink="#ff0000">
+<font color="#990099">
+<center>
+<h2>CSC 120 Final Exam Review</h2>
+</center>
+</font>
+<h3><u>IMPORTANT NOTE:</u>&nbsp; The Final Exam is given on paper.&nbsp; To best prepare oneself for the Final
+Exam, follow this suggested order in studying this review web page:</h3>
+<ol type="I">
+    <li> Write solutions to these problems <em>on paper</em>. </li>
+	<li> Solve the problems in Netbeans </li>
+	<li> Only after sincerely performing the first two steps shown here, check your solutions with the answers
+	     to the problems.&nbsp; The answers will be linked to the CSC 120 Schedule page on or before
+		 Saturday, December 6, 2025
+		 at 11:00 am</li>
+</ol>
+<hr>
+<h3> Problems: </h3>
+<ol>
+  <li>Create a new Netbeans project called FinalExamReview.<br>
+Right click on each of the following and choose Save Target As... to
+copy these files into your src folder.
+    <ul>
+      <li><b><a href="src/MUPanel.java">MUPanel.java</a></b>,</li>
+      <li><b><a href="src/Product.java">Product.java</a></b><br>
+        <br>
+      </li>
+    </ul>
+  </li>
+  <li>Declaring, instantiating, and using individual objects (no
+arrays) in the <b>MUPanel.java</b> file.<br>
+    <ol type="a">
+      <li>Declare three <code>Product</code> variables called <b>one</b>,
+
+        <b>two</b>, and <b>three</b>.<br>
+      </li>
+      <li>Instantiate <b>one</b> using the 5-parameter constructor.<br>
+one's stockNumber is 15, name is "Wallace and Gromit," it is taxable,
+it costs 25.10, and is CYAN.<br>
+      </li>
+      <li>Instantiate <b>two</b> using the 1-parameter constructor.<br>
+two's name is "XPod."<br>
+      </li>
+      <li>Instantiate <b>three</b> using the no-parameter constructor.<br>
+      </li>
+      <li>At the end of the <code>MUPanel</code> constructor method
+change the name of <b>three</b> to "Keychain."<br>
+There is a method in the <code>Product</code> class that can be used
+to change a product's name.</li>
+      <li>In the <code>paintComponent</code> method call the <b>draw</b>
+method for each of the three <code>Product</code>s.</li>
+      <li>Run &amp; fix, before proceeding.<br>
+        <br>
+      </li>
+    </ol>
+  </li>
+  <li>Declaring, instantiating, and using 1-dimensional arrays of
+objects in the <b>MUPanel.java</b> file.<br>
+    <ol type="a">
+      <li>Declare a 1-dimensional array of <code>Product</code>
+objects called <b>arrayOfProducts</b>.<br>
+      </li>
+      <li>Instantiate the array with room for 5 <code>Product</code>
+objects.</li>
+      <li>Instantiate each element of the array <b>one at a time
+without using a loop</b>, using these values:<br>
+        <pre>     10     Slumdog Millionaire     true     22.95     MAGENTA<br>     15     No Country for Old Men  true     21.30     GREEN<br>     20     A Beautiful Mind        false    19.95     RED<br>     25     Gladiator               true     15.27     YELLOW<br>     30     Schindler's List        true     23.42     BLUE</pre>
+      </li>
+      <li>Write code that uses a loop to call the <code>getName</code>
+method for each product in the array and displays the names of all
+products in the Java Console.<br>
+      </li>
+      <li>Write code that uses a loop to determine whether any product
+in the array is RED (actually, you'll be looking for <code>Color.RED</code>
+and don't forget that for a <code>String</code> or a <code>Color</code>
+or any object to test for equality you cannot use <code>==</code>, but
+must use the <code>equals</code> method.) If you find at least one red
+product, then display "Found" in the Java Console; otherwise display
+"Not found." <b>In any case there should be only one line of output in
+the Java Console.</b><br>
+      </li>
+      <li>Write a new method to be placed in the <b>MUPanel.java</b>
+file called <code>getAveragePrice</code>. This method has no
+parameters and returns a <code>double</code>. The value to be retuned
+by this method is the average price of all products in the array.<br>
+      </li>
+      <li>Write one line of code near the bottom of the constructor
+method of the <code>MUPanel</code> class definition that calls the <code>getAveragePrice</code>
+method. Like this:
+        <pre>     System.out.println("The average price is " + getAveragePrice());</pre>
+      </li>
+      <li>Run &amp; fix, before proceeding.<br>
+        <br>
+      </li>
+    </ol>
+  </li>
+  <li>Writing a complete class definition for a class called <code>Bike</code>.<br>
+    <ol type="a">
+      <li>There are three private data members.
+        <ul>
+          <li><b>color</b>, which is a <code>Color</code></li>
+          <li><b>price</b>, which is a <code>Double</code></li>
+          <li><b>hasGears</b>, which is a <code>Boolean</code></li>
+        </ul>
+      </li>
+      <li>There is one constructor method.
+        <ul>
+          <li>A 3-parameter constructor that uses the 3 parameters to
+initialize the 3 data members.</li>
+        </ul>
+      </li>
+      <li>Write a <code>getColor</code> method, a <code>setColor</code>
+method, a <code>getPrice</code> method, and a <code>setPrice</code>
+method.&nbsp; The <code>setPrice</code> method should validate the
+parameter to ensure that it is not less than 0 or greater than
+1000.&nbsp; If the parameter is less than 0, the <code>price</code>
+data member should be set to 0.&nbsp; If the parameter is greater than
+1000, the <code>price</code> data member should be set to 1000.<br>
+      </li>
+      <li>Write a <code>toString</code> method that (as usual) returns
+a <code>String</code> describing the bike in terms of the data
+members. The description must label the values returned. For example,
+the return value should be formatted something like this:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Color=java.awt.Color[r=255,g=0,b=0]
+price=150.99 hasGears=true<br>
+instead of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.awt.Color[r=255,g=0,b=0]
+150.99 true<br>
+      </li>
+      <li>Run &amp; fix, before proceeding.<br>
+        <br>
+      </li>
+    </ol>
+  </li>
+  <li>Writing Methods. For each of the following, write the header for
+the method. You do not need to write the body of the method. You may do
+these on paper, but if you do decide to type them into a Netbeans
+project, then you will need to write an empty method body (opening and
+closing braces) for methods that do not return anything, and you'll
+need to write a method body that has some kind of return statement for
+methods that do return something.<br>
+    <ol type="a">
+      <li><code>getSmallest</code> method that has two Integer
+parameters and returns the smallest of the two parameter values.<br>
+      </li>
+      <li><code>isLarge</code> method that has one Integer parameter
+and returns <b>true</b> if the value of the parameter is greater than
+500, and otherwise returns <b>false</b>.<br>
+      </li>
+      <li><code>add100</code> method that has no parameters and returns
+nothing. This method assumes we are in a class that has a private data
+member called <code>size</code>, and this method adds 100 to the
+current value of size.<br>
+        <br>
+      </li>
+    </ol>
+  </li>
+  <li>Writing Methods.&nbsp; Write the method bodies for each of the
+methods above.<br>
+    <br>
+  </li>
+  <li>Tracing Output.<br>
+We'll probably give you a program that declares and instantiates
+Balloons, Flags, or some other graphical class, and has a <code>paintComponent</code>
+method that calls the draw method of the Balloons/Flags/Whatever. We'll
+ask you to sketch the output displayed in the output window, and also
+to write the Java Console output. Probably, the Balloon/Flag/Whatever
+class will have System.out.println stuff in the constructor, and in the
+draw methods, so read carefully and trace each step as you go.<br>
+    <br>
+  </li>
+      <li> Show the output of the following Java code:
+<pre>
+    Integer num = 400;
+    System.out.println( (num / 5) );
+    System.out.println( (num % 5) );
+    num = num / 4;
+    System.out.println( (num / 5) );
+    System.out.println( (num % 5) );
+    num = num / 7 - 1;
+    System.out.println( (num / 5) );
+    System.out.println( (num % 5) );
+    num *= 3;
+    System.out.println( (num / 5) );
+    System.out.println( (num % 5) );
+</pre>
+      </li>
+  <li>Strings and String methods. <br>
+    <ol type="a">
+      <li> Write a method named <code>parameterIsAQuestion</code> that
+accepts one <code>String</code> parameter and returns a <code>boolean</code>
+value.&nbsp; If the last character of the parameter is a question mark,
+the method should return true; if the last character of the parameter
+is any other character, the method should return false. <br>
+        <br>
+An example of usage of this method would be:
+<pre>
+    String firstSentence = new String("Will the Final Exam be easy?");
+    String secondSentence = new String("Java is so much fun!");
+
+    if ( parameterIsAQuestion(firstSentence) ) {
+        System.out.println("Here is a question: " + firstSentence);
+    }
+    else {
+        System.out.println(firstSentence + " is not a question.");
+    }
+
+    if ( parameterIsAQuestion(secondSentence) ) {
+        System.out.println("Here is a question: " + secondSentence);
+    }
+    else {
+        System.out.println(secondSentence + " is not a question.");
+    }
+</pre>
+      </li>
+      <li> Write a method named <code>parameterContainsAnInternalSpace</code> that
+accepts one <code>String</code> parameter and returns a <code>Boolean</code>
+value.&nbsp; If any character in the parameter is a space OTHER THAN the first
+or last character, 
+the method should return true; if the parameter does not contain a space in any 
+position OTHER THAN the first or last positions, the method should return false. <br>
+        <br>
+An example of usage of this method would be:
+<pre>
+    String firstSentence = new String("Better study for all of your Final Exams");
+    String secondSentence = new String(" ThisOneWillTestAsFalse ");
+
+    if ( parameterContainsAnInternalSpace(firstSentence) ) {
+        System.out.println("There is an internal space in: " + firstSentence);
+    }
+    else {
+        System.out.println(firstSentence + " has no internal spaces.");
+    }
+
+    if ( parameterContainsAnInternalSpace(secondSentence) ) {
+        System.out.println("There is an internal space in: " + secondSentence);
+    }
+    else {
+        System.out.println(secondSentence + " has no internal spaces.");
+    }
+</pre>
+      </li>
+      <li> Show the output of the following Java code:
+<pre>
+    String str = new String("If April showers bring May flowers, we'll have many flowers this year!");
+    System.out.println( str.length() );
+    System.out.println( str.charAt(4) );
+    System.out.println( str.substring(3, 6) );
+    System.out.println( str.substring(47) );
+    System.out.println( str.indexOf("low") );
+    System.out.println( str.lastIndexOf("low") );
+    System.out.println( str.split("s").length );
+</pre>
+      </li>
+      <li>
+          <a href="https://www.purposegames.com/game/5e6225e73e" target="_blank"> Click this link</a> to take a quiz about Java 
+          String class methods as a review activity. 
+      </li>
+    </ol>
+  </li>
+</ol>
+</body>
+</html>

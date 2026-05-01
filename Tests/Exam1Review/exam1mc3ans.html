@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>CSC 120 Exam 1 Review</title>
+</head>
+<body vlink="#ff8800" alink="#ff0000" bgcolor="#ffffff" link="#0000ee"
+ text="#000000">
+<center>
+<h2><font color="#990099">CSC 120<br />
+                          Review for Exam 1</font></h2>
+</center>
+
+
+<h3> Multiple Choice Question # 3 Answer: </h3>
+<blockquote>
+    Consider the following class definition that defines a private data member called 
+	<font face="Courier"> theRadius</font>:
+<pre>
+    public class someClass {
+        private Double <font color="#009900">theRadius</font>;
+
+        // .... rest of stuff would go here
+		
+    } // end of class someClass
+</pre>	
+    What is wrong with the following Java method definition that would be placed in
+	<font face="Courier"> someClass</font>?
+<pre>
+    public void setTheRadius( Double rad ) {
+        rad = <font color="#009900">theRadius</font>;
+    } // end of setTheRadius		
+</pre>	
+	
+	<form action="exam1mc4.html">
+	<blockquote>
+	    <input type="radio" name="q3a"> method heading should be &nbsp;
+		                                <font face="Courier"> public Double setTheRadius( ) { </font> <br/>
+	    <input type="radio" name="q3a"> method heading should be &nbsp;
+		                                <font face="Courier"> public Double setTheRadius( Double rad ) { 
+										</font> <br/>
+	    <input type="radio" name="q3a" checked> <b> assignment statement should be &nbsp;
+		                                <font face="Courier"> theRadius = rad;</font> </b> <br/>
+	    <input type="radio" name="q3a"> Nothing is wrong with this method definition<br/>
+	</blockquote>
+	<b>The purpose of a "setter" method is to store the parameter value in a private data member.&nbsp; 
+	   With an assignment statement, the value to be stored is placed on the right-hand side of the 
+	   assignment operator, and the destination where the value is to be stored goes on the left-hand side.&nbsp;
+	   So <font face="Courier"> rad = theRadius;</font> does not store a value in <font face="Courier">
+	   theRadius</font>, because the name of the private data member is not on the left-hand side 
+	   of the <font face="Courier"> =</font>. <br/><br/>
+	
+	<input type="submit" value="Click for next question"> 
+	</form>
+</blockquote>
+
+
+</body>
+</html>

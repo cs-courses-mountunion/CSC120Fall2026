@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: Monospaced; font-weight: bold}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">H:\CSC120\Java\lec12\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture # 12</span>
+  2 <span class="comment"> *</span>
+  3 <span class="comment"> * TVSet Demo Program</span>
+  4 <span class="comment"> *</span>
+  5 <span class="comment"> */</span>
+  6 <span class="literal">import</span> java.awt.*;
+  7 <span class="literal">import</span> javax.swing.*;
+  8 
+  9 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 10 
+ 11     <span class="literal">private</span> TVSet <span class="ST1">livingRoomTV</span>, <span class="ST1">kitchenTV</span>, <span class="ST1">garageTV</span>;
+ 12     
+ 13     
+ 14 
+ 15     <span class="comment">// constructor method</span>
+ 16     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 17         setLayout(<span class="literal">null</span>);
+ 18         setPreferredSize(<span class="literal">new</span> Dimension(800, 500));
+ 19         setName(<span class="string">&quot;</span><span class="string">TVSet Demo</span><span class="string">&quot;</span>);
+ 20         setUp();
+ 21         setBackground(<span class="literal">new</span> Color(0xFE, 0xDE, 0x95));
+ 22 
+ 23         <span class="ST1">livingRoomTV</span> = <span class="literal">new</span> TVSet(50, 50, <span class="literal">true</span>, 3, 50);
+ 24         <span class="ST1">kitchenTV</span> = <span class="literal">new</span> TVSet(600, 50, <span class="literal">false</span>, 19, 25);
+ 25         <span class="ST1">garageTV</span> = <span class="literal">new</span> TVSet(300, 350, <span class="literal">true</span>, 8, 75);
+ 26         
+ 27         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Originally, the objects have these values:</span><span class="string">&quot;</span>);
+ 28         System.<span class="ST2">out</span>.println(<span class="ST1">livingRoomTV</span>.toString());
+ 29         System.<span class="ST2">out</span>.println(<span class="ST1">kitchenTV</span>.toString());
+ 30         System.<span class="ST2">out</span>.println(<span class="ST1">garageTV</span>.toString());
+ 31         
+ 32         
+ 33         <span class="ST1">livingRoomTV</span>.setTurnedOn(<span class="literal">false</span>);
+ 34         
+ 35         <span class="ST1">kitchenTV</span>.setTurnedOn(<span class="literal">true</span>);
+ 36         
+ 37         <span class="ST1">garageTV</span>.setChannel(5);
+ 38         <span class="ST1">garageTV</span>.setVolume(10);
+ 39         
+ 40         <span class="ST1">kitchenTV</span>.volumeUp();
+ 41         <span class="ST1">kitchenTV</span>.volumeUp();
+ 42         <span class="ST1">kitchenTV</span>.volumeUp();
+ 43         <span class="ST1">kitchenTV</span>.volumeUp();
+ 44         <span class="ST1">kitchenTV</span>.volumeUp();
+ 45         <span class="ST1">kitchenTV</span>.volumeUp();
+ 46         <span class="ST1">kitchenTV</span>.volumeUp();
+ 47         <span class="ST1">kitchenTV</span>.volumeUp();
+ 48         <span class="ST1">kitchenTV</span>.volumeUp();
+ 49         
+ 50         System.<span class="ST2">out</span>.println();
+ 51         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Now kitchenTV volume is </span><span class="string">&quot;</span> + <span class="ST1">kitchenTV</span>.getVolume());
+ 52         
+ 53         <span class="ST1">kitchenTV</span>.volumeDown();
+ 54         <span class="ST1">garageTV</span>.channelDown();
+ 55         
+ 56         <span class="ST1">livingRoomTV</span>.turnOn();
+ 57         <span class="ST1">garageTV</span>.turnOff();
+ 58         
+ 59         System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+ 60         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">After making some changes, here are the objects&#39; values:</span><span class="string">&quot;</span>);
+ 61         System.<span class="ST2">out</span>.println(<span class="ST1">livingRoomTV</span>.toString());
+ 62         System.<span class="ST2">out</span>.println(<span class="ST1">kitchenTV</span>.toString());
+ 63         System.<span class="ST2">out</span>.println(<span class="ST1">garageTV</span>.toString());
+ 64         
+ 65         
+ 66         
+ 67     } <span class="comment">// end of constructor</span>
+ 68     
+ 69     @Override
+ 70     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+ 71         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+ 72 
+ 73         <span class="ST1">livingRoomTV</span>.draw(g);
+ 74         <span class="ST1">kitchenTV</span>.draw(g);
+ 75         <span class="ST1">garageTV</span>.draw(g);
+ 76 
+ 77         
+ 78                 
+ 79     } <span class="comment">// end of paintComponent()</span>
+ 80     
+ 81     
+ 82     
+ 83        
+ 84     
+ 85     
+ 86     
+ 87     <span class="comment">/**</span><span class="comment">*********************************************</span>
+ 88 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+ 89 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+ 90     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+ 91         <span class="literal">for</span> (Component c: getComponents())
+ 92             c.setSize(c.getPreferredSize());
+ 93         JFrame f = <span class="literal">new</span> JFrame(getName());
+ 94         f.setContentPane(<span class="literal">this</span>);
+ 95         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+ 96         f.pack();
+ 97         f.setVisible(<span class="literal">true</span>);    
+ 98     }
+ 99 
+100     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+101 
+102 } <span class="comment">// end of class MUPanel</span>
+103 
+</pre></body>
+</html>

@@ -1,0 +1,44 @@
+Comparison Operators:  operand data types match, result is Boolean
+
+    <    <=    >    >=    !=    ==
+
+    CAUTION:  does NOT work with Strings!
+
+Logical Operators:  operands are Boolean, result is Boolean
+
+    && (AND operation):  result is true only if both operands are true; result is false otherwise
+
+        true && true   =>  true
+        true && false  =>  false
+        false && true  =>  false
+        false && false =>  false
+
+        ex.  if (balance >= 100 && balance <= 200)
+
+    || (OR operation):  result is true if either operand is true (or both are true); result if false if both operands are false
+
+        true || true   =>  true
+        true || false  =>  true
+        false || true  =>  true
+        false || false =>  false
+
+        ex.  if (monthNum < 1 || monthNum > 12)
+
+    !  (NOT operation):  returns the opposite Boolean value from that of the operand
+
+        ! true   =>  false
+        ! false  =>  true
+
+        ex.  if ( ! (x <= 70) )
+
+
+How to compare Strings for equality?  Use the .equals
+
+    if ( name.equals("Sam") ) 
+
+Comparing Strings for "not equals"  =>  Use ! and .equals
+
+    if ( ! name.equals("Alice") )
+
+
+

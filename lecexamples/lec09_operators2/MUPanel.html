@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MUPanel.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #000000; background-color: #e9e8e2; font-family: monospace}
+.string {color: #ce7b00}
+.literal {color: #0000e6}
+.ST2 {color: #009900; font-family: monospace; font-style: italic}
+.ST3 {font-family: monospace; font-weight: bold; font-style: italic}
+.comment {color: #969696}
+.ST1 {color: #009900}
+.ST0 {font-family: monospace; font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">Z:\Faculty\cindricbb\000work\CSC120\Java\lec09\src\MUPanel.java</td></tr></table>
+<pre>
+  1 <span class="comment">/* CSC 120 Lecture # 8 &amp; 9</span>
+  2 <span class="comment"> * Blase B. Cindric</span>
+  3 <span class="comment"> * </span>
+  4 <span class="comment"> *</span>
+  5 <span class="comment"> * Project Description:</span>
+  6 <span class="comment"> *    a sample program showing how operators work with various</span>
+  7 <span class="comment"> *    data types</span>
+  8 <span class="comment"> *</span>
+  9 <span class="comment"> */</span>
+ 10 <span class="literal">import</span> java.awt.*;
+ 11 <span class="literal">import</span> javax.swing.*;
+ 12 <span class="literal">import</span> java.util.*;
+ 13 
+ 14 <span class="literal">public</span> <span class="literal">class</span> <span class="ST0">MUPanel</span> <span class="literal">extends</span> JPanel {
+ 15 
+ 16     <span class="comment">// 1. Declare private objects here:</span>
+ 17     
+ 18     <span class="literal">private</span> Integer <span class="ST1">x</span>, <span class="ST1">y</span>, <span class="ST1">z</span>;
+ 19     <span class="literal">private</span> Double <span class="ST1">m</span>, <span class="ST1">n</span>;
+ 20     <span class="literal">private</span> String <span class="ST1">word</span>;
+ 21     
+ 22     <span class="literal">private</span> Scanner <span class="ST1">kbdInput</span>;
+ 23 
+ 24     <span class="comment">// constructor method</span>
+ 25     <span class="literal">public</span> <span class="ST0">MUPanel</span>() {
+ 26         setLayout(<span class="literal">n</span><span class="literal">ull</span>);
+ 27         setPreferredSize(<span class="literal">new</span> Dimension(800, 100));
+ 28         setName(<span class="string">&quot;</span><span class="string">CSC 120 Lecture 9</span><span class="string">&quot;</span>);
+ 29         setUp();
+ 30         setBackground(Color.<span class="ST2">WHITE</span>);
+ 31         
+ 32         <span class="ST1">kbdInput</span> = <span class="literal">new</span> Scanner(System.<span class="ST2">in</span>);
+ 33 
+ 34         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">17 + 9 = </span><span class="string">&quot;</span>);
+ 35         System.<span class="ST2">out</span>.println(17 + 9);
+ 36         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">32 - 18 = </span><span class="string">&quot;</span>);
+ 37         System.<span class="ST2">out</span>.println(32 - 18);
+ 38         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">17 * 3 = </span><span class="string">&quot;</span>);
+ 39         System.<span class="ST2">out</span>.println(17 * 3);
+ 40         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">5 / 3 = </span><span class="string">&quot;</span>);
+ 41         System.<span class="ST2">out</span>.println(5 / 3);
+ 42         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">5 % 3 = </span><span class="string">&quot;</span>);
+ 43         System.<span class="ST2">out</span>.println(5 % 3);
+ 44         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">--------------------</span><span class="string">&quot;</span>);
+ 45         
+ 46         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">17.3 + 5 = </span><span class="string">&quot;</span>);
+ 47         System.<span class="ST2">out</span>.println(17.3 + 5);
+ 48         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">1.3 + 1.7 = </span><span class="string">&quot;</span>);
+ 49         System.<span class="ST2">out</span>.println(1.3 + 1.7);
+ 50         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">20 - 5.6 = </span><span class="string">&quot;</span>);
+ 51         System.<span class="ST2">out</span>.println(20 - 5.6);
+ 52         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">1.1 * 8 = </span><span class="string">&quot;</span>);
+ 53         System.<span class="ST2">out</span>.println(1.1 * 8);
+ 54         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">5.0 / 3 = </span><span class="string">&quot;</span>);
+ 55         System.<span class="ST2">out</span>.println(5.0 / 3);
+ 56         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">--------------------</span><span class="string">&quot;</span>);
+ 57 
+ 58 
+ 59         <span class="comment">//x = 100;</span>
+ 60         
+ 61         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">Enter an integer, please: </span><span class="string">&quot;</span>);
+ 62         <span class="ST1">x</span> = <span class="ST1">kbdInput</span>.nextInt();
+ 63         
+ 64         <span class="ST1">y</span> = <span class="ST1">x</span> + 2;
+ 65         <span class="ST1">z</span> = <span class="ST1">x</span> - 39;
+ 66         
+ 67         <span class="comment">//m = 15.5;</span>
+ 68         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">Enter a double value now: </span><span class="string">&quot;</span>);
+ 69         <span class="ST1">m</span> = <span class="ST1">kbdInput</span>.nextDouble();
+ 70         
+ 71         <span class="ST1">n</span> = 2 * <span class="ST1">m</span>;
+ 72         
+ 73         <span class="ST1">word</span> = <span class="string">&quot;</span><span class="string">Aardvark</span><span class="string">&quot;</span>;
+ 74         
+ 75         
+ 76         
+ 77         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">x = </span><span class="string">&quot;</span> + <span class="ST1">x</span>);
+ 78         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">y = </span><span class="string">&quot;</span> + <span class="ST1">y</span>);
+ 79         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">z = </span><span class="string">&quot;</span> + <span class="ST1">z</span>);
+ 80         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">m = </span><span class="string">&quot;</span> + <span class="ST1">m</span>);
+ 81         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">n = </span><span class="string">&quot;</span> + <span class="ST1">n</span>);
+ 82         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">word = </span><span class="string">&quot;</span> + <span class="ST1">word</span>);
+ 83 
+ 84         
+ 85         <span class="ST1">x</span> = 40;
+ 86         <span class="ST1">y</span> = 50;
+ 87         <span class="ST1">z</span> = 80;
+ 88         
+ 89         Double avg = (<span class="ST1">x</span> + <span class="ST1">y</span> + <span class="ST1">z</span>) / 3.0;
+ 90         
+ 91         System.<span class="ST2">out</span>.println();
+ 92         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">The average of </span><span class="string">&quot;</span> + <span class="ST1">x</span> + <span class="string">&quot;</span><span class="string">, </span><span class="string">&quot;</span> + <span class="ST1">y</span> + <span class="string">&quot;</span><span class="string"> and </span><span class="string">&quot;</span>
+ 93                 + <span class="ST1">z</span> + <span class="string">&quot;</span><span class="string"> = </span><span class="string">&quot;</span> + avg);
+ 94         
+ 95         
+ 96     } <span class="comment">// end of constructor</span>
+ 97     
+ 98     @Override
+ 99     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">paintComponent</span>(Graphics g) {
+100         <span class="literal">super</span>.paintComponent(g); <span class="comment">// This line must be first in this method!</span>
+101 
+102         <span class="comment">// 3. Call methods of objects here:</span>
+103 
+104         g.setFont( <span class="literal">new</span> Font(<span class="string">&quot;</span><span class="string">SansSerif</span><span class="string">&quot;</span>, Font.<span class="ST2">PLAIN</span>, 18));
+105         g.drawString(<span class="string">&quot;</span><span class="string">Look in Java Console for answers</span><span class="string">&quot;</span>, 100, 60);
+106         
+107                 
+108                 
+109     } <span class="comment">// end of paintComponent()</span>
+110     
+111     
+112     
+113        
+114     
+115     
+116     
+117     <span class="comment">/**</span><span class="comment">*********************************************</span>
+118 <span class="comment">     * </span><span class="comment">Do</span> <span class="comment">NOT</span> <span class="comment">change</span> <span class="comment">or</span> <span class="comment">delete</span> <span class="comment">anything</span> <span class="comment">below</span> <span class="comment">here</span><span class="comment">!</span>
+119 <span class="comment">     **********************************************</span><span class="comment">*/</span>
+120     <span class="literal">public</span> <span class="literal">void</span> <span class="ST0">setUp</span>() {
+121         <span class="literal">for</span> (Component c: getComponents())
+122             c.setSize(c.getPreferredSize());
+123         JFrame f = <span class="literal">new</span> JFrame(getName());
+124         f.setContentPane(<span class="literal">t</span><span class="literal">his</span>);
+125         f.setDefaultCloseOperation(JFrame.<span class="ST2">EXIT_ON_CLOSE</span>);
+126         f.pack();
+127         f.setVisible(<span class="literal">t</span><span class="literal">rue</span>);    
+128     }
+129 
+130     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String args[]){<span class="literal">new</span> MUPanel();}
+131 
+132 } <span class="comment">// end of class MUPanel</span>
+133 
+</pre></body>
+</html>
