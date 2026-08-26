@@ -55,15 +55,22 @@ private Flag flag1;</pre>
       from the CSC 120 Resources page, and from there click on the docs for the Flag class.
       Now scroll down and find the description of the constructor method to see what parameters
       it expects. You'll need to add a line of code in the MUPanel.java file in the space
-      where you instantiate objects. It should look something like this:
-<pre>
+      where you instantiate objects. It should look something like this: <br/>
+<!--pre>
 flag1 = new Flag( <em>... parameters go here ...</em> );
-</pre>
+</pre-->
+      <img src="newFlag1.png" /> <br/>
+	  
       There are 4 values that you must specify to instantiate a new Flag object:  you must first
 	  specify 2 Integer values that represent the screen position of the upper-left corner of
 	  the Flag, and then you specify two different Color values; one Color for the Flag's 
 	  background, and a second Color for the horizontal stripe across the middle of the Flag.&nbsp; The
 	  parameters in parentheses are always separated by commas.<br/><br/>
+	  
+	  As an example, here is an instantiation of a Flag object that has a Yellow stripe on a Red background,
+	  and the Flag will be located 100 pixels from the left side of the graphics window and 50 pixels 
+	  down from the top: <br>
+	  <img src="newFlag2.png" /> <br/><br/>
   </li>
   
   <li>Finally, in the paintComponent method of MUPanel, add a line of code that calls the
@@ -91,7 +98,7 @@ flag1 = new Flag( <em>... parameters go here ...</em> );
 	    <li> Click on the &thinsp; <img src="WindowsExplorer.png" alt="file folder" /> &thinsp; icon at the bottom of the screen to open File Explorer, and browse to your 
 		     <b><code>CSC120\Java</code></b> folder.<br/><br/> </li>
 		
-	    <li> Right-click on the folder named <b><code>Lab1</code></b> and choose "Send To&thinsp; &#x25B6; &thinsp;Compressed (zipped) folder".&nbsp;
+	    <li> Right-click on the folder named <b><code>Lab1</code></b> and choose "Compress To&thinsp; &#x25B6; &thinsp;ZIP File".&nbsp;
 	         This will create a new file named <b><code>Lab1.zip</code></b> in the current folder, which is a compressed file that contains your
 	         entire NetBeans project.<br/><br/> </li>
 	  
