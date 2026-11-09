@@ -1,0 +1,282 @@
+<html>
+  <head>
+    <title>CSC 120 -- Lab 9</title>
+  </head>
+  <body>
+    <font color="#660066">
+      <center>
+        <h2>CSC 120 &nbsp; -- &nbsp; Lab 9</h2>
+      </center>
+    </font>
+    <ol type="A">
+      <li>Lab9a: Experiments with an array of Student objects.<br />
+        <br />
+        <ol>
+          <li>Create a project named <b>Lab9a</b> in NetBeans.<br />
+            <br />
+          </li>
+          <li><b>Copy needed files into your src folder.</b><br />
+            <p> Right click on each of these: </p>
+            <ul>
+              <li><b><a href="Lab9a/MUPanel.java">MUPanel.java</a></b>,<br />
+              </li>
+              <li><b><a href="Lab9a/Student.java">Student.java</a></b><br />
+              </li>
+            </ul>
+            <p> and choose <b>Save Target As...</b> (or <span
+                style="font-weight: bold;">Save Link As...</span>) and
+              save the files in the src folder of your project.&nbsp; </p>
+          </li>
+          <li>When the proper files are in place, run the project to see
+            the output. This program uses an array of <code>Student</code>
+            objects to represent data describing 15 different students.
+            The output is printed in a <code>JTextArea </code>GUI
+            component using several <i>append</i> method calls. <br />
+            <br />
+          </li>
+          <li>In the <i>fillArray( )</i> method of the <code>MUPanel</code>
+            class, change the first element in the array (element 0) so
+            that it represents you. Change "Samantha Student" to your
+            name, change the dorm to your residence hall (or use "off-campus" if
+            you don't live in a residence hall), specify a code number that
+            indicates your current class (1=Freshman, 2=Sophomore,
+            3=Junior, 4=Senior), specify a <code>Boolean</code> value
+            indicating whether or not you are an intercollegiate athlete, and put in a
+            decimal number representing your GPA (you may use your
+            actual GPA or a made-up value, as you wish).<br />
+            <br />
+            Next, change the number of students so that the array will
+            contain two more <code>Student</code> objects. Then add
+            instantiations for a sixteenth and a seventeenth student in
+            the <code>fillArray()</code> method that represents either
+            friends of yours, or made-up people (could be your favorite
+            historical figures, athletes, movie stars, etc.). <br />
+            <br />
+            Run this program and observe the results. The output should
+            state that 17 students are listed, and the average GPA
+            should be different than it was originally.<br />
+            <br />
+          </li>
+          <li>Create and invoke a <i>displaySophomores</i> method.<br />
+            <br />
+            Make a copy of the <code>displayEntireArray()</code> method, then
+            paste a copy of this code immediately after the method, and then change the name of the
+            newly copied method to <b><code>displaySophomores</code></b>.<br />
+            <br />
+            Change the body of the <code>displaySophomores</code> method so that it only
+            processes students in the array that are Sophomores (have a
+            <code>classCode</code> value of 2). To do this, place an <code>if</code>
+            statement immediately inside the <code>for</code> loop, and
+            test to see if the result of the <code>getClassCode()</code>
+            method called for element number <code>k</code> of the <code>studentRoster</code>
+            array is equal to 2. Only if this test evaluates as true
+            should the student in position <code>k</code> of the array 
+			be printed and her gpa added to the
+            total. Also, edit the text strings in this second block so
+            that the first line printed by the block is "Listing of
+            Sophomores".<br />
+            <br />
+            Add a line in the <code>MUPanel</code> constructor method
+            to invoke this method; it should be invoked AFTER <code>displayEntireArray</code> has
+			been invoked. Run the program now; you should see
+            two sets of output lines in the JTextArea: the original list of
+            all students, and a second list showing only those students
+            who are Sophomores.<br />
+            <br />
+          </li>
+          <li>Create and invoke three more methods, as follows:<br />
+            <br />
+            <ol type="a">
+			  <li>One method displays a listing of students who are athletes,<br />
+            <br /></li>
+              <li>Another method displays a list of all students who are on
+            the Dean's List (GPA &gt;= 3.5),<br />
+            <br /></li>
+              <li>The third method displays a list of all the students who
+            live in "McMaster Hall" (Hint:&nbsp; to test a <code>String</code>
+            for equality, use&nbsp;<code>.equals("McMaster Hall")</code> -- don't use
+            the&nbsp;<code>==</code>&nbsp;operator for the test).<br />
+            <br /></li>
+			</ol>
+            You will need to add lines in the <code>MUPanel</code>
+            constructor method to invoke these methods.<br />
+            <br />
+          </li>
+          <li><!--Show your results to your instructor, then --> After ensuring
+		  that your program works propertly to display the students in the various 
+		  collections, close this
+            project.<br />
+            <br />
+          </li>
+        </ol>
+      </li>
+      
+      <li>Lab9b: Experiments with an array of Book objects.<br />
+        <br />
+        <ol>
+          <li>Create a new NetBeans project named <b>Lab9b</b>.<br />
+            <br />
+          </li>
+          <li><b>Copy starter file into your src folder.</b><br />
+            <p> Right click on <b><a href="Lab9b/MUPanel.java">MUPanel.java</a></b>
+              and choose <b>Save Target As...</b> (or <span
+                style="font-weight: bold;">Save Link As...</span>) to
+              save the file in the src folder of your project.</p>
+          </li>
+          <li>This program WILL NOT run, because <code>MUPanel</code>,
+            <code>displayEntireArray </code>and <code>fillArray </code>try
+            to use an array of <code>Book</code> objects, and the <code>Book</code>
+            class definition is not supplied. Your task for this step of
+            the lab is to provide a complete class definition for a <code>Book</code>
+            class, that allows the program to run correctly.&nbsp; We will also learn about
+			the "Insert Code" feature of NetBeans that will do a lot of the work of
+			writing a new class definition for us.<br />
+            <br />
+            The <code>Book</code> class must have three (3) private
+            data members: a <code>String</code> for the book's title, a
+            <code>String</code> for the book's author, and an <code>Integer</code>
+            for the number of pages in the book.&nbsp; We also will need a constructor method
+			for the class, a <code>getNumPages()</code> method
+            that returns the number of pages in a <code>Book</code>
+            object, three setter methods (one for each private data member of the <code>Book</code>
+			class), and a <code>toString()</code> method.<br/><br/>
+			
+			First of all, right-click on the <b>src</b> folder in the NetBeans project tree in the upper-left panel, and choose "New | Java Class" from the pop-up menu.&nbsp; Enter "Book" (without the quotes) as the name of the class and click the Finish button.&nbsp;  This creates an empty class definition.&nbsp; Inside the curly braces of the class definition, declare three properties or private data members: <code>String</code>s for the title and for the author of the book, and an Integer for the number of pages of the book (use the names <code>title</code>, <code>author</code> and <code>numPages</code> for these three properties.<br/><br/>
+		  </li>
+		  <li> Now we need to write methods for the class that should be a part of pretty much every
+		       class we write:&nbsp; a constructor, getters and setters, and a <code>toString</code> method.&nbsp; This is such a basic task that NetBeans includes code generation features to do this automatically for a class once we have declared the properties that the class will contain.&nbsp; We will use this code completion feature to save ourselves some time and work in getting the <code>Book</code> class to be operational.<br/><br/>
+			   
+			   Make sure there is at least one blank line between the last variable declaration in your class definition and the closing brace, and position the cursor on one of those blank lines.&nbsp; Then from the top-level NetBeans menu (the one with the words "File", "Edit", etc. at the top of the application), choose "Source | Insert Code", as seen here:<br/><br/>
+			   <img src="Lab9b/lab9bImage1.png" width="400" /> <br/><br/>
+			   
+			   A small pop-up menu will appear that is titled "Generate"; from the choices, select "Constructor...".&nbsp; Now you will see a dialog box that has a line for each of the properties that you defined for the class.&nbsp; Select all of the properties (you can either check all the checkboxes, or use the "Select All" button at the bottom), and then click the "Generate" button.&nbsp; Wow, how nice is this?&nbsp; Notice that NetBeans uses the same name for the properties and for the parameters of the constructor method, so the code must use the "this." notation that was discussed in class to resolve the naming confusion.&nbsp; This is a standard technique in Java programming.<br/><br/>
+		  </li>
+		  <li> NetBeans can also automatically generate getters and setters for us.&nbsp; Choose "Source
+		       | Insert Code" again, and this time choose "Getter..." from the Generate pop-up menu.&nbsp; Let's say for this program we will only need a <code>getNumPages</code> method; so that means that we should only check one checkbox in the dialog that appears, beside the <code>numPages</code> entry, and then when we click the Generate button only one getter is added to the class definition.<br/><br/>
+			   
+			   Choose "Source | Insert Code" another time, and choose "Setter...".&nbsp; We should add a setter for all three properties of the class, so do that now.<br/><br/>
+		  </li>
+		  <li> We need one more method to complete the <code>Book</code> class definition so we can run
+		       the starter program for Lab 9b &mdash; a <code>toString</code> method.&nbsp; NetBeans will generate a very generic toString for us, and then we can edit the method so that the output is exactly the way we want it.&nbsp; Choose "Source | Insert Code" now, then choose "toString..." from the pop-up menu.&nbsp; Be sure the checkboxes for all of the fields of the class are checked, and click "Generate".&nbsp; Notice that the code that NetBeans writes displays the name of the class, and then the name of each field followed by the value of the field.&nbsp; Let's see what the result of this <code>toString</code> method looks like....<br/><br/>
+		  </li>
+		  <li> Run the <b>MUPanel.jave</b> file now, and if you chose the proper names for the fields in
+		       the <code>Book</code> class, you should see the following output:<br/><br/>
+			   <img src="Lab9b/Lab9bScreenShot0.gif" width="500" /> <br/><br/>
+			   
+			   If you examine the code in <b>MUPanel.java</b>, you will see that it uses an array of Book objects that contains 7 books, and that the output shows the contents of each array element on a separate line.&nbsp; But what if we want a different format for the lines of our output?&nbsp; To change the output, we need to edit the code that NetBeans generated for our <code>toString</code> method in the <code>Book</code> class.<br/><br/>
+		  </li>
+		  <li> Switch in the editor back to the <b>Book.java</b> file, and edit the body of the <code>toString</code> method so that the value returned has the following format:
+            <blockquote> <font face="Arial">
+			    <em><font color="#009900">title_of_book</font></em>, by <em><font color="#009900">author_of_book</font></em>, has <em><font color="#009900">number_of_pages</font></em> pages.
+			</font> </blockquote>
+            When you have correctly re-written the <code>toString</code> method, you should obtain output that looks like this (don't forget to put a period at the end):<br/><br/>
+			<img src="Lab9b/Lab9bScreenShot1.gif" width="500" /> <br />
+            <br />
+          </li>
+          <li>Now, let's add two more pieces of information to the <code>Book</code>
+            class: an <code>Integer</code> value representing the copyright
+            year for the book, and a <code>Boolean</code> value
+            representing whether the book is a hardback book or not.&nbsp; Now we will
+			need a different constructor method for the class that accepts parameters for all
+			five of the properties the class now contains.&nbsp; In the <code>Book</code> class, 
+			delete the current constructor method, then use "Source | Insert Code" to insert a
+			new constructor that instantiates all five properties of the class.
+             <br />
+            <br />
+            The <code>toString()</code> method for the <code>Book</code>
+            class should be edited as follows:&nbsp; first of all, replace the single <code>return</code> statement in the method body with this code:
+<pre>
+    String answer = title + ", by " + author + ", has " + numPages + " pages.";
+        
+    return answer;
+</pre>
+			This would do the same thing as the original code, but now we have a variable named <code>answer</code> that we can use in an if/else statement, which we will do right now.&nbsp; At the end of the first line above, concatenate 
+			the string " (c) ", followed by the copyright year for the
+            book, followed by the string "; ". Then, using an <i>if/else</i>
+            statement, concatenate the string "Hardback" to the <code>answer</code> String if the <code>hardback</code>
+            private data member is true, or the string "Paperback" if
+            the <code>hardback</code> private data member is false.<br />
+            <br />
+            Also, be sure to add "getter" methods for both the copyright
+            year and the hardback status value to the class.<br />
+            <br />
+	  </li>
+	  <li>
+            The code in the constructor method of the <code>MUPanel</code>
+            class (as well as <code></code>
+            <code>displayArray </code>and <code>fillEntireArray)</code> will
+            also need some modifications. For each book, you'll need to
+            specify two more pieces of information when the book is
+            instantiated. Use these values:<br />
+            <br />
+            <table align="center" border="1" width="70%">
+              <tbody>
+                <tr>
+                  <th>Title</th>
+                  <th>Copyright Year</th>
+                  <th>Hardback?</th>
+                </tr>
+                <tr>
+                  <td align="center">War and Peace</td>
+                  <td align="center">1864</td>
+                  <td align="center">true</td>
+                </tr>
+                <tr>
+                  <td align="center">Gone With The Wind</td>
+                  <td align="center">1936</td>
+                  <td align="center">true</td>
+                </tr>
+                <tr>
+                  <td align="center">Using Java</td>
+                  <td align="center">2011</td>
+                  <td align="center">false</td>
+                </tr>
+                <tr>
+                  <td align="center">Autobiography of a Yogi</td>
+                  <td align="center">1953</td>
+                  <td align="center">false</td>
+                </tr>
+                <tr>
+                  <td align="center">Computing Unbound</td>
+                  <td align="center">1992</td>
+                  <td align="center">false</td>
+                </tr>
+                <tr>
+                  <td align="center">Heaven Help Us</td>
+                  <td align="center">1996</td>
+                  <td align="center">false</td>
+                </tr>
+                <tr>
+                  <td align="center">Computer Systems</td>
+                  <td align="center">2010</td>
+                  <td align="center">true</td>
+                </tr>
+              </tbody>
+            </table>
+            <br />
+            When you have correctly modified the <code>Book</code>
+            class definition and <code>MUPanel</code>, you should
+            obtain output that looks like this when you run the program:<br/><br/>
+			<img src="Lab9b/Lab9bScreenShot2.gif" width="500" /> <br />
+            <br />
+          </li>
+          <li>Uncomment the <code>append()</code> method calls in <code>displayEntireArray</code>
+            and add <code>if</code> statements to the <code>for</code>
+            loop so that the program calculates the totals and produces
+            the output shown in this final screen shot:<br/><br/>
+			<img src="Lab9b/Lab9bScreenShot3.gif" width="500"><br />
+            <br />
+          </li>
+        </ol>
+      </li>
+      <li>Make .zip files from both your <b>Lab9a</b> project and your <b>Lab9b</b> project, and submit both .zip files
+    	  to the Lab09 Dropbox in <a href="http://d2l.mountunion.edu" target="_blank"> D2L</a>.<br />
+<!--  CHANGED FOR FALL 2021       <li>Make a .zip file from your <b>Lab9a</b> project, and submit it
+--------------------------------------------------------------------------------------------------
+    	  to the Lab09 Dropbox in <a href="http://d2l.mountunion.edu" target="_blank"> D2L</a>.<br /> <br/>
+		  You do not need to submit a .zip file for  your <b>Lab9b</b> project.<br/>
+-------------------------------------------------------------------------------------------------------------------------- -->
+
+    </ol>
+  </body>
+</html>
